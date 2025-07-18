@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Bihter Sabanoğlu – Kişisel Portfolyo Sitesi
 
-## Getting Started
+Bu proje, sanat eleştirmeni, yazar ve akademisyen **Bihter Sabanoğlu** için hazırlanmış bir kişisel portfolyo sitesidir. Site, yazıları, podcastleri, sanatsal performansları ve etkinlik katılımlarını modern ve sade bir yapıda sunar.
 
-First, run the development server:
+---
+
+## 🧰 Kullanılan Teknolojiler
+
+- **Next.js** – Dosya tabanlı routing ve SSG/SSR desteği
+- **TailwindCSS** – Utility-first modern CSS framework
+- **Framer Motion** – Sayfa geçişleri ve animasyonlar
+- **Shadcn/UI** – UI bileşenleri (butonlar, sekmeler vs.)
+- **MDX** – Yazı içeriklerini markdown+React formatında kullanmak için
+- **Vercel** – Otomatik deploy ve hızlı hosting
+- **next-sitemap** – Sitemap ve robots.txt üretimi
+- **next-seo** – Sayfa bazlı SEO ayarları
+
+---
+
+## 🎨 Renk Paleti
+
+| Kullanım           | HEX       |
+|--------------------|-----------|
+| Ana Arka Plan      | `#F6F0F0` |
+| Hover / Vurgu      | `#F2E2B1` |
+| İkincil Zemin      | `#D5C7A3` |
+| Metin ve Çizgiler  | `#BDB395` |
+
+---
+
+## 🗂️ Sayfa Yapısı
+
+| Sayfa          | Route             | Açıklama                                        |
+|----------------|-------------------|-------------------------------------------------|
+| Ana Sayfa      | `/`               | Yazar portresi, kısa tanıtım ve öne çıkan içerikler |
+| Yazılar        | `/writings`       | Makaleler, eleştiriler, denemeler               |
+| Podcastler     | `/podcasts`       | Spotify ve iVoox bağlantılı podcast bölümleri   |
+| Editörlük      | `/editorial`      | Editörlüğünü üstlendiği kitaplar                |
+| Performans     | `/performance`    | Sanatsal işler, sergiler ve performanslar       |
+| Etkinlikler    | `/events`         | Katıldığı konferans, panel, sempozyumlar        |
+| Medya          | `/media`          | Belgesel ve video içerikleri                    |
+| Hakkında       | `/about`          | Biyografi ve akademik geçmiş                    |
+| İletişim       | `/contact`        | E-posta iletişim formu veya bilgisi             |
+
+---
+
+## 📦 Dinamik Sayfalar (Next.js Dynamic Routing)
+
+Her içerik kategorisi kendi sayfa parametresi ile URL alır:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/pages/writings/[slug].tsx
+/pages/podcasts/[slug].tsx
+/pages/performance/[slug].tsx
+/pages/events/[slug].tsx
