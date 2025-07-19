@@ -1,77 +1,21 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Play, ExternalLink, Calendar, Clock, Filter, SortAsc, SortDesc } from 'lucide-react';
+import Sidebar from '../components/Sidebar';
 
-const podcasts = [
-  {
-    id: 'edebiyat-ve-sanat-soylesileri-1',
-    title: 'Edebiyat ve Sanat Söyleşileri #1',
-    subtitle: 'Modern Türk Edebiyatında Kadın Yazarlar',
-    excerpt: 'Türk edebiyatında kadın yazarların katkıları ve modern edebiyattaki yerleri üzerine kapsamlı bir söyleşi.',
-    date: '2024-03-15',
-    duration: '45:32',
-    platform: 'Spotify',
-    platformUrl: 'https://open.spotify.com/episode/example1',
-    category: 'Edebiyat'
-  },
-  {
-    id: 'sanat-kritikleri-2',
-    title: 'Sanat Kritikleri #2',
-    subtitle: 'Çağdaş Sanat ve Toplumsal Sorumluluk',
-    excerpt: 'Çağdaş sanatın toplumsal sorumlulukları ve sanatçıların rolü üzerine derinlemesine bir analiz.',
-    date: '2024-03-08',
-    duration: '52:18',
-    platform: 'iVoox',
-    platformUrl: 'https://www.ivoox.com/episode-example2',
-    category: 'Sanat Eleştirisi'
-  },
-  {
-    id: 'kultur-soylesileri-3',
-    title: 'Kültür Söyleşileri #3',
-    subtitle: 'Dijital Çağda Edebiyat ve Okuma Kültürü',
-    excerpt: 'Teknolojinin gelişimi ile birlikte edebiyatın nasıl değiştiği ve dijital platformların etkisi.',
-    date: '2024-03-01',
-    duration: '38:45',
-    platform: 'Spotify',
-    platformUrl: 'https://open.spotify.com/episode/example3',
-    category: 'Kültür'
-  },
-  {
-    id: 'felsefe-ve-sanat-4',
-    title: 'Felsefe ve Sanat #4',
-    subtitle: 'Estetik Deneyim ve Sanatın Felsefi Boyutları',
-    excerpt: 'Sanatın felsefi boyutları ve estetik deneyimin insan yaşamındaki yeri üzerine bir söyleşi.',
-    date: '2024-02-20',
-    duration: '41:12',
-    platform: 'iVoox',
-    platformUrl: 'https://www.ivoox.com/episode-example4',
-    category: 'Felsefe'
-  },
-  {
-    id: 'edebiyat-tarihi-5',
-    title: 'Edebiyat Tarihi #5',
-    subtitle: 'Cumhuriyet Dönemi Edebiyatının Dönüşümü',
-    excerpt: 'Cumhuriyet\'in ilanından günümüze Türk edebiyatının geçirdiği evreler ve dönüşümler.',
-    date: '2024-02-10',
-    duration: '48:30',
-    platform: 'Spotify',
-    platformUrl: 'https://open.spotify.com/episode/example5',
-    category: 'Edebiyat Tarihi'
-  },
-  {
-    id: 'sanat-ve-teknoloji-6',
-    title: 'Sanat ve Teknoloji #6',
-    subtitle: 'Dijital Sanat ve Geleneksel Sanat Arasındaki Köprüler',
-    excerpt: 'Dijital teknolojilerin sanat üzerindeki etkisi ve geleneksel sanat ile dijital sanat arasındaki ilişki.',
-    date: '2024-02-01',
-    duration: '35:20',
-    platform: 'iVoox',
-    platformUrl: 'https://www.ivoox.com/episode-example6',
-    category: 'Dijital Sanat'
+// JSON dosyasından veri yükleme fonksiyonu
+const loadContentData = async () => {
+  try {
+    const response = await fetch('/data/content.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Veri yüklenirken hata oluştu:', error);
+    return { podcasts: [] };
   }
-];
+};
 
 const categories = ['Tümü', 'Edebiyat', 'Sanat Eleştirisi', 'Kültür', 'Felsefe', 'Edebiyat Tarihi', 'Dijital Sanat'];
 const platforms = ['Tümü', 'Spotify', 'iVoox'];
@@ -81,6 +25,18 @@ export default function PodcastsPage() {
   const [selectedPlatform, setSelectedPlatform] = useState('Tümü');
   const [sortBy, setSortBy] = useState('date');
   const [sortOrder, setSortOrder] = useState('desc');
+  const [podcasts, setPodcasts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await loadContentData();
+      setPodcasts(data.podcasts || []);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   const filteredAndSortedPodcasts = useMemo(() => {
     let filtered = podcasts;
@@ -118,7 +74,7 @@ export default function PodcastsPage() {
     });
     
     return filtered;
-  }, [selectedCategory, selectedPlatform, sortBy, sortOrder]);
+  }, [podcasts, selectedCategory, selectedPlatform, sortBy, sortOrder]);
 
   return (
     <div className="bg-white min-h-screen">
@@ -137,7 +93,7 @@ export default function PodcastsPage() {
               Podcastler
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Spotify ve iVoox'ta yayınlanan sanat ve edebiyat podcastleri
+              Spotify ve iVoox&apos;ta yayınlanan sanat ve edebiyat podcastleri
             </p>
           </div>
         </div>
@@ -228,79 +184,98 @@ export default function PodcastsPage() {
 
       {/* Podcastler Listesi */}
       <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredAndSortedPodcasts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
-                Seçilen kriterlere uygun podcast bulunamadı.
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-8">
-              {filteredAndSortedPodcasts.map((podcast) => (
-                <article
-                  key={podcast.id}
-                  className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-center text-sm text-gray-500 mb-4">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    <span>{new Date(podcast.date).toLocaleDateString('tr-TR', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}</span>
-                    <span className="mx-2">•</span>
-                    <Clock className="h-4 w-4 mr-2" />
-                    <span>{podcast.duration}</span>
-                    <span className="mx-2">•</span>
-                    <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                      {podcast.category}
-                    </span>
-                  </div>
-
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                    {podcast.title}
-                  </h2>
-                  
-                  <h3 className="text-lg font-medium text-gray-700 mb-4">
-                    {podcast.subtitle}
-                  </h3>
-
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {podcast.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <a
-                        href={podcast.platformUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
-                      >
-                        <Play className="h-4 w-4 mr-2" />
-                        {podcast.platform}'da Dinle
-                      </a>
-                      
-                      <span className="text-sm text-gray-500">
-                        Platform: {podcast.platform}
-                      </span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Ana İçerik */}
+            <div className="flex-1">
+              {loading ? (
+                <div className="space-y-8">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 animate-pulse">
+                      <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
+                      <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+                      <div className="h-5 bg-gray-200 rounded w-1/2 mb-4"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-2/3"></div>
                     </div>
-
-                    <a
-                      href={podcast.platformUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-600 transition-colors"
-                      aria-label={`${podcast.platform} linki`}
+                  ))}
+                </div>
+              ) : filteredAndSortedPodcasts.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 text-lg">
+                    Seçilen kriterlere uygun podcast bulunamadı.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-8">
+                  {filteredAndSortedPodcasts.map((podcast) => (
+                    <article
+                      key={podcast.id}
+                      className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow"
                     >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
-                  </div>
-                </article>
-              ))}
+                      <div className="flex items-center text-sm text-gray-500 mb-4">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        <span>{new Date(podcast.date).toLocaleDateString('tr-TR', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}</span>
+                        <span className="mx-2">•</span>
+                        <Clock className="h-4 w-4 mr-2" />
+                        <span>{podcast.duration}</span>
+                        <span className="mx-2">•</span>
+                        <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
+                          {podcast.category}
+                        </span>
+                      </div>
+
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                        {podcast.title}
+                      </h2>
+                      
+                      <h3 className="text-lg font-medium text-gray-700 mb-4">
+                        {podcast.subtitle}
+                      </h3>
+
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {podcast.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <a
+                            href={podcast.platformUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+                          >
+                            <Play className="h-4 w-4 mr-2" />
+                            {podcast.platform}&apos;da Dinle
+                          </a>
+                          
+                          <span className="text-sm text-gray-500">
+                            Platform: {podcast.platform}
+                          </span>
+                        </div>
+
+                        <a
+                          href={podcast.platformUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                          aria-label={`${podcast.platform} linki`}
+                        >
+                          <ExternalLink className="h-5 w-5" />
+                        </a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+
+            {/* Sidebar - sadece detay sayfalarında gösterilecek */}
+          </div>
         </div>
       </section>
 
@@ -323,7 +298,7 @@ export default function PodcastsPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
                 >
-                  Spotify'da takip et
+                  Spotify&apos;da takip et
                   <ExternalLink className="ml-1 h-4 w-4" />
                 </a>
               </div>
@@ -339,7 +314,7 @@ export default function PodcastsPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
                 >
-                  iVoox'ta takip et
+                  iVoox&apos;ta takip et
                   <ExternalLink className="ml-1 h-4 w-4" />
                 </a>
               </div>

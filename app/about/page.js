@@ -3,7 +3,7 @@ import { ArrowLeft, GraduationCap, BookOpen, Award, Users } from 'lucide-react';
 
 export const metadata = {
   title: 'Hakkında - Bihter Sabanoğlu',
-  description: 'Bihter Sabanoğlu\'nun biyografisi ve akademik geçmişi',
+  description: 'Bihter Sabanoğlu&apos;nun biyografisi ve akademik geçmişi',
 };
 
 export default function AboutPage() {
@@ -42,14 +42,14 @@ export default function AboutPage() {
               
               <div className="prose prose-lg text-gray-600 space-y-6">
                 <p>
-                  1985 yılında İstanbul'da doğan Bihter Sabanoğlu, edebiyat ve sanat 
+                  1985 yılında İstanbul&apos;da doğan Bihter Sabanoğlu, edebiyat ve sanat 
                   alanında uzmanlaşmış bir akademisyen, yazar ve sanat eleştirmenidir. 
                   İstanbul Üniversitesi Türk Dili ve Edebiyatı bölümünden mezun olduktan 
                   sonra, aynı üniversitede yüksek lisans ve doktora eğitimini tamamlamıştır.
                 </p>
                 
                 <p>
-                  Akademik kariyerine İstanbul Üniversitesi'nde başlayan Sabanoğlu, 
+                  Akademik kariyerine İstanbul Üniversitesi&apos;nde başlayan Sabanoğlu, 
                   Türk edebiyatı, özellikle modern Türk edebiyatı ve feminist edebiyat 
                   eleştirisi alanlarında çalışmalar yapmaktadır. Çağdaş edebiyat 
                   akımları, kadın yazarlar ve postmodern edebiyat üzerine kapsamlı 
@@ -65,7 +65,7 @@ export default function AboutPage() {
                 
                 <p>
                   Podcast ve video içerikleri üreten Sabanoğlu, edebiyat ve sanatı 
-                  daha geniş kitlelere ulaştırmayı hedeflemektedir. Spotify ve iVoox'ta 
+                  daha geniş kitlelere ulaştırmayı hedeflemektedir. Spotify ve iVoox&apos;ta 
                   yayınlanan podcastleri, edebiyat ve sanat üzerine derinlemesine 
                   söyleşiler içermektedir.
                 </p>

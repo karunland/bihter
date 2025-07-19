@@ -49,7 +49,63 @@ Bu proje, sanat eleştirmeni, yazar ve akademisyen **Bihter Sabanoğlu** için h
 Her içerik kategorisi kendi sayfa parametresi ile URL alır:
 
 ```bash
-/pages/writings/[slug].tsx
-/pages/podcasts/[slug].tsx
-/pages/performance/[slug].tsx
-/pages/events/[slug].tsx
+/app/writings/[id]/page.js
+/app/podcasts/[id]/page.js
+/app/performance/[id]/page.js
+/app/events/[id]/page.js
+```
+
+---
+
+## 🐳 Docker ile Çalıştırma
+
+### Production Build
+
+```bash
+# Production build ve çalıştırma
+docker-compose up --build
+
+# Arka planda çalıştırma
+docker-compose up -d --build
+```
+
+### Development Mode
+
+```bash
+# Development modunda çalıştırma
+docker-compose --profile dev up --build
+
+# Arka planda development modunda çalıştırma
+docker-compose --profile dev up -d --build
+```
+
+### Docker Komutları
+
+```bash
+# Container'ları durdurma
+docker-compose down
+
+# Container'ları ve image'ları temizleme
+docker-compose down --rmi all --volumes
+
+# Logları görüntüleme
+docker-compose logs -f
+
+# Belirli bir servisin loglarını görüntüleme
+docker-compose logs -f bihter-app
+```
+
+### Portlar
+
+- **Production**: http://localhost:3000
+- **Development**: http://localhost:3001
+- **Health Check**: http://localhost:3000/api/health
+
+### Environment Variables
+
+Production için `.env` dosyası oluşturabilirsiniz:
+
+```env
+NODE_ENV=production
+NEXT_TELEMETRY_DISABLED=1
+```

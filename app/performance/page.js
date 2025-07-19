@@ -1,65 +1,101 @@
-import Link from 'next/link';
-import { ArrowLeft, Users, Calendar, MapPin, ExternalLink } from 'lucide-react';
+'use client';
 
-export const metadata = {
-  title: 'Performans - Bihter Sabanoğlu',
-  description: 'Bihter Sabanoğlu\'nun sanatsal performansları, sergiler ve yaratıcı işler',
+import Link from 'next/link';
+import { useState, useMemo, useEffect } from 'react';
+import { ArrowLeft, Calendar, Clock, MapPin, Filter, SortAsc, SortDesc, Music, Theater, Users } from 'lucide-react';
+import Sidebar from '../components/Sidebar';
+
+// JSON dosyasından veri yükleme fonksiyonu
+const loadContentData = async () => {
+  try {
+    const response = await fetch('/data/content.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Veri yüklenirken hata oluştu:', error);
+    return { performance: [] };
+  }
 };
 
-const performances = [
-  {
-    id: 'edebiyat-ve-muzik-performansi',
-    title: 'Edebiyat ve Müzik Performansı',
-    subtitle: 'Söz ve Ses Buluşması',
-    date: '2024-03-20',
-    location: 'İstanbul Modern Sanat Müzesi',
-    description: 'Edebiyat metinlerinin müzikle buluştuğu, çok disiplinli bir performans. Klasik Türk edebiyatından seçilen metinler, çağdaş müzik aranjmanlarıyla yeniden yorumlanıyor.',
-    duration: '90 dakika',
-    category: 'Çok Disiplinli Performans'
-  },
-  {
-    id: 'feminist-edebiyat-okumalari',
-    title: 'Feminist Edebiyat Okumaları',
-    subtitle: 'Kadın Yazarların Sesleri',
-    date: '2024-02-15',
-    location: 'SALT Galata',
-    description: 'Türk edebiyatının önemli kadın yazarlarından seçilen metinlerin canlı okuma performansı. Her metin, yazarın yaşam öyküsü ve dönem koşulları bağlamında sunuluyor.',
-    duration: '120 dakika',
-    category: 'Edebiyat Performansı'
-  },
-  {
-    id: 'dijital-sanat-installasyonu',
-    title: 'Dijital Sanat İnstallasyonu',
-    subtitle: 'Metin ve Teknoloji',
-    date: '2024-01-30',
-    location: 'Arter Sanat Galerisi',
-    description: 'Geleneksel edebiyat metinlerinin dijital teknolojilerle yeniden yorumlandığı interaktif bir sanat installasyonu. Ziyaretçiler metinlerle etkileşime geçebiliyor.',
-    duration: 'Sürekli',
-    category: 'Dijital Sanat'
-  },
-  {
-    id: 'sokak-edebiyati-projesi',
-    title: 'Sokak Edebiyatı Projesi',
-    subtitle: 'Şehir ve Söz',
-    date: '2023-12-10',
-    location: 'İstanbul\'un Çeşitli Sokakları',
-    description: 'İstanbul\'un farklı semtlerinde gerçekleştirilen, sokak edebiyatı performansları. Şehrin sesleri, kokuları ve dokusuyla edebiyatın buluşması.',
-    duration: 'Gün boyu',
-    category: 'Sokak Sanatı'
-  },
-  {
-    id: 'multimedya-tiyatro',
-    title: 'Multimedya Tiyatro',
-    subtitle: 'Edebiyat, Tiyatro ve Teknoloji',
-    date: '2023-11-25',
-    location: 'BKM (Büyük Kulüp)',
-    description: 'Klasik edebiyat eserlerinin multimedya teknolojileriyle sahnelendiği yenilikçi bir tiyatro performansı. Görsel efektler, ses tasarımı ve dijital projeksiyonlar kullanılıyor.',
-    duration: '150 dakika',
-    category: 'Tiyatro'
-  }
-];
+const categories = ['Tümü', 'Tiyatro', 'Müzik', 'Dans'];
 
 export default function PerformancePage() {
+  const [selectedCategory, setSelectedCategory] = useState('Tümü');
+  const [sortBy, setSortBy] = useState('date');
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [performances, setPerformances] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await loadContentData();
+      setPerformances(data.performance || []);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  const filteredAndSortedPerformances = useMemo(() => {
+    let filtered = performances;
+    
+    // Kategori filtreleme
+    if (selectedCategory !== 'Tümü') {
+      filtered = filtered.filter(perf => perf.category === selectedCategory);
+    }
+    
+    // Sıralama
+    filtered.sort((a, b) => {
+      let aValue, bValue;
+      
+      if (sortBy === 'date') {
+        aValue = new Date(a.date);
+        bValue = new Date(b.date);
+      } else if (sortBy === 'title') {
+        aValue = a.title.toLowerCase();
+        bValue = b.title.toLowerCase();
+      } else if (sortBy === 'time') {
+        aValue = a.time;
+        bValue = b.time;
+      }
+      
+      if (sortOrder === 'asc') {
+        return aValue > bValue ? 1 : -1;
+      } else {
+        return aValue < bValue ? 1 : -1;
+      }
+    });
+    
+    return filtered;
+  }, [performances, selectedCategory, sortBy, sortOrder]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('tr-TR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const isUpcoming = (dateString) => {
+    return new Date(dateString) > new Date();
+  };
+
+  const getCategoryIcon = (category) => {
+    switch (category) {
+      case 'Tiyatro':
+        return Theater;
+      case 'Müzik':
+        return Music;
+      case 'Dans':
+        return Users;
+      default:
+        return Music;
+    }
+  };
+
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
@@ -74,97 +110,157 @@ export default function PerformancePage() {
               Ana Sayfa
             </Link>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Performans
+              Performanslar
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Sanatsal performanslar, sergiler ve yaratıcı işler
+              Tiyatro, müzik ve dans performansları
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Filtreler ve Sıralama */}
+      <section className="py-8 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+            {/* Kategori Filtresi */}
+            <div className="flex items-center space-x-4">
+              <Filter className="h-5 w-5 text-gray-500" />
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
+                      selectedCategory === category
+                        ? 'bg-gray-900 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Sıralama */}
+            <div className="flex items-center space-x-4">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+              >
+                <option value="date">Tarih</option>
+                <option value="title">Başlık</option>
+                <option value="time">Saat</option>
+              </select>
+              
+              <button
+                onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+                title={sortOrder === 'asc' ? 'Azalan sıralama' : 'Artan sıralama'}
+              >
+                {sortOrder === 'asc' ? (
+                  <SortAsc className="h-5 w-5" />
+                ) : (
+                  <SortDesc className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Performanslar Listesi */}
       <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {performances.map((performance) => (
-              <article
-                key={performance.id}
-                className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center text-sm text-gray-500 mb-4">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  <span>{new Date(performance.date).toLocaleDateString('tr-TR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}</span>
-                  <span className="mx-2">•</span>
-                  <MapPin className="h-4 w-4 mr-2" />
-                  <span>{performance.location}</span>
-                  <span className="mx-2">•</span>
-                  <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                    {performance.category}
-                  </span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Ana İçerik */}
+            <div className="flex-1">
+              {loading ? (
+                <div className="space-y-8">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 animate-pulse">
+                      <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
+                      <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                    </div>
+                  ))}
                 </div>
-
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  {performance.title}
-                </h2>
-                
-                <h3 className="text-lg font-medium text-gray-700 mb-4">
-                  {performance.subtitle}
-                </h3>
-
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {performance.description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-sm text-gray-500">
-                      Süre: {performance.duration}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      Kategori: {performance.category}
-                    </span>
-                  </div>
-                  
-                  <a
-                    href="#"
-                    className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                  >
-                    Detayları görüntüle
-                    <ExternalLink className="ml-1 h-4 w-4" />
-                  </a>
+              ) : filteredAndSortedPerformances.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 text-lg">
+                    Seçilen kategoride performans bulunamadı.
+                  </p>
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+              ) : (
+                <div className="space-y-8">
+                  {filteredAndSortedPerformances.map((performance) => {
+                    const IconComponent = getCategoryIcon(performance.category);
+                    return (
+                      <article
+                        key={performance.id}
+                        className={`bg-white rounded-lg shadow-sm border p-8 hover:shadow-md transition-shadow ${
+                          isUpcoming(performance.date) 
+                            ? 'border-purple-200 bg-purple-50' 
+                            : 'border-gray-100'
+                        }`}
+                      >
+                        <div className="flex items-center text-sm text-gray-500 mb-4">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          <span>{formatDate(performance.date)}</span>
+                          <span className="mx-2">•</span>
+                          <Clock className="h-4 w-4 mr-2" />
+                          <span>{performance.time}</span>
+                          <span className="mx-2">•</span>
+                          <span className={`px-2 py-1 rounded-full text-xs ${
+                            isUpcoming(performance.date)
+                              ? 'bg-purple-100 text-purple-800'
+                              : 'bg-gray-100 text-gray-700'
+                          }`}>
+                            {isUpcoming(performance.date) ? 'Yaklaşan' : 'Geçmiş'}
+                          </span>
+                          <span className="mx-2">•</span>
+                          <span className="bg-gray-100 px-2 py-1 rounded-full text-xs flex items-center">
+                            <IconComponent className="h-3 w-3 mr-1" />
+                            {performance.category}
+                          </span>
+                        </div>
 
-      {/* Performans Yaklaşımı */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
-              Performans Yaklaşımı
-            </h2>
-            <div className="prose prose-lg mx-auto text-gray-600">
-              <p className="mb-6">
-                Performans çalışmalarımda, edebiyatın sadece yazılı metin olarak 
-                değil, canlı bir deneyim olarak sunulmasına odaklanıyorum. 
-                Geleneksel edebiyat formlarını çağdaş sanat teknikleriyle 
-                birleştirerek, izleyiciye farklı bir deneyim sunmayı hedefliyorum.
-              </p>
-              <p>
-                Çok disiplinli yaklaşımım, edebiyatı müzik, görsel sanatlar, 
-                tiyatro ve dijital teknolojilerle buluşturuyor. Bu sayede 
-                edebiyatın gücünü farklı duyulara hitap eden bir deneyime 
-                dönüştürüyorum.
-              </p>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                          <Link
+                            href={`/performance/${performance.id}`}
+                            className="hover:text-gray-700 transition-colors"
+                          >
+                            {performance.title}
+                          </Link>
+                        </h2>
+
+                        <p className="text-gray-600 mb-6 leading-relaxed">
+                          {performance.excerpt}
+                        </p>
+
+                        <div className="flex items-center text-sm text-gray-500 mb-4">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          <span>{performance.location}</span>
+                        </div>
+
+                        <Link
+                          href={`/performance/${performance.id}`}
+                          className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
+                        >
+                          Detayları gör
+                          <ArrowLeft className="ml-1 h-4 w-4 rotate-180" />
+                        </Link>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
             </div>
+
+            {/* Sidebar - sadece detay sayfalarında gösterilecek */}
           </div>
         </div>
       </section>

@@ -83,7 +83,7 @@ export default function Home() {
                 <h3 className="ml-3 text-xl font-semibold text-gray-900">Podcastler</h3>
               </div>
               <p className="text-gray-600 mb-4">
-                Spotify ve iVoox'ta yayınlanan sanat ve edebiyat podcastleri
+                Spotify ve iVoox&apos;ta yayınlanan sanat ve edebiyat podcastleri
               </p>
               <Link
                 href="/podcasts"
