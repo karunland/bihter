@@ -49,7 +49,7 @@ export const metadata = {
     siteName: 'Bihter Sabanoğlu',
     images: [
       {
-        url: '/edebiyat.jpg',
+        url: 'https://bihter.whoisedgar.net/edebiyat.jpg',
         width: 200,
         height: 200,
         alt: 'Bihter Sabanoğlu - Sanat Eleştirmeni ve Yazar',
@@ -60,7 +60,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Bihter Sabanoğlu - Sanat Eleştirmeni, Yazar ve Akademisyen',
     description: 'Bihter Sabanoğlu&apos;nun kişisel portfolyo sitesi. Edebiyat eleştirileri, sanat yazıları, podcastler ve akademik çalışmalarını keşfedin.',
-    images: ['/edebiyat.jpg'],
+    images: ['https://bihter.whoisedgar.net/edebiyat.jpg'],
     creator: '@bihter_sabanoglu',
   },
   robots: {
