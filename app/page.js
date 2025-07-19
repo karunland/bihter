@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Mic, Users, Calendar, Video } from 'lucide-react';
+import StructuredData from './components/StructuredData';
 
 export default function Home() {
   return (
     <div className="bg-white">
+      <StructuredData />
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32">
         {/* Background Image */}

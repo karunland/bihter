@@ -1,0 +1,30 @@
+{
+  "name": "Bihter Sabanoğlu - Sanat Eleştirmeni ve Yazar",
+  "short_name": "Bihter Sabanoğlu",
+  "description": "Bihter Sabanoğlu'nun kişisel portfolyo sitesi. Edebiyat eleştirileri, sanat yazıları ve akademik çalışmalar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F0F0",
+  "theme_color": "#BDB395",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/edebiyat.jpg",
+      "sizes": "200x200",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["education", "books", "arts"],
+  "lang": "tr",
+  "dir": "ltr"
+} 
