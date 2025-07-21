@@ -19,16 +19,17 @@ export default function Home() {
           <div className="absolute inset-0 bg-white/80"></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            {/* daha ince bir font kullanalim bihter Sabanoğlu basliginda */}
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-light">
               Bihter Sabanoğlu
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto font-light">
               Sanat eleştirmeni, yazar ve akademisyen. Edebiyat, sanat ve kültür 
               üzerine yazıları, podcastleri ve performansları ile tanınır.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center" >
               <Link
                 href="/writings"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors"

@@ -21,7 +21,6 @@ const categories = ['Tümü', 'Edebiyat Eleştirisi', 'Sanat Eleştirisi', 'Kül
 
 export default function WritingsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
-  const [sortBy, setSortBy] = useState('date'); // 'date' veya 'title'
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
   const [writings, setWritings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,20 +43,10 @@ export default function WritingsPage() {
       filtered = writings.filter(writing => writing.category === selectedCategory);
     }
     
-    // Sıralama
+    // Sadece tarihe göre sıralama
     filtered.sort((a, b) => {
-      let aValue, bValue;
-      
-      if (sortBy === 'date') {
-        aValue = new Date(a.date);
-        bValue = new Date(b.date);
-      } else if (sortBy === 'title') {
-        aValue = a.title.toLowerCase();
-        bValue = b.title.toLowerCase();
-      } else if (sortBy === 'readTime') {
-        aValue = parseInt(a.readTime);
-        bValue = parseInt(b.readTime);
-      }
+      const aValue = new Date(a.date);
+      const bValue = new Date(b.date);
       
       if (sortOrder === 'asc') {
         return aValue > bValue ? 1 : -1;
@@ -67,7 +56,7 @@ export default function WritingsPage() {
     });
     
     return filtered;
-  }, [writings, selectedCategory, sortBy, sortOrder]);
+  }, [writings, selectedCategory, sortOrder]);
 
   return (
     <div className="bg-white min-h-screen">
@@ -95,10 +84,12 @@ export default function WritingsPage() {
       {/* Filtreler ve Sıralama */}
       <section className="py-8 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+          {/* Desktop Filtreler */}
+          <div className="hidden md:flex flex-col gap-6">
             {/* Kategori Filtresi */}
             <div className="flex items-center space-x-4">
               <Filter className="h-5 w-5 text-gray-500" />
+              <span className="text-sm font-medium text-gray-700">Kategori:</span>
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <button
@@ -117,28 +108,62 @@ export default function WritingsPage() {
             </div>
 
             {/* Sıralama */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                  className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                  title={sortOrder === 'asc' ? 'En yeni önce' : 'En eski önce'}
+                >
+                  {sortOrder === 'asc' ? 'Eski önce' : 'Yeni önce'}
+                  {sortOrder === 'asc' ? (
+                    <SortAsc className="ml-2 h-4 w-4" />
+                  ) : (
+                    <SortDesc className="ml-2 h-4 w-4" />
+                  )}
+                </button>
+              </div>
+
+              <div className="text-sm text-gray-500">
+                {filteredAndSortedWritings.length} yazı bulundu
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Filtreler */}
+          <div className="md:hidden space-y-4">
+            {/* Kategori Filtresi */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
               <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
               >
-                <option value="date">Tarih</option>
-                <option value="title">Başlık</option>
-                <option value="readTime">Okuma Süresi</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
               </select>
-              
+            </div>
+
+            {/* Sıralama */}
+            <div>
               <button
                 onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
-                title={sortOrder === 'asc' ? 'Azalan sıralama' : 'Artan sıralama'}
+                className="w-full flex items-center justify-between px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                title={sortOrder === 'asc' ? 'En yeni önce' : 'En eski önce'}
               >
+                <span>{sortOrder === 'asc' ? 'Eski önce' : 'Yeni önce'}</span>
                 {sortOrder === 'asc' ? (
-                  <SortAsc className="h-5 w-5" />
+                  <SortAsc className="h-4 w-4" />
                 ) : (
-                  <SortDesc className="h-5 w-5" />
+                  <SortDesc className="h-4 w-4" />
                 )}
               </button>
+            </div>
+
+            <div className="text-sm text-gray-500 text-center">
+              {filteredAndSortedWritings.length} yazı bulundu
             </div>
           </div>
         </div>
