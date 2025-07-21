@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { ArrowLeft, Calendar, Clock, User, Share2, BookOpen } from 'lucide-react';
+import { useState, useEffect, use } from 'react';
+import { ArrowLeft, Calendar, Clock, User, BookOpen } from 'lucide-react';
 import Sidebar from '../../components/Sidebar';
 import Image from 'next/image';
 
@@ -19,6 +19,7 @@ const loadContentData = async () => {
 };
 
 export default function WritingDetailPage({ params }) {
+  const unwrappedParams = use(params);
   const [writing, setWriting] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,7 +28,7 @@ export default function WritingDetailPage({ params }) {
     const fetchData = async () => {
       try {
         const data = await loadContentData();
-        const foundWriting = data.writings.find(w => w.id === params.id);
+        const foundWriting = data.writings.find(w => w.id === unwrappedParams.id);
         
         if (foundWriting) {
           setWriting(foundWriting);
@@ -42,7 +43,7 @@ export default function WritingDetailPage({ params }) {
     };
 
     fetchData();
-  }, [params.id]);
+  }, [unwrappedParams.id]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -173,9 +174,9 @@ export default function WritingDetailPage({ params }) {
                   {writing.title}
                 </h1>
                 
-                <p className="text-xl text-white/90 mb-6 max-w-3xl">
+                {/* <p className="text-xl text-white/90 mb-6 max-w-3xl">
                   {writing.excerpt}
-                </p>
+                </p> */}
                 
                 <div className="flex items-center space-x-6 text-sm text-white/80">
                   <div className="flex items-center">
@@ -206,25 +207,6 @@ export default function WritingDetailPage({ params }) {
               <article className="prose prose-lg max-w-none">
                 {writing.content && renderContent(writing.content)}
               </article>
-              
-              {/* Paylaşım ve Etiketler */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-sm font-medium text-gray-700">Paylaş:</span>
-                    <button className="p-2 text-gray-400 hover:text-gray-600 transition-colors">
-                      <Share2 className="h-5 w-5" />
-                    </button>
-                  </div>
-                  
-                  <div className="flex items-center space-x-2">
-                    <span className="text-sm text-gray-500">Kategori:</span>
-                    <span className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">
-                      {writing.category}
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Sidebar */}

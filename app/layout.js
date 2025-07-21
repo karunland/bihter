@@ -84,6 +84,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-icon" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#BDB395" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

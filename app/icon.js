@@ -17,15 +17,16 @@ export default function Icon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 24,
-          background: 'linear-gradient(to bottom, #F6F0F0, #D5C7A3)',
+          fontSize: 20,
+          background: 'linear-gradient(135deg, #F6F0F0 0%, #D5C7A3 50%, #BDB395 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#BDB395',
+          color: '#8B7355',
           fontWeight: 'bold',
+          fontFamily: 'Inter, system-ui, sans-serif',
         }}
       >
         B

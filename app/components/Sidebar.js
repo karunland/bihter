@@ -112,7 +112,7 @@ export default function Sidebar({ showOnList = false }) {
 
   if (loading) {
     return (
-      <div className="w-full lg:w-1/4 lg:pl-8">
+      <div className="hidden lg:block w-full lg:w-1/4 lg:pl-8">
         <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Son Aktiviteler
@@ -136,7 +136,7 @@ export default function Sidebar({ showOnList = false }) {
   }
 
   return (
-    <div className="w-full lg:w-1/4 lg:pl-8">
+    <div className="hidden lg:block w-full lg:w-1/4 lg:pl-8">
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 sticky top-8">
         <h3 className="text-lg font-semibold text-gray-900 mb-6">
           Son Aktiviteler

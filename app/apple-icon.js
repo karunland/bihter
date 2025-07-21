@@ -17,7 +17,7 @@ export default function AppleIcon() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 120,
+          fontSize: 100,
           background: 'linear-gradient(135deg, #F6F0F0 0%, #D5C7A3 50%, #BDB395 100%)',
           width: '100%',
           height: '100%',
@@ -28,6 +28,7 @@ export default function AppleIcon() {
           fontWeight: 'bold',
           borderRadius: '20px',
           boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          fontFamily: 'Inter, system-ui, sans-serif',
         }}
       >
         B

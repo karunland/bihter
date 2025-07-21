@@ -4,7 +4,7 @@ import StructuredData from './components/StructuredData';
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-white page-transition">
       <StructuredData />
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32">
@@ -12,34 +12,34 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+            backgroundImage: `url('/banner-2.png')`,
           }}
         >
           {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-white/80"></div>
+          <div className="absolute inset-0 bg-white/50"></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <div className="text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pt-20">
+          <div className="text-left">
             {/* daha ince bir font kullanalim bihter Sabanoğlu basliginda */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-light">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 font-light drop-shadow-lg">
               Bihter Sabanoğlu
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-800 mb-6 sm:mb-8 max-w-xl font-light drop-shadow-md">
               Sanat eleştirmeni, yazar ve akademisyen. Edebiyat, sanat ve kültür 
               üzerine yazıları, podcastleri ve performansları ile tanınır.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center" >
+            <div className="flex flex-row gap-4 sm:gap-6" >
               <Link
                 href="/writings"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+                className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-2xl text-white bg-gray-900 hover:bg-gray-800 transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-xl"
               >
                 Yazılarımı Oku
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-2xl text-gray-700 bg-white/15 backdrop-blur-md border border-white/30 hover:bg-white/30 hover:border-white/50 transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg"
               >
                 Hakkımda
               </Link>
