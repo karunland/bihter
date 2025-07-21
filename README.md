@@ -2,7 +2,20 @@
 
 Bu proje, sanat eleştirmeni, yazar ve akademisyen **Bihter Sabanoğlu** için hazırlanmış bir kişisel portfolyo sitesidir. Site, yazıları, podcastleri, sanatsal performansları ve etkinlik katılımlarını modern ve sade bir yapıda sunar.
 
----
+•  Bihter Sabanoğlu Kişisel Portfolyo Sitesi (Freelance Proje)
+Next.js, React ve TailwindCSS v3.4 kullanarak modern, responsive bir kişisel portfolyo sitesi geliştirdim
+
+•  Sanat eleştirmeni ve akademisyen için yazılar, podcastler, performanslar ve etkinlikler gibi farklı içerik türlerini organize eden dinamik sayfa yapısı oluşturdum
+
+•  SEO optimizasyonu, structured data, Open Graph meta etiketleri ve sitemap entegrasyonu ile arama motoru görünürlüğünü artırdım
+Docker containerization ile deployment sürecini otomatikleştirdim
+
+•  Tasarım ve UX Odaklı Geliştirme Yaklaşımı
+Minimalist ve temiz tasarım prensibiyle, sanatçının profesyonel kimliğini yansıtan sofistike bir görsel kimlik oluşturdum
+Apple tarzı sayfa geçiş animasyonları, hover efektleri ve smooth scrolling ile kullanıcı deneyimini geliştirdim
+
+•  Mobile-first responsive tasarım yaklaşımıyla tüm cihazlarda optimal görüntüleme sağladım
+Accessibility standartlarına uygun, keyboard navigation desteği ve semantic HTML yapısı ile erişilebilirlik standartlarını karşıladım
 
 ## 🧰 Kullanılan Teknolojiler
 
@@ -15,34 +28,6 @@ Bu proje, sanat eleştirmeni, yazar ve akademisyen **Bihter Sabanoğlu** için h
 - **next-sitemap** – Sitemap ve robots.txt üretimi
 - **next-seo** – Sayfa bazlı SEO ayarları
 
----
-
-## 🎨 Renk Paleti
-
-| Kullanım           | HEX       |
-|--------------------|-----------|
-| Ana Arka Plan      | `#F6F0F0` |
-| Hover / Vurgu      | `#F2E2B1` |
-| İkincil Zemin      | `#D5C7A3` |
-| Metin ve Çizgiler  | `#BDB395` |
-
----
-
-## 🗂️ Sayfa Yapısı
-
-| Sayfa          | Route             | Açıklama                                        |
-|----------------|-------------------|-------------------------------------------------|
-| Ana Sayfa      | `/`               | Yazar portresi, kısa tanıtım ve öne çıkan içerikler |
-| Yazılar        | `/writings`       | Makaleler, eleştiriler, denemeler               |
-| Podcastler     | `/podcasts`       | Spotify ve iVoox bağlantılı podcast bölümleri   |
-| Editörlük      | `/editorial`      | Editörlüğünü üstlendiği kitaplar                |
-| Performans     | `/performance`    | Sanatsal işler, sergiler ve performanslar       |
-| Etkinlikler    | `/events`         | Katıldığı konferans, panel, sempozyumlar        |
-| Medya          | `/media`          | Belgesel ve video içerikleri                    |
-| Hakkında       | `/about`          | Biyografi ve akademik geçmiş                    |
-| İletişim       | `/contact`        | E-posta iletişim formu veya bilgisi             |
-
----
 
 ## 📦 Dinamik Sayfalar (Next.js Dynamic Routing)
 
@@ -62,50 +47,6 @@ Her içerik kategorisi kendi sayfa parametresi ile URL alır:
 ### Production Build
 
 ```bash
-# Production build ve çalıştırma
-docker-compose up --build
-
 # Arka planda çalıştırma
 docker-compose up -d --build
-```
-
-### Development Mode
-
-```bash
-# Development modunda çalıştırma
-docker-compose --profile dev up --build
-
-# Arka planda development modunda çalıştırma
-docker-compose --profile dev up -d --build
-```
-
-### Docker Komutları
-
-```bash
-# Container'ları durdurma
-docker-compose down
-
-# Container'ları ve image'ları temizleme
-docker-compose down --rmi all --volumes
-
-# Logları görüntüleme
-docker-compose logs -f
-
-# Belirli bir servisin loglarını görüntüleme
-docker-compose logs -f bihter-app
-```
-
-### Portlar
-
-- **Production**: http://localhost:3000
-- **Development**: http://localhost:3001
-- **Health Check**: http://localhost:3000/api/health
-
-### Environment Variables
-
-Production için `.env` dosyası oluşturabilirsiniz:
-
-```env
-NODE_ENV=production
-NEXT_TELEMETRY_DISABLED=1
 ```
