@@ -87,27 +87,187 @@
       ]
     },
     {
-      "id": "harici-yazi-1",
-      "title": "Modern Türk Şiirinde Kadın Şairler",
-      "date": "2024-01-15",
-      "category": "Edebiyat Eleştirisi",
-      "externalUrl": "https://example.com/modern-turk-siirinde-kadin-sairler",
+      "id": "key-ingredients-successful-performance",
+      "title": "Key Ingredients for a Successful Performance: Mister Maurel, Tzimiskes, Deathwatch Beetle",
+      "date": "2024-11-23",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.saha.org.tr/en/saha-art-writing/manifold-bihter-sabanoglu",
       "isExternal": true
     },
     {
-      "id": "harici-yazi-2",
-      "title": "Çağdaş Sanat ve Toplumsal Sorumluluk",
+      "id": "basari-bir-performans-gerekenler",
+      "title": "Başarılı Bir Performans İçin Gerekenler: Bay Maurel, Çimiskis, Ölüm Nöbeti Böceği",
+      "date": "2024-11-23",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.saha.org.tr/en/saha-art-writing/manifold-bihter-sabanoglu",
+      "isExternal": true
+    },
+    {
+      "id": "out-east-darkness-ex-oriente-tenebrae",
+      "title": "Out of the East, Darkness Ex Oriente Tenebrae: Byzantine presence in video games (A chapter in contemporary Orientalism)",
+      "date": "2024-04-17",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://manifold.press/bay-maurel-cimiskis-olum-nobeti-bocegi",
+      "isExternal": true
+    },
+    {
+      "id": "fabrication-modern-harem-woman",
+      "title": "The Fabrication of the Modern Harem Woman: The Dissection of the painting \"Goethe in the Harem\" by Abdülmecid Efendi",
+      "date": "2024-01-15",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://static1.squarespace.com/static/58d3ea4f1e5b6c804e67e48a/t/65a532143f0f8f3543d8f45f/1705325078299/Bihter+Sabanoglu+%28Complete%29.pdf",
+      "isExternal": true
+    },
+    {
+      "id": "teyel-uzuv-ilizarov-sergisi",
+      "title": "Teyel Uzuv Ilizarov Sergisi 22.09 - 04.11 Katalog Metni",
       "date": "2024-01-10",
       "category": "Sanat Eleştirisi",
-      "externalUrl": "https://example.com/cagdas-sanat-ve-toplumsal-sorumluluk",
+      "externalUrl": "https://www.academia.edu/118568331/Teyel_Uzuv_Ilizarov_Sergisi_22_09_04_11_Katalog_Metni",
       "isExternal": true
     },
     {
-      "id": "harici-yazi-3",
-      "title": "Dijital Çağda Edebiyatın Geleceği",
-      "date": "2024-01-05",
+      "id": "bizansiyya-her-seyin-teorisi",
+      "title": "Bizansiyya ve \"her şeyin teorisi\"",
+      "date": "2023-05-11",
       "category": "Kültür Yazısı",
-      "externalUrl": "https://example.com/dijital-cagda-edebiyatin-gelecegi",
+      "externalUrl": "https://www.k24kitap.org/bizansiyya-ve-her-seyin-teorisi-4108",
+      "isExternal": true
+    },
+    {
+      "id": "yamuk-giden-teyeller-betonlasan-uzuvlar",
+      "title": "Yamuk Giden Teyeller, Betonlaşan Uzuvlar",
+      "date": "2023-09-27",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://manifold.press/yamuk-giden-teyeller-betonlasan-uzuvlar",
+      "isExternal": true
+    },
+    {
+      "id": "kendi-uzerine-kapanan-kivrimlar",
+      "title": "Kendi üzerine kapanan kıvrımlar",
+      "date": "2024-01-10",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.unlimitedrag.com/post/kendi-uzerine-kapanan-kivrimlar",
+      "isExternal": true
+    },
+    {
+      "id": "sehzadenin-siradisi-dunyasi",
+      "title": "Şehzade'nin Sıradışı Dünyası: Sergi İncelemesi",
+      "date": "2023-12-15",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://dergipark.org.tr/tr/download/article-file/2864129",
+      "isExternal": true
+    },
+    {
+      "id": "modern-turk-edebiyatinda-bizans-imgesi",
+      "title": "Modern Türk edebiyatında Bizans imgesi",
+      "date": "2023-10-15",
+      "category": "Edebiyat Eleştirisi",
+      "externalUrl": "https://t24.com.tr/k24/yazi/modern-turk-edebiyatinda-bizans-imgesi,3903",
+      "isExternal": true
+    },
+    {
+      "id": "guneydogu-sinirlarinda-hortlak-ruzihayal",
+      "title": "Güneydoğu'nun Sınırlarında Hortlak Ruzihayâl, Oryantal Zevk Âlemleri ve Vampir Ekonomisi",
+      "date": "2022-08-02",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://manifold.press/guneydogu-nun-sinirlarinda-hortlak-ruzihayal-oryantal-zevk-alemleri-ve-vampir-ekonomisi",
+      "isExternal": true
+    },
+    {
+      "id": "modern-harem-kadinin-uretilisi",
+      "title": "Modern harem kadınının üretilişi",
+      "date": "2022-04-21",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.unlimitedrag.com/post/modern-harem-kadinin-uretilisi",
+      "isExternal": true
+    },
+    {
+      "id": "gecmis-yabanci-bir-ulkedir-bizans",
+      "title": "Geçmiş Yabancı Bir Ülkedir; Orada Bizans'ı Farklı Bilirler",
+      "date": "2022-03-15",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://www.manifold.press/gecmis-yabanci-bir-ulkedir-orada-bizans-i-farkli-bilirler",
+      "isExternal": true
+    },
+    {
+      "id": "bilim-kurgusal-fantezilerin-basrolunde-istanbul",
+      "title": "Toplumsal Tarih Temmuz 2021: Bilim Kurgusal Fantezilerin Başrolünde İstanbul",
+      "date": "2021-07-15",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://www.academia.edu/49505414/Bilim_Kurgusal_%C4%B0ntikam_Fantezilerinin_Ba%C5%9Frol%C3%BCnde_%C4%B0stanbul",
+      "isExternal": true
+    },
+    {
+      "id": "bir-kucukcekmece-gotigi",
+      "title": "Bir Küçükçekmece Gotiği: Nezihe Muhiddin'in Self‑Oryantalist Seri Katil Öyküsü",
+      "date": "2021-10-04",
+      "category": "Edebiyat Eleştirisi",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/bir-kucukcekmece-gotigi-nezihe-muhiddin-in-self-oryantalist-seri-katil-oykusu",
+      "isExternal": true
+    },
+    {
+      "id": "karanlik-dogudan-yukselir-video-oyunlarinda-bizans",
+      "title": "Karanlık Doğudan Yükselir: Video Oyunlarında Bizans",
+      "date": "2022-01-17",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/karanlik-dogudan-yukselir-video-oyunlarinda-bizans",
+      "isExternal": true
+    },
+    {
+      "id": "osman-hamdi-epistoler-maceralari",
+      "title": "Osman Hamdy'nin Epistoler Maceraları",
+      "date": "2021-11-26",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/osman-hamdi-nin-epistoler-maceralari",
+      "isExternal": true
+    },
+    {
+      "id": "super-kadin-ulviye-trans-orlando",
+      "title": "Süper Kadın Ulviye vs Trans Orlando: İstanbul'da Cinsiyet Karnavalı",
+      "date": "2021-09-20",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/super-kadin-ulviye-vs-trans-orlando-istanbul-da-cinsiyet-karnavali",
+      "isExternal": true
+    },
+    {
+      "id": "bergama-stereotip-bildungsroman",
+      "title": "Bergama Stereotip'in Bir Bildungsroman Kahramanı Olarak Portresi",
+      "date": "2021-02-21",
+      "category": "Edebiyat Eleştirisi",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/bergama-stereotip-in-bir-bildungsroman-kahramani-olarak-portresi",
+      "isExternal": true
+    },
+    {
+      "id": "tanagra-mania-boeotia-koyunden",
+      "title": "Tanagra-mania: Bir Boeotia Köyünden Osman Hamdi'nin Yaradılışı'na",
+      "date": "2021-01-15",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/tanagra-mania-bir-boeotia-koyunden-osman-hamdi-nin-yaradilisi-na",
+      "isExternal": true
+    },
+    {
+      "id": "istanbul-anksiyetelerinin-cizgi-kahramani",
+      "title": "İstanbul Anksiyetelerinin Çizgi Kahramanı: Bayan İstanbullu",
+      "date": "2021-01-10",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/istanbul-anksiyetelerinin-cizgi-kahramani-bayan-istanbullu",
+      "isExternal": true
+    },
+    {
+      "id": "simbiyotik-bedenlerin-cile-yolu",
+      "title": "Simbiyotik Bedenlerin Çile Yolu",
+      "date": "2020-12-15",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/simbiyotik-bedenlerin-cile-yolu",
+      "isExternal": true
+    },
+    {
+      "id": "odysseia-kadin-cevirmenleri",
+      "title": "Odysseia'nın Kadın Çevirmenleri: Azra Erhat'tan Emily Wilson'a Çağrışımlar",
+      "date": "2020-11-20",
+      "category": "Edebiyat Eleştirisi",
+      "externalUrl": "https://www.k24kitap.org/k24-yazisi/odysseia-nin-kadin-cevirmenleri-azra-erhat-tan-emily-wilson-a-cagrisimlar",
       "isExternal": true
     }
   ],
