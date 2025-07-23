@@ -2,10 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Calendar, Clock, Filter, SortAsc, SortDesc } from 'lucide-react';
-import Sidebar from '../components/Sidebar';
+import { ArrowLeft, Calendar, Clock, Filter, SortAsc, SortDesc, ExternalLink } from 'lucide-react';
 
-// JSON dosyasından veri yükleme fonksiyonu
 const loadContentData = async () => {
   try {
     const response = await fetch('/data/content.json');
@@ -17,18 +15,22 @@ const loadContentData = async () => {
   }
 };
 
-const categories = ['Tümü', 'Edebiyat Eleştirisi', 'Sanat Eleştirisi', 'Kültür Yazısı', 'Felsefe', 'Edebiyat Tarihi'];
-
 export default function WritingsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
   const [writings, setWritings] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const data = await loadContentData();
       setWritings(data.writings || []);
+      
+      var uniqueCategories = [...new Set(data.writings.map(writing => writing.category))];
+      uniqueCategories.push('Tümü');
+      uniqueCategories.reverse();
+      setCategories(uniqueCategories);
+      
       setLoading(false);
     };
 
@@ -140,6 +142,7 @@ export default function WritingsPage() {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
               >
+                <option value="Tümü">Tümü</option>
                 {categories.map((category) => (
                   <option key={category} value={category}>{category}</option>
                 ))}
@@ -207,34 +210,74 @@ export default function WritingsPage() {
                           day: 'numeric'
                         })}</span>
                         <span className="mx-2">•</span>
-                        <Clock className="h-4 w-4 mr-2" />
-                        <span>{writing.readTime}</span>
-                        <span className="mx-2">•</span>
                         <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
                           {writing.category}
                         </span>
+                        {writing.isExternal && (
+                          <>
+                            <span className="mx-2">•</span>
+                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                              Harici Link
+                            </span>
+                          </>
+                        )}
+                        {!writing.isExternal && writing.readTime && (
+                          <>
+                            <span className="mx-2">•</span>
+                            <Clock className="h-4 w-4 mr-2" />
+                            <span>{writing.readTime}</span>
+                          </>
+                        )}
                       </div>
 
                       <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                        <Link
-                          href={`/writings/${writing.id}`}
-                          className="hover:text-gray-700 transition-colors"
-                        >
-                          {writing.title}
-                        </Link>
+                        {writing.isExternal ? (
+                          <a
+                            href={writing.externalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-gray-700 transition-colors inline-flex items-center"
+                          >
+                            {writing.title}
+                            <ExternalLink className="ml-2 h-5 w-5 text-gray-400" />
+                          </a>
+                        ) : (
+                          <Link
+                            href={`/writings/${writing.id}`}
+                            className="hover:text-gray-700 transition-colors"
+                          >
+                            {writing.title}
+                          </Link>
+                        )}
                       </h2>
 
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {writing.excerpt}
-                      </p>
+                      {!writing.isExternal && writing.excerpt && (
+                        <p className="text-gray-600 mb-6 leading-relaxed">
+                          {writing.excerpt}
+                        </p>
+                      )}
 
-                      <Link
-                        href={`/writings/${writing.id}`}
-                        className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                      >
-                        Devamını oku
-                        <ArrowLeft className="ml-1 h-4 w-4 rotate-180" />
-                      </Link>
+                      <div className="flex items-center justify-between">
+                        {writing.isExternal ? (
+                          <a
+                            href={writing.externalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                          >
+                            Harici siteye git
+                            <ExternalLink className="ml-1 h-4 w-4" />
+                          </a>
+                        ) : (
+                          <Link
+                            href={`/writings/${writing.id}`}
+                            className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
+                          >
+                            Devamını oku
+                            <ArrowLeft className="ml-1 h-4 w-4 rotate-180" />
+                          </Link>
+                        )}
+                      </div>
                     </article>
                   ))}
                 </div>

@@ -3,9 +3,7 @@
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Play, ExternalLink, Calendar, Clock, Filter, SortAsc, SortDesc } from 'lucide-react';
-import Sidebar from '../components/Sidebar';
 
-// JSON dosyasından veri yükleme fonksiyonu
 const loadContentData = async () => {
   try {
     const response = await fetch('/data/content.json');
@@ -17,18 +15,23 @@ const loadContentData = async () => {
   }
 };
 
-const categories = ['Tümü', 'Edebiyat', 'Sanat Eleştirisi', 'Kültür', 'Felsefe', 'Edebiyat Tarihi', 'Dijital Sanat'];
-
 export default function PodcastsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
   const [podcasts, setPodcasts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await loadContentData();
       setPodcasts(data.podcasts || []);
+      
+      var uniqueCategories = [...new Set(data.podcasts.map(podcast => podcast.category))];
+      uniqueCategories.push('Tümü');
+      uniqueCategories.reverse();
+      setCategories(uniqueCategories);
+      
       setLoading(false);
     };
 
@@ -91,6 +94,17 @@ export default function PodcastsPage() {
               <Filter className="h-5 w-5 text-gray-500" />
               <span className="text-sm font-medium text-gray-700">Kategori:</span>
               <div className="flex flex-wrap gap-2">
+                <button
+                  key="Tümü"
+                  onClick={() => setSelectedCategory('Tümü')}
+                  className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
+                    selectedCategory === 'Tümü'
+                      ? 'bg-gray-900 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  Tümü
+                </button>
                 {categories.map((category) => (
                   <button
                     key={category}
@@ -134,6 +148,7 @@ export default function PodcastsPage() {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
               >
+                <option value="Tümü">Tümü</option>
                 {categories.map((category) => (
                   <option key={category} value={category}>{category}</option>
                 ))}

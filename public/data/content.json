@@ -6,6 +6,7 @@
       "excerpt": "Türk edebiyatında kadın yazarların katkıları ve modern edebiyattaki yerleri üzerine kapsamlı bir değerlendirme. Kadın yazarların seslerini duyurma mücadelesi ve edebiyat dünyasındaki etkileri.",
       "date": "2024-03-15",
       "readTime": "8 dk",
+      "isExternal": false,
       "category": "Edebiyat Eleştirisi",
       "coverImage": "https://picsum.photos/800/400?random=1",
       "author": "Bihter Sabanoğlu",
@@ -50,6 +51,7 @@
       "excerpt": "Sanatın toplumsal değişimdeki rolü ve günümüz sanatçılarının sorumlulukları hakkında derinlemesine bir analiz. Sanatın gücü ve toplumu dönüştürme kapasitesi.",
       "date": "2024-03-08",
       "readTime": "12 dk",
+      "isExternal": false,
       "category": "Sanat Eleştirisi",
       "coverImage": "https://picsum.photos/800/400?random=4",
       "author": "Bihter Sabanoğlu",
@@ -85,232 +87,74 @@
       ]
     },
     {
-      "id": "dijital-cagda-edebiyat",
-      "title": "Dijital Çağda Edebiyat",
-      "excerpt": "Teknolojinin gelişimi ile birlikte edebiyatın nasıl değiştiği ve dijital platformların edebiyat üzerindeki etkisi. Geleneksel edebiyat ile dijital edebiyat arasındaki köprüler.",
-      "date": "2024-03-01",
-      "readTime": "10 dk",
-      "category": "Kültür Yazısı",
-      "coverImage": "https://picsum.photos/800/400?random=7",
-      "author": "Bihter Sabanoğlu",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Dijital teknolojilerin gelişimi, edebiyatın da dönüşümünü beraberinde getirmiştir. Bu yazıda, geleneksel edebiyat ile dijital edebiyat arasındaki ilişkiyi ve bu dönüşümün etkilerini inceleyeceğiz."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=11",
-          "alt": "E-kitap okuyucu",
-          "caption": "E-kitap okuyucular, dijital edebiyatın en yaygın araçlarından biri"
-        },
-        {
-          "type": "paragraph",
-          "text": "E-kitap okuyucuların yaygınlaşması, okuma alışkanlıklarını da değiştirmiştir. Artık insanlar, geleneksel kitapların yanı sıra dijital platformlarda da okuma yapmaktadır."
-        },
-        {
-          "type": "paragraph",
-          "text": "Sosyal medya platformları, yazarların okurlarıyla doğrudan iletişim kurmasını sağlamaktadır. Bu durum, edebiyatın daha demokratik bir yapıya kavuşmasına katkıda bulunmaktadır."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=12",
-          "alt": "Blog yazısı ekranı",
-          "caption": "Blog yazıları, dijital edebiyatın önemli bir parçası haline geldi"
-        },
-        {
-          "type": "paragraph",
-          "text": "Blog yazıları ve dijital dergiler, yeni yazarların keşfedilmesini kolaylaştırmaktadır. Bu platformlar, geleneksel yayıncılık sisteminin dışında kalan yazarlara da ses olmaktadır."
-        }
-      ]
-    },
-    {
-      "id": "postmodern-roman-teknigi",
-      "title": "Postmodern Roman Tekniği ve Anlatım",
-      "excerpt": "Postmodern edebiyatın teknik özellikleri ve roman sanatındaki yenilikçi yaklaşımlar. Metinlerarasılık, parodi ve ironi kullanımı.",
-      "date": "2024-02-20",
-      "readTime": "15 dk",
+      "id": "harici-yazi-1",
+      "title": "Modern Türk Şiirinde Kadın Şairler",
+      "date": "2024-01-15",
       "category": "Edebiyat Eleştirisi",
-      "coverImage": "https://picsum.photos/800/400?random=8",
-      "author": "Bihter Sabanoğlu",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Postmodern edebiyat, geleneksel anlatım tekniklerini sorgulayan ve yenilikçi yaklaşımlar sunan bir akımdır. Bu yazıda, postmodern romanın teknik özelliklerini inceleyeceğiz."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=13",
-          "alt": "James Joyce'un Ulysses kitabı",
-          "caption": "James Joyce'un 'Ulysses' kitabı, postmodern edebiyatın öncü eserlerinden biri"
-        },
-        {
-          "type": "paragraph",
-          "text": "Metinlerarasılık, postmodern edebiyatın en önemli özelliklerinden biridir. Bir metin, diğer metinlerle sürekli bir diyalog içindedir ve bu diyalog, okurun metni anlamasını derinleştirir."
-        },
-        {
-          "type": "paragraph",
-          "text": "Parodi ve ironi, postmodern edebiyatın vazgeçilmez unsurlarıdır. Bu teknikler, geleneksel anlatım kalıplarını sorgulayarak, okura farklı bir okuma deneyimi sunar."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=14",
-          "alt": "Italo Calvino'nun eserleri",
-          "caption": "Italo Calvino'nun eserleri, postmodern tekniklerin başarılı örnekleri"
-        },
-        {
-          "type": "paragraph",
-          "text": "Türk edebiyatında da postmodern teknikler, özellikle 1980'lerden sonra yaygınlaşmıştır. Orhan Pamuk, Latife Tekin gibi yazarlar, bu teknikleri başarıyla kullanmıştır."
-        }
-      ]
+      "externalUrl": "https://example.com/modern-turk-siirinde-kadin-sairler",
+      "isExternal": true
     },
     {
-      "id": "sanat-ve-felsefe",
-      "title": "Sanat ve Felsefe: Estetik Deneyim",
-      "excerpt": "Sanatın felsefi boyutları ve estetik deneyimin insan yaşamındaki yeri. Güzellik, hakikat ve iyi kavramlarının sanat eserlerindeki yansımaları.",
-      "date": "2024-02-10",
-      "readTime": "14 dk",
-      "category": "Felsefe",
-      "coverImage": "https://picsum.photos/800/400?random=9",
-      "author": "Bihter Sabanoğlu",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Sanat ve felsefe, insanlık tarihinin en eski disiplinlerinden ikisidir. Bu yazıda, bu iki alanın nasıl kesiştiğini ve estetik deneyimin felsefi boyutlarını inceleyeceğiz."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=15",
-          "alt": "Platon'un mağara alegorisi",
-          "caption": "Platon'un mağara alegorisi, sanatın hakikat ile ilişkisini sorgular"
-        },
-        {
-          "type": "paragraph",
-          "text": "Platon'un mağara alegorisi, sanatın hakikat ile ilişkisini sorgulayan en önemli felsefi metinlerden biridir. Bu alegori, sanatın gerçekliği nasıl yansıttığını tartışır."
-        },
-        {
-          "type": "paragraph",
-          "text": "Kant'ın estetik teorisi, güzellik kavramını felsefi bir temele oturtmuştur. Ona göre, estetik deneyim, öznel bir deneyimdir ve evrensel geçerliliği vardır."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=16",
-          "alt": "Van Gogh'un Yıldızlı Gece tablosu",
-          "caption": "Van Gogh'un 'Yıldızlı Gece' tablosu, estetik deneyimin gücünü gösterir"
-        },
-        {
-          "type": "paragraph",
-          "text": "Günümüzde, estetik deneyim kavramı, sadece sanat eserleriyle sınırlı değildir. Günlük yaşamın her alanında estetik bir boyut bulunmaktadır."
-        }
-      ]
+      "id": "harici-yazi-2",
+      "title": "Çağdaş Sanat ve Toplumsal Sorumluluk",
+      "date": "2024-01-10",
+      "category": "Sanat Eleştirisi",
+      "externalUrl": "https://example.com/cagdas-sanat-ve-toplumsal-sorumluluk",
+      "isExternal": true
     },
     {
-      "id": "cumhuriyet-donemi-edebiyati",
-      "title": "Cumhuriyet Dönemi Edebiyatının Dönüşümü",
-      "excerpt": "Cumhuriyet'in ilanından günümüze Türk edebiyatının geçirdiği evreler ve dönüşümler. Toplumsal değişimlerin edebiyata yansımaları.",
-      "date": "2024-01-25",
-      "readTime": "18 dk",
-      "category": "Edebiyat Tarihi",
-      "coverImage": "https://picsum.photos/800/400?random=10",
-      "author": "Bihter Sabanoğlu",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Cumhuriyet'in ilanı, Türk edebiyatında köklü değişikliklerin başlangıcı olmuştur. Bu yazıda, bu dönüşümün aşamalarını ve etkilerini inceleyeceğiz."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=17",
-          "alt": "Cumhuriyet'in ilk yıllarında yayınlanan dergiler",
-          "caption": "Cumhuriyet'in ilk yıllarında yayınlanan edebiyat dergileri"
-        },
-        {
-          "type": "paragraph",
-          "text": "1923-1950 yılları arası, 'Milli Edebiyat' akımının etkili olduğu dönemdir. Bu dönemde, ulusal kimlik ve toplumsal değişim temaları öne çıkmıştır."
-        },
-        {
-          "type": "paragraph",
-          "text": "1950-1980 yılları arası, 'Garip' akımı ve 'İkinci Yeni' gibi yenilikçi hareketlerin ortaya çıktığı dönemdir. Bu dönemde, şiir ve roman türlerinde önemli gelişmeler yaşanmıştır."
-        },
-        {
-          "type": "image",
-          "src": "https://picsum.photos/800/600?random=18",
-          "alt": "1980 sonrası edebiyat",
-          "caption": "1980 sonrası Türk edebiyatında çeşitlilik artmıştır"
-        },
-        {
-          "type": "paragraph",
-          "text": "1980 sonrası dönem, edebiyatta çeşitliliğin arttığı bir dönemdir. Postmodern teknikler, kadın yazarların artan etkisi ve yeni anlatım biçimleri bu dönemin özellikleridir."
-        }
-      ]
+      "id": "harici-yazi-3",
+      "title": "Dijital Çağda Edebiyatın Geleceği",
+      "date": "2024-01-05",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://example.com/dijital-cagda-edebiyatin-gelecegi",
+      "isExternal": true
     }
   ],
   "podcasts": [
     {
-      "id": "edebiyat-ve-sanat-soylesileri-1",
-      "title": "Edebiyat ve Sanat Söyleşileri #1",
-      "subtitle": "Modern Türk Edebiyatında Kadın Yazarlar",
-      "excerpt": "Türk edebiyatında kadın yazarların katkıları ve modern edebiyattaki yerleri üzerine kapsamlı bir söyleşi.",
-      "date": "2024-03-15",
-      "duration": "45:32",
+      "id": "spotify-podcast-1",
+      "title": "Edebiyat ve Sanat Söyleşileri",
+      "subtitle": "Modern Edebiyat ve Sanat Üzerine Derinlemesine Analiz",
+      "excerpt": "Edebiyat ve sanat dünyasından güncel konular, yazarlar ve sanatçılarla söyleşiler, eleştiriler ve analizler.",
+      "date": "2022-03-16",
+      "duration": "23:03",
       "platform": "Spotify",
-      "platformUrl": "https://open.spotify.com/episode/example1",
+      "platformUrl": "https://open.spotify.com/episode/3zeXbGTqMUKwWxk4QnORNg",
       "category": "Edebiyat"
     },
     {
-      "id": "sanat-kritikleri-2",
-      "title": "Sanat Kritikleri #2",
-      "subtitle": "Çağdaş Sanat ve Toplumsal Sorumluluk",
-      "excerpt": "Çağdaş sanatın toplumsal sorumlulukları ve sanatçıların rolü üzerine derinlemesine bir analiz.",
-      "date": "2024-03-08",
-      "duration": "52:18",
-      "platform": "iVoox",
-      "platformUrl": "https://www.ivoox.com/episode-example2",
+      "id": "spotify-podcast-2",
+      "title": "Sanat Eleştirisi ve Kültür Söyleşileri",
+      "subtitle": "Çağdaş Sanat ve Kültür Üzerine Eleştirel Bakış",
+      "excerpt": "Günümüz sanatının farklı alanları, kültür politikaları ve sanatın toplumsal rolü üzerine eleştirel değerlendirmeler.",
+      "date": "2021-12-27",
+      "duration": "22:52",
+      "platform": "Spotify",
+      "platformUrl": "https://open.spotify.com/episode/59b1NuI3AiFrRPzM7oU4G2",
       "category": "Sanat Eleştirisi"
     },
     {
-      "id": "kultur-soylesileri-3",
-      "title": "Kültür Söyleşileri #3",
-      "subtitle": "Dijital Çağda Edebiyat ve Okuma Kültürü",
-      "excerpt": "Teknolojinin gelişimi ile birlikte edebiyatın nasıl değiştiği ve dijital platformların etkisi.",
-      "date": "2024-03-01",
-      "duration": "38:45",
+      "id": "spotify-podcast-3",
+      "title": "Edebiyat ve Felsefe Söyleşileri",
+      "subtitle": "Edebiyatın Felsefi Boyutları ve Düşünce Dünyası",
+      "excerpt": "Edebiyatın felsefi temelleri, yazarların düşünce dünyaları ve edebiyat-felsefe ilişkisi üzerine derinlemesine söyleşiler.",
+      "date": "2022-5-19",
+      "duration": "34:51",
       "platform": "Spotify",
-      "platformUrl": "https://open.spotify.com/episode/example3",
-      "category": "Kültür"
-    },
-    {
-      "id": "felsefe-ve-sanat-4",
-      "title": "Felsefe ve Sanat #4",
-      "subtitle": "Estetik Deneyim ve Sanatın Felsefi Boyutları",
-      "excerpt": "Sanatın felsefi boyutları ve estetik deneyimin insan yaşamındaki yeri üzerine bir söyleşi.",
-      "date": "2024-02-20",
-      "duration": "41:12",
-      "platform": "iVoox",
-      "platformUrl": "https://www.ivoox.com/episode-example4",
+      "platformUrl": "https://open.spotify.com/episode/0hhvmDtZWPmIwROclfDV2t?go=1&sp_cid=c69e802ec6a431ccd8e35a662a2586bc&utm_source=embed_player_p&utm_medium=desktop&nd=1&dlsi=cb8a47b0432c4279",
       "category": "Felsefe"
     },
     {
-      "id": "edebiyat-tarihi-5",
-      "title": "Edebiyat Tarihi #5",
-      "subtitle": "Cumhuriyet Dönemi Edebiyatının Dönüşümü",
-      "excerpt": "Cumhuriyet'in ilanından günümüze Türk edebiyatının geçirdiği evreler ve dönüşümler.",
-      "date": "2024-02-10",
-      "duration": "48:30",
-      "platform": "Spotify",
-      "platformUrl": "https://open.spotify.com/episode/example5",
-      "category": "Edebiyat Tarihi"
-    },
-    {
-      "id": "sanat-ve-teknoloji-6",
-      "title": "Sanat ve Teknoloji #6",
-      "subtitle": "Dijital Sanat ve Geleneksel Sanat Arasındaki Köprüler",
-      "excerpt": "Dijital teknolojilerin sanat üzerindeki etkisi ve geleneksel sanat ile dijital sanat arasındaki ilişki.",
-      "date": "2024-02-01",
-      "duration": "35:20",
+      "id": "ivoox-podcast-1",
+      "title": "Sanat Kritik Söyleşileri",
+      "subtitle": "Bihter Sabanoğlu ile Sanat ve Eleştiri",
+      "excerpt": "Sanat eleştirisi, kültür yazıları ve edebiyat üzerine Bihter Sabanoğlu'nun konuk olduğu söyleşi programı.",
+      "date": "2022-05-19",
+      "duration": "1:05:07",
       "platform": "iVoox",
-      "platformUrl": "https://www.ivoox.com/episode-example6",
-      "category": "Dijital Sanat"
+      "platformUrl": "https://www.ivoox.com/en/sanat-kritik-soyle351ileri-bihter-sabanoglu-audios-mp3_rf_87439666_1.html",
+      "category": "Sanat Eleştirisi"
     }
   ],
   "events": [

@@ -25,9 +25,10 @@ export default function Home() {
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 font-light drop-shadow-lg">
               Bihter Sabanoğlu
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-800 mb-6 sm:mb-8 max-w-xl font-light drop-shadow-md">
-              Sanat eleştirmeni, yazar ve akademisyen. Edebiyat, sanat ve kültür 
-              üzerine yazıları, podcastleri ve performansları ile tanınır.
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-800 mb-6 sm:mb-8 max-w-2xl font-light drop-shadow-md">
+              İngiliz Edebiyatı, Bizans ve klasik sanat tarihinin yanı sıra hiyeroglif, 
+              Osmanlıca, Çince gibi diller üzerine eğitim alan Bihter Sabanoğlu edebiyat 
+              çevirmeni, editör ve serbest yazar olarak çalışmalarını sürdürüyor.
             </p>
             <div className="flex flex-row gap-4 sm:gap-6" >
               <Link
