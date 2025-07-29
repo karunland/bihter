@@ -115,7 +115,7 @@ export default function PerformancePage() {
           <div className="hidden md:flex flex-col sm:flex-row gap-4 items-center justify-between">
             {/* Kategori Filtresi */}
             <div className="flex items-center space-x-4">
-              <Filter className="h-5 w-5 text-gray-500" />
+              {/* <Filter className="h-5 w-5 text-gray-500" /> */}
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <button

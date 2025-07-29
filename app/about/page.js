@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, GraduationCap, BookOpen, Award, Users } from 'lucide-react';
+import { ArrowLeft, GraduationCap, BookOpen, Users } from 'lucide-react';
 
 export const metadata = {
   title: 'Hakkında - Bihter Sabanoğlu',
@@ -42,32 +42,31 @@ export default function AboutPage() {
               
               <div className="prose prose-lg text-gray-600 space-y-6">
                 <p>
-                  1985 yılında İstanbul&apos;da doğan Bihter Sabanoğlu, edebiyat ve sanat 
-                  alanında uzmanlaşmış bir akademisyen, yazar ve sanat eleştirmenidir. 
-                  İstanbul Üniversitesi Türk Dili ve Edebiyatı bölümünden mezun olduktan 
-                  sonra, aynı üniversitede yüksek lisans ve doktora eğitimini tamamlamıştır.
+                  1980 yılında İstanbul&apos;da doğan Bihter Sabanoğlu, Paris-İstanbul arasında 
+                  yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Notre Dame de Sion 
+                  Fransız Kız Lisesi&apos;ni tamamladıktan sonra İstanbul Üniversitesi&apos;nde 
+                  eğitimine devam etmiştir.
                 </p>
                 
                 <p>
-                  Akademik kariyerine İstanbul Üniversitesi&apos;nde başlayan Sabanoğlu, 
-                  Türk edebiyatı, özellikle modern Türk edebiyatı ve feminist edebiyat 
-                  eleştirisi alanlarında çalışmalar yapmaktadır. Çağdaş edebiyat 
-                  akımları, kadın yazarlar ve postmodern edebiyat üzerine kapsamlı 
-                  araştırmaları bulunmaktadır.
+                  Paris III Sorbonne Üniversitesi&apos;nde İngiliz Dili ve Edebiyatı alanında 
+                  yüksek lisans derecesi alan Sabanoğlu, ardından Ecole du Louvre&apos;da 
+                  epigrafi, hiyeroglif çözümlemesi ve Bizans sanatı tarihi gibi farklı 
+                  disiplinlerde eğitim görmüştür. Halihazırda Sorbonne Paris III 
+                  Üniversitesi&apos;nde Bizans Sanat Tarihi üzerine doktorasını sürdürmektedir.
                 </p>
                 
                 <p>
-                  Sanat eleştirisi alanında da aktif olan Sabanoğlu, çeşitli sanat 
-                  dergilerinde yazılar yazmakta, sanat galerilerinde sergi eleştirileri 
-                  yapmakta ve kültür sanat programlarında yer almaktadır. Edebiyatın 
-                  diğer sanat dallarıyla ilişkisi üzerine çalışmalar yapmaktadır.
+                  Bağımsız tarih araştırmalarının yanı sıra sanat tarihi, çağdaş sanat 
+                  ve edebiyat üzerine yazdığı makaleler Toplumsal Tarih, Yıllık: Annual 
+                  of Istanbul Studies, Art Unlimited, Manifold, Sanat Kritik, Sanat 
+                  Dünyamız, T24 gibi dergiler, platformlar ve akademik mecralarda yayımlanmıştır.
                 </p>
                 
                 <p>
-                  Podcast ve video içerikleri üreten Sabanoğlu, edebiyat ve sanatı 
-                  daha geniş kitlelere ulaştırmayı hedeflemektedir. Spotify ve iVoox&apos;ta 
-                  yayınlanan podcastleri, edebiyat ve sanat üzerine derinlemesine 
-                  söyleşiler içermektedir.
+                  Arketon Yayınları için Jacques Derrida - Mimarlık ve Dekonstrüksiyon (2023) 
+                  ve Ricardo Porro - Mimarlıkta İçeriğin Beş Görünümü (2021) kitaplarının 
+                  editörlüğünü üstlenmiştir. 2022&apos;de ilk romanı &quot;Şüpheli Şeylerin Keşfi&quot;ni yayımlamıştır.
                 </p>
               </div>
             </div>
@@ -82,16 +81,23 @@ export default function AboutPage() {
                 </div>
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li>
-                    <strong>Doktora:</strong> İstanbul Üniversitesi<br/>
-                    Türk Dili ve Edebiyatı (2015)
+                    <strong>Doktora:</strong> Sorbonne Paris III Üniversitesi<br/>
+                    Bizans Sanat Tarihi (devam ediyor)
                   </li>
                   <li>
-                    <strong>Yüksek Lisans:</strong> İstanbul Üniversitesi<br/>
-                    Türk Dili ve Edebiyatı (2010)
+                    <strong>Yüksek Lisans:</strong> Paris III Sorbonne Üniversitesi<br/>
+                    İngiliz Dili ve Edebiyatı
                   </li>
                   <li>
-                    <strong>Lisans:</strong> İstanbul Üniversitesi<br/>
-                    Türk Dili ve Edebiyatı (2008)
+                    <strong>Lisans:</strong> İstanbul Üniversitesi
+                  </li>
+                  <li>
+                    <strong>Lise:</strong> Notre Dame de Sion<br/>
+                    Fransız Kız Lisesi
+                  </li>
+                  <li>
+                    <strong>Özel Eğitim:</strong> Ecole du Louvre<br/>
+                    Epigrafi, Hiyeroglif, Bizans Sanatı
                   </li>
                 </ul>
               </div>
@@ -103,34 +109,47 @@ export default function AboutPage() {
                   <h3 className="text-lg font-semibold text-gray-900">Uzmanlık Alanları</h3>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Modern Türk Edebiyatı</li>
-                  <li>• Feminist Edebiyat Eleştirisi</li>
-                  <li>• Postmodern Edebiyat</li>
+                  <li>• Bizans Sanat Tarihi</li>
+                  <li>• Sanat Tarihi</li>
+                  <li>• Epigrafi</li>
+                  <li>• Hiyeroglif Çözümlemesi</li>
                   <li>• Sanat Eleştirisi</li>
-                  <li>• Kültür Çalışmaları</li>
-                  <li>• Dijital Edebiyat</li>
+                  <li>• Edebiyat</li>
+                  <li>• Çağdaş Sanat</li>
+                  <li>• Bağımsız Tarih Araştırmaları</li>
                 </ul>
               </div>
 
-              {/* Ödüller */}
+              {/* Öne Çıkan Çalışmalar */}
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center mb-4">
-                  <Award className="h-6 w-6 text-gray-600 mr-3" />
-                  <h3 className="text-lg font-semibold text-gray-900">Ödüller</h3>
+                  <BookOpen className="h-6 w-6 text-gray-600 mr-3" />
+                  <h3 className="text-lg font-semibold text-gray-900">Öne Çıkan Çalışmalar</h3>
                 </div>
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li>
-                    <strong>2023:</strong> Türk Edebiyatı Araştırma Ödülü<br/>
-                    Türk Dil Kurumu
+                    <strong>2023:</strong> Jacques Derrida - Mimarlık ve Dekonstrüksiyon<br/>
+                    <span className="text-xs text-gray-500">Editörlük - Arketon Yayınları</span>
                   </li>
                   <li>
-                    <strong>2021:</strong> Sanat Eleştirisi Ödülü<br/>
-                    İstanbul Sanat Vakfı
+                    <strong>2022:</strong> Şüpheli Şeylerin Keşfi<br/>
+                    <span className="text-xs text-gray-500">Roman</span>
                   </li>
                   <li>
-                    <strong>2019:</strong> Genç Akademisyen Ödülü<br/>
-                    İstanbul Üniversitesi
+                    <strong>2021:</strong> Ricardo Porro - Mimarlıkta İçeriğin Beş Görünümü<br/>
+                    <span className="text-xs text-gray-500">Editörlük - Arketon Yayınları</span>
                   </li>
+                </ul>
+              </div>
+
+              {/* Üyelikler */}
+              <div className="bg-gray-50 rounded-lg p-6">
+                <div className="flex items-center mb-4">
+                  <Users className="h-6 w-6 text-gray-600 mr-3" />
+                  <h3 className="text-lg font-semibold text-gray-900">Üyelikler</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>• AICA (Uluslararası Sanat Eleştirmenleri Derneği)</li>
                 </ul>
               </div>
             </div>
@@ -138,33 +157,41 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Akademik Çalışmalar */}
+      {/* Yayınlar ve Araştırmalar */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Akademik Çalışmalar
+              Yayınlar ve Araştırmalar
             </h2>
             <p className="text-lg text-gray-600">
-              Yayınlar, araştırmalar ve akademik katkılar
+              Sanat tarihi, edebiyat ve kültür alanlarında yayınlar
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">25+</div>
-              <div className="text-gray-600">Akademik Makale</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">1</div>
+              <div className="text-gray-600">Roman</div>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">8</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">2</div>
               <div className="text-gray-600">Editörlük Çalışması</div>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">15+</div>
-              <div className="text-gray-600">Konferans Katılımı</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">7+</div>
+              <div className="text-gray-600">Dergi ve Platform</div>
             </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Toplumsal Tarih, Yıllık: Annual of Istanbul Studies, Art Unlimited, 
+              Manifold, Sanat Kritik, Sanat Dünyamız, T24 gibi prestijli dergiler, 
+              platformlar ve akademik mecralarda makaleleri yayımlanmıştır.
+            </p>
           </div>
         </div>
       </section>

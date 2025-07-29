@@ -1,8 +1,36 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Mic, Users, Calendar, Video } from 'lucide-react';
+import { ArrowRight, BookOpen, Mic, Users, Calendar, Video, ExternalLink } from 'lucide-react';
 import StructuredData from './components/StructuredData';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [recentWritings, setRecentWritings] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchWritings = async () => {
+      try {
+        const response = await fetch('/data/content.json');
+        const data = await response.json();
+        
+        // En son 3 yazıyı al (harici ve normal yazılar dahil)
+        const allWritings = data.writings || [];
+        const sortedWritings = allWritings.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const recent = sortedWritings.slice(0, 3);
+        
+        setRecentWritings(recent);
+        setLoading(false);
+      } catch (error) {
+        console.error('Yazılar yüklenirken hata oluştu:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchWritings();
+  }, []);
+
   return (
     <div className="bg-white page-transition">
       <StructuredData />
@@ -173,6 +201,89 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Kitabım */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Kitabım
+            </h2>
+            <p className="text-lg text-gray-600">
+              İlk romanım "Şüpheli Şeylerin Keşfi"
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+                {/* Kitap Kapağı */}
+                <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-8 flex items-center justify-center">
+                  <div className="relative">
+                    <img
+                      src="/dr.jpg"
+                      alt="Şüpheli Şeylerin Keşfi - Bihter Sabanoğlu"
+                      className="w-64 h-auto rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
+                    />
+                    {/* Dekoratif element */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
+                    <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+                  </div>
+                </div>
+
+                {/* Kitap Bilgileri */}
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                      Şüpheli Şeylerin Keşfi
+                    </h3>
+                    <p className="text-lg text-gray-600 mb-4">
+                      <span className="font-medium">Yazar:</span> Bihter Sabanoğlu
+                    </p>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Her gün çehresi değişen kadim kenti farklı bir gözle izleyen bir roman. 
+                      Tesadüf süsü verilmiş bir karşılaşmanın ardından eski mektuplar kutulardan 
+                      çıkıyor ve geçmiş ile şimdi arasında bir yolculuk başlıyor. İstanbul'un 
+                      tarihi mekânlarında geçen 29 günlük Şubat ayı boyunca süren hikâye.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+                    <div>
+                      <span className="text-gray-500">Yayın Yılı:</span>
+                      <div className="font-medium text-gray-900">2022</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Yayınevi:</span>
+                      <div className="font-medium text-gray-900">Edisyon Kitap</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Sayfa Sayısı:</span>
+                      <div className="font-medium text-gray-900">260</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Boyut:</span>
+                      <div className="font-medium text-gray-900">13,5 x 21 cm</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a
+                      href="https://www.dr.com.tr/Kitap/supheli-seylerin-Kesfi/Edebiyat/Roman/Turkiye-Roman/urunno=0001959706001"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                    >
+                      Satın Al
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Son Yazılar */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -186,63 +297,88 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Örnek yazılar - gerçek içeriklerle değiştirilecek */}
-            <article className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-              <div className="p-6">
-                <div className="text-sm text-gray-500 mb-2">15 Mart 2024</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Modern Edebiyatta Kadın Yazarların Rolü
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Türk edebiyatında kadın yazarların katkıları ve modern edebiyattaki 
-                  yerleri üzerine bir değerlendirme...
-                </p>
-                <Link
-                  href="/writings/modern-edebiyatta-kadin-yazarlar"
-                  className="text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                >
-                  Devamını oku →
-                </Link>
+            {loading ? (
+              // Loading skeleton
+              <>
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden animate-pulse">
+                    <div className="p-6">
+                      <div className="h-4 bg-gray-200 rounded w-1/4 mb-2"></div>
+                      <div className="h-6 bg-gray-200 rounded w-3/4 mb-3"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1/3"></div>
+                    </div>
+                  </div>
+                ))}
+              </>
+            ) : recentWritings.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-gray-500 text-lg">Henüz yazı bulunmuyor.</p>
               </div>
-            </article>
-
-            <article className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-              <div className="p-6">
-                <div className="text-sm text-gray-500 mb-2">8 Mart 2024</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Sanat ve Toplumsal Değişim
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Sanatın toplumsal değişimdeki rolü ve günümüz sanatçılarının 
-                  sorumlulukları hakkında bir analiz...
-                </p>
-                <Link
-                  href="/writings/sanat-ve-toplumsal-degisim"
-                  className="text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                >
-                  Devamını oku →
-                </Link>
-              </div>
-            </article>
-
-            <article className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-              <div className="p-6">
-                <div className="text-sm text-gray-500 mb-2">1 Mart 2024</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Dijital Çağda Edebiyat
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Teknolojinin gelişimi ile birlikte edebiyatın nasıl değiştiği 
-                  ve dijital platformların etkisi...
-                </p>
-                <Link
-                  href="/writings/dijital-cagda-edebiyat"
-                  className="text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                >
-                  Devamını oku →
-                </Link>
-              </div>
-            </article>
+            ) : (
+              recentWritings.map((writing) => (
+                <article key={writing.id} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="p-6">
+                    <div className="text-sm text-gray-500 mb-2">
+                      {new Date(writing.date).toLocaleDateString('tr-TR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                      {writing.isExternal ? (
+                        <a
+                          href={writing.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-gray-700 transition-colors inline-flex items-center"
+                        >
+                          {writing.title}
+                          <ExternalLink className="ml-2 h-4 w-4 text-gray-400" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={`/writings/${writing.id}`}
+                          className="hover:text-gray-700 transition-colors"
+                        >
+                          {writing.title}
+                        </Link>
+                      )}
+                    </h3>
+                    {!writing.isExternal && writing.excerpt && (
+                      <p className="text-gray-600 mb-4">
+                        {typeof writing.excerpt === 'string' && writing.excerpt.length > 150 
+                          ? writing.excerpt.substring(0, 150) + '...' 
+                          : writing.excerpt
+                        }
+                      </p>
+                    )}
+                    <div className="flex items-center justify-between">
+                      {writing.isExternal ? (
+                        <a
+                          href={writing.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center"
+                        >
+                          Harici siteye git
+                          <ExternalLink className="ml-1 h-4 w-4" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={`/writings/${writing.id}`}
+                          className="text-gray-900 font-medium hover:text-gray-700 transition-colors"
+                        >
+                          Devamını oku →
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))
+            )}
           </div>
 
           <div className="text-center mt-12">

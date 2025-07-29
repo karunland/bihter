@@ -102,11 +102,11 @@ export default function Sidebar({ showOnList = false }) {
 
   const getActivityExcerpt = (activity) => {
     if (activity.type === 'writing') {
-      return activity.excerpt.substring(0, 80) + '...';
+      return activity.excerpt ? activity.excerpt.substring(0, 80) + '...' : 'Özet bulunmuyor.';
     } else if (activity.type === 'podcast') {
-      return activity.subtitle || activity.excerpt.substring(0, 80) + '...';
+      return activity.subtitle || (activity.excerpt ? activity.excerpt.substring(0, 80) + '...' : 'Özet bulunmuyor.');
     } else {
-      return activity.excerpt.substring(0, 80) + '...';
+      return activity.excerpt ? activity.excerpt.substring(0, 80) + '...' : 'Özet bulunmuyor.';
     }
   };
 

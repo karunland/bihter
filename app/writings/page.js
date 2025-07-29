@@ -90,8 +90,8 @@ export default function WritingsPage() {
           <div className="hidden md:flex flex-col gap-6">
             {/* Kategori Filtresi */}
             <div className="flex items-center space-x-4">
-              <Filter className="h-5 w-5 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Kategori:</span>
+              {/* <Filter className="h-5 w-5 text-gray-500" /> */}
+              {/* <span className="text-sm font-medium text-gray-700">Kategori:</span> */}
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <button
@@ -196,85 +196,89 @@ export default function WritingsPage() {
                   </p>
                 </div>
               ) : (
-                <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredAndSortedWritings.map((writing) => (
                     <article
                       key={writing.id}
-                      className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow"
+                      className="bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 overflow-hidden group"
                     >
-                      <div className="flex items-center text-sm text-gray-500 mb-4">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        <span>{new Date(writing.date).toLocaleDateString('tr-TR', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}</span>
-                        <span className="mx-2">•</span>
-                        <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                          {writing.category}
-                        </span>
-                        {writing.isExternal && (
-                          <>
-                            <span className="mx-2">•</span>
-                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
-                              Harici Link
+                      {/* Card Header */}
+                      <div className="p-6">
+                        {/* Meta Info */}
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mb-3">
+                          <div className="flex items-center">
+                            <Calendar className="h-3 w-3 mr-1" />
+                            <span>{new Date(writing.date).toLocaleDateString('tr-TR', {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric'
+                            })}</span>
+                          </div>
+                          
+                          <span className="bg-gray-100 px-2 py-1 rounded-full">
+                            {writing.category}
+                          </span>
+                          
+                          {(writing.readTime || writing.readingTime) && (
+                            <div className="flex items-center">
+                              <Clock className="h-3 w-3 mr-1" />
+                              <span>{writing.readTime || writing.readingTime}</span>
+                            </div>
+                          )}
+                          
+                          {/* {writing.isExternal && (
+                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                              Harici
                             </span>
-                          </>
-                        )}
-                        {!writing.isExternal && writing.readTime && (
-                          <>
-                            <span className="mx-2">•</span>
-                            <Clock className="h-4 w-4 mr-2" />
-                            <span>{writing.readTime}</span>
-                          </>
+                          )} */}
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-gray-700 transition-colors">
+                          {writing.isExternal ? (
+                            <a
+                              href={writing.externalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-start"
+                            >
+                              <span className="flex-1">{writing.title}</span>
+                              <ExternalLink className="h-4 w-4 ml-2 mt-1 flex-shrink-0 text-gray-400" />
+                            </a>
+                          ) : (
+                            <Link href={`/writings/${writing.id}`}>
+                              {writing.title}
+                            </Link>
+                          )}
+                        </h3>
+
+                        {/* Excerpt */}
+                        {!writing.isExternal && writing.excerpt && (
+                          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+                            {writing.excerpt}
+                          </p>
                         )}
                       </div>
 
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      {/* Card Footer */}
+                      <div className="px-6 pb-6">
                         {writing.isExternal ? (
                           <a
                             href={writing.externalUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-gray-700 transition-colors inline-flex items-center"
+                            className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
                           >
-                            {writing.title}
-                            <ExternalLink className="ml-2 h-5 w-5 text-gray-400" />
+                            Okumaya git
+                            <ExternalLink className="ml-1 h-3 w-3" />
                           </a>
                         ) : (
                           <Link
                             href={`/writings/${writing.id}`}
-                            className="hover:text-gray-700 transition-colors"
-                          >
-                            {writing.title}
-                          </Link>
-                        )}
-                      </h2>
-
-                      {!writing.isExternal && writing.excerpt && (
-                        <p className="text-gray-600 mb-6 leading-relaxed">
-                          {writing.excerpt}
-                        </p>
-                      )}
-
-                      <div className="flex items-center justify-between">
-                        {writing.isExternal ? (
-                          <a
-                            href={writing.externalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors"
-                          >
-                            Harici siteye git
-                            <ExternalLink className="ml-1 h-4 w-4" />
-                          </a>
-                        ) : (
-                          <Link
-                            href={`/writings/${writing.id}`}
-                            className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
+                            className="inline-flex items-center text-sm text-gray-900 font-medium hover:text-gray-700 transition-colors"
                           >
                             Devamını oku
-                            <ArrowLeft className="ml-1 h-4 w-4 rotate-180" />
+                            <ArrowLeft className="ml-1 h-3 w-3 rotate-180" />
                           </Link>
                         )}
                       </div>
