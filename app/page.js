@@ -118,11 +118,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 mb-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              📰 Basında
+              Basında
             </h2>
-            <p className="text-lg text-gray-600">
+            {/* <p className="text-lg text-gray-600">
               Kitaplarımla ilgili basında çıkan haberler
-            </p>
+            </p> */}
           </div>
         </div>
         
