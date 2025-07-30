@@ -6,14 +6,14 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navigation = [
-  { name: 'Ana Sayfa', href: '/' },
+  // { name: 'Ana Sayfa', href: '/' },
   { name: 'Yazılar', href: '/writings' },
+  { name: 'Basında', href: '/basinda' },
   { name: 'Podcastler', href: '/podcasts' },
   { name: 'Editörlük', href: '/editorial' },
   { name: 'Performans', href: '/performance' },
   { name: 'Etkinlikler', href: '/events' },
   { name: 'Medya', href: '/media' },
-  { name: 'Basında', href: '/basinda' },
   { name: 'Hakkında', href: '/about' },
   { name: 'İletişim', href: '/contact' },
 ];
