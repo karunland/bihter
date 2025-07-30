@@ -3,21 +3,7 @@
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, MapPin, Filter, SortAsc, SortDesc } from 'lucide-react';
-import Sidebar from '../components/Sidebar';
-
-// JSON dosyasından veri yükleme fonksiyonu
-const loadContentData = async () => {
-  try {
-    const response = await fetch('/data/content.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Veri yüklenirken hata oluştu:', error);
-    return { events: [] };
-  }
-};
-
-const categories = ['Tümü', 'Festival', 'Sergi', 'Kitap Tanıtımı', 'Söyleşi'];
+import { events } from '@/data/events';
 
 export default function EventsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
@@ -25,11 +11,13 @@ export default function EventsPage() {
   const [sortOrder, setSortOrder] = useState('asc');
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await loadContentData();
-      setEvents(data.events || []);
+      setEvents(events || []);
+      var uniqueCategories = [...new Set(events.map(event => event.category))];
+      uniqueCategories.unshift('Tümü');
+      setCategories(uniqueCategories);
       setLoading(false);
     };
 

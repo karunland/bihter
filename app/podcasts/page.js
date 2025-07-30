@@ -3,17 +3,7 @@
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Play, ExternalLink, Calendar, Clock, Filter, SortAsc, SortDesc } from 'lucide-react';
-
-const loadContentData = async () => {
-  try {
-    const response = await fetch('/data/content.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Veri yüklenirken hata oluştu:', error);
-    return { podcasts: [] };
-  }
-};
+import { podcasts } from '@/data/podcasts';
 
 export default function PodcastsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
@@ -24,13 +14,11 @@ export default function PodcastsPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await loadContentData();
-      setPodcasts(data.podcasts || []);
+      setPodcasts(podcasts || []);
       
-      var uniqueCategories = [...new Set(data.podcasts.map(podcast => podcast.category))];
+      var uniqueCategories = [...new Set(podcasts.map(podcast => podcast.category))];
       uniqueCategories.reverse();
       setCategories(uniqueCategories);
-      
       setLoading(false);
     };
 

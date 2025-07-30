@@ -1,0 +1,73 @@
+export const news = [
+    {
+        id: 1,
+        title: "Posta Kitap",
+        type: "Kitap",
+        image: "/media-images/1-IMG_2636.jpg",
+        link: "",
+        source: "",
+    },
+    {
+        id: 2,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/2IST1.jpg",
+        link: "",
+        source: "",
+    }, {
+        id: 3,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/3milliyet-sanat 1.jpeg",
+        link: "#",
+        source: "Milliyet",
+    }, {
+        id: 4,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/aujourdhuilaturquie.png",
+        link: "#",
+        source: "Aujourd'hui La Turquie",
+    }, {
+        id: 5,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/birgün.jpg",
+        link: "#",
+        source: "Birgün",
+    }, {
+        id: 6,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/dünya-kitap.jpg",
+        link: "#",
+        source: "",
+    }, {
+        id: 7,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/IMG_2637.jpg",
+        source: "",
+    },
+    {
+        id: 8,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/hürriyet-kitap.jpeg",
+        source: "",
+    },
+    {
+        id: 9,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/ist-2.jpg",
+        source: "",
+    },
+    {
+        id: 10,
+        title: "",
+        type: "Kitap",
+        image: "/media-images/milliyet-sanat 2.jpeg",
+        source: "",
+    }
+]

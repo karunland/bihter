@@ -9,13 +9,12 @@ export const mediaItems = [
   },
   {
     id: 2,
-    title: "Ajandakolik",
+    title: "",
     type: "Kitap",
     image: "/media-images/2IST1.jpg",
     link: "",
-    source: "Ajandakolik",
+    source: "",
   },
-  
   {
     id: 3,
     title: "Oğuzname Dergisi",
@@ -26,11 +25,11 @@ export const mediaItems = [
   },
   {
     id: 4,
-    title: "Cumhuriyet Kitap Eki",
+    title: "",
     type: "Kitap",
     image: "/media-images/3milliyet-sanat 1.jpeg",
     link: "#",
-    source: "Cumhuriyet",
+    source: "Milliyet",
   },
   {
     id: 5,
@@ -42,11 +41,11 @@ export const mediaItems = [
   },
   {
     id: 6,
-    title: "Kitap-lık Dergisi",
+    title: "",
     type: "Kitap",
     image: "/media-images/aujourdhuilaturquie.png",
     link: "#",
-    source: "Kitap-lık",
+    source: "Aujourd'hui La Turquie",
   },
   {
     id: 7,
@@ -58,11 +57,11 @@ export const mediaItems = [
   },
   {
     id: 8,
-    title: "Varlık Dergisi",
+    title: "",
     type: "Kitap",
     image: "/media-images/birgün.jpg",
     link: "#",
-    source: "Varlık",
+    source: "Birgün",
   },
   {
     id: 9,
@@ -74,11 +73,11 @@ export const mediaItems = [
   },
   {
     id: 10,
-    title: "Yazın Dünyası",
+    title: "",
     type: "Kitap",
     image: "/media-images/dünya-kitap.jpg",
     link: "#",
-    source: "Yazın Dünyası",
+    source: "",
   },
   {
     id: 11,
@@ -90,28 +89,28 @@ export const mediaItems = [
   },
   {
     id: 12,
-    title: "Posta Kitap",
+    title: "",
     type: "Kitap",
     image: "/media-images/IMG_2637.jpg",
     source: "",
   },
   {
     id: 13,
-    title: "Posta Kitap",
+    title: "",
     type: "Kitap",
     image: "/media-images/hürriyet-kitap.jpeg",
     source: "",
   },
   {
     id: 14,
-    title: "Posta Kitap",
+    title: "",
     type: "Kitap",
     image: "/media-images/ist-2.jpg",
     source: "",
   },
   {
     id: 15,
-    title: "Posta Kitap",
+    title: "",
     type: "Kitap",
     image: "/media-images/milliyet-sanat 2.jpeg",
     source: "",

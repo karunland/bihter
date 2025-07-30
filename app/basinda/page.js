@@ -3,13 +3,10 @@
 import React, { useRef, useState } from 'react';
 import ImageCarouselCard from '../components/ImageCarouselCard';
 import Lightbox from '../components/Lightbox';
-import { mediaItems } from '../../data/mediaItems';
+import { roportajlar } from '@/data/roportajlar';
+import { news } from '@/data/news';
 
 const BasindaPage = () => {
-  // Veriyi türüne göre ayır
-  const kitapHaberleri = mediaItems.filter(item => item.type === 'Kitap');
-  const roportajlar = mediaItems.filter(item => item.type === 'Röportaj');
-  
   // Slider referansı
   const sliderRef = useRef(null);
   
@@ -40,13 +37,13 @@ const BasindaPage = () => {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === kitapHaberleri.length - 1 ? 0 : prev + 1
+      prev === news.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === 0 ? kitapHaberleri.length - 1 : prev - 1
+      prev === 0 ? news.length - 1 : prev - 1
     );
   };
 
@@ -71,7 +68,7 @@ const BasindaPage = () => {
             className="overflow-x-auto scrollbar-hide px-4"
           >
             <div className="flex gap-4 md:gap-6 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
-              {kitapHaberleri.map((item, index) => (
+              {news.map((item, index) => (
                 <div 
                   key={item.id} 
                   className="flex-shrink-0 w-72 md:w-80 lg:w-96"
@@ -110,7 +107,7 @@ const BasindaPage = () => {
           
           {/* Slider Indicators */}
           <div className="flex justify-center mt-8 space-x-3">
-            {kitapHaberleri.map((_, index) => (
+            {news.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollToCard(index)}
@@ -170,7 +167,7 @@ const BasindaPage = () => {
       <Lightbox
         isOpen={lightboxOpen}
         onClose={closeLightbox}
-        images={kitapHaberleri}
+        images={news}
         currentIndex={currentImageIndex}
         onNext={nextImage}
         onPrev={prevImage}

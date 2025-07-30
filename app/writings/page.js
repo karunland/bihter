@@ -3,30 +3,20 @@
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, Filter, SortAsc, SortDesc, ExternalLink, Download } from 'lucide-react';
-
-const loadContentData = async () => {
-  try {
-    const response = await fetch('/data/content.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Veri yüklenirken hata oluştu:', error);
-    return { writings: [] };
-  }
-};
+import { writings } from '@/data/writings';
 
 export default function WritingsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
-  const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
-  const [writings, setWritings] = useState([]);
+  const [sortOrder, setSortOrder] = useState('desc');
+  const [writingsData, setWritingsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
+  
   useEffect(() => {
     const fetchData = async () => {
-      const data = await loadContentData();
-      setWritings(data.writings || []);
+      setWritingsData(writings || []);
       
-      var uniqueCategories = [...new Set(data.writings.map(writing => writing.category))];
+      var uniqueCategories = [...new Set(writings.map(writing => writing.category))];
       uniqueCategories.push('Tümü');
       uniqueCategories.reverse();
       setCategories(uniqueCategories);
@@ -38,11 +28,11 @@ export default function WritingsPage() {
   }, []);
 
   const filteredAndSortedWritings = useMemo(() => {
-    let filtered = writings;
+    let filtered = writingsData;
     
     // Kategori filtreleme
     if (selectedCategory !== 'Tümü') {
-      filtered = writings.filter(writing => writing.category === selectedCategory);
+      filtered = writingsData.filter(writing => writing.category === selectedCategory);
     }
     
     // Sadece tarihe göre sıralama
@@ -58,7 +48,7 @@ export default function WritingsPage() {
     });
     
     return filtered;
-  }, [writings, selectedCategory, sortOrder]);
+  }, [writingsData, selectedCategory, sortOrder]);
 
   return (
     <div className="bg-white min-h-screen">

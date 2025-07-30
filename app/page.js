@@ -6,7 +6,8 @@ import { ArrowRight, BookOpen, Mic, Users, Calendar, Video, ExternalLink } from 
 import StructuredData from './components/StructuredData';
 import ImageCarouselCard from './components/ImageCarouselCard';
 import Lightbox from './components/Lightbox';
-import { mediaItems } from '../data/mediaItems';
+import { news } from '@/data/news';
+import { writings } from '@/data/writings';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
@@ -14,7 +15,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   
   // Gazete küpürleri için state
-  const kitapHaberleri = mediaItems.filter(item => item.type === 'Kitap');
   const sliderRef = useRef(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -22,12 +22,7 @@ export default function Home() {
   useEffect(() => {
     const fetchWritings = async () => {
       try {
-        const response = await fetch('/data/content.json');
-        const data = await response.json();
-        
-        // En son 3 yazıyı al (harici ve normal yazılar dahil)
-        const allWritings = data.writings || [];
-        const sortedWritings = allWritings.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const sortedWritings = writings.sort((a, b) => new Date(b.date) - new Date(a.date));
         const recent = sortedWritings.slice(0, 3);
         
         setRecentWritings(recent);
@@ -53,13 +48,13 @@ export default function Home() {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === kitapHaberleri.length - 1 ? 0 : prev + 1
+      prev === news.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === 0 ? kitapHaberleri.length - 1 : prev - 1
+      prev === 0 ? news.length - 1 : prev - 1
     );
   };
 
@@ -133,7 +128,7 @@ export default function Home() {
             className="overflow-x-auto scrollbar-hide px-4"
           >
             <div className="flex gap-4 md:gap-6 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
-              {kitapHaberleri.map((item, index) => (
+              {news.map((item, index) => (
                 <div 
                   key={item.id} 
                   className="flex-shrink-0 w-64 md:w-72 lg:w-80"
@@ -502,7 +497,7 @@ export default function Home() {
       <Lightbox
         isOpen={lightboxOpen}
         onClose={closeLightbox}
-        images={kitapHaberleri}
+        images={news}
         currentIndex={currentImageIndex}
         onNext={nextImage}
         onPrev={prevImage}

@@ -3,32 +3,21 @@
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, MapPin, Filter, SortAsc, SortDesc, Music, Theater, Users } from 'lucide-react';
-import Sidebar from '../components/Sidebar';
-
-// JSON dosyasından veri yükleme fonksiyonu
-const loadContentData = async () => {
-  try {
-    const response = await fetch('/data/content.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Veri yüklenirken hata oluştu:', error);
-    return { performance: [] };
-  }
-};
-
-const categories = ['Tümü', 'Tiyatro', 'Müzik', 'Dans'];
+import { performances } from '@/data/performances';
 
 export default function PerformancePage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
   const [performances, setPerformances] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await loadContentData();
-      setPerformances(data.performance || []);
+      setPerformances(performances || []);
+      var uniqueCategories = [...new Set(performances.map(performance => performance.category))];
+      uniqueCategories.unshift('Tümü');
+      setCategories(uniqueCategories);
       setLoading(false);
     };
 

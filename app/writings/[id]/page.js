@@ -5,18 +5,7 @@ import { useState, useEffect, use } from 'react';
 import { ArrowLeft, Calendar, Clock, User, BookOpen, Download } from 'lucide-react';
 import Sidebar from '../../components/Sidebar';
 import Image from 'next/image';
-
-// JSON dosyasından veri yükleme fonksiyonu
-const loadContentData = async () => {
-  try {
-    const response = await fetch('/data/content.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Veri yüklenirken hata oluştu:', error);
-    return { writings: [] };
-  }
-};
+import { writings } from '@/data/writings';
 
 export default function WritingDetailPage({ params }) {
   const unwrappedParams = use(params);
@@ -27,8 +16,7 @@ export default function WritingDetailPage({ params }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await loadContentData();
-        const foundWriting = data.writings.find(w => w.id === unwrappedParams.id);
+        const foundWriting = writings.find(w => w.id === unwrappedParams.id);
         
         if (foundWriting) {
           setWriting(foundWriting);
