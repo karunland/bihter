@@ -4,11 +4,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, BookOpen, Mic, Users, Calendar, Video, ExternalLink } from 'lucide-react';
 import StructuredData from './components/StructuredData';
-import { useState, useEffect } from 'react';
+import ImageCarouselCard from './components/ImageCarouselCard';
+import Lightbox from './components/Lightbox';
+import { mediaItems } from '../data/mediaItems';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
   const [recentWritings, setRecentWritings] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Gazete küpürleri için state
+  const kitapHaberleri = mediaItems.filter(item => item.type === 'Kitap');
+  const sliderRef = useRef(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchWritings = async () => {
@@ -31,6 +40,32 @@ export default function Home() {
 
     fetchWritings();
   }, []);
+
+  // Lightbox fonksiyonları
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === kitapHaberleri.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? kitapHaberleri.length - 1 : prev - 1
+    );
+  };
+
+  const goToImage = (index) => {
+    setCurrentImageIndex(index);
+  };
 
   return (
     <div className="bg-white page-transition">
@@ -78,6 +113,158 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gazete Küpürleri */}
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4 mb-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              📰 Basında
+            </h2>
+            <p className="text-lg text-gray-600">
+              Kitaplarımla ilgili basında çıkan haberler
+            </p>
+          </div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto">
+          {/* Slider Container */}
+          <div 
+            ref={sliderRef}
+            className="overflow-x-auto scrollbar-hide px-4"
+          >
+            <div className="flex gap-4 md:gap-6 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
+              {kitapHaberleri.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className="flex-shrink-0 w-64 md:w-72 lg:w-80"
+                  style={{ scrollSnapAlign: 'start' }}
+                >
+                  <ImageCarouselCard 
+                    image={item.image}
+                    type={item.type}
+                    onClick={() => openLightbox(index)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => sliderRef.current?.scrollBy({ left: -300, behavior: 'smooth' })}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white rounded-full p-3 transition-all z-20 shadow-lg"
+            aria-label="Önceki"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button
+            onClick={() => sliderRef.current?.scrollBy({ left: 300, behavior: 'smooth' })}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white rounded-full p-3 transition-all z-20 shadow-lg"
+            aria-label="Sonraki"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          
+          {/* Daha fazla göster butonu */}
+          <div className="text-center mt-8">
+            <Link
+              href="/basinda"
+              className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              Tüm basın haberlerini görüntüle
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Kitabım */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Kitabım
+            </h2>
+          </div> */}
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+                {/* Kitap Kapağı */}
+                <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-8 flex items-center justify-center">
+                  <div className="relative">
+                    <Image
+                      src="/dr.jpeg"
+                      alt="Şüpheli Şeylerin Keşfi - Bihter Sabanoğlu"
+                      width={256}
+                      height={384}
+                      className="w-64 h-auto rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
+                    />
+                    {/* Dekoratif element */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
+                    <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+                  </div>
+                </div>
+
+                {/* Kitap Bilgileri */}
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                      Şüpheli Şeylerin Keşfi
+                    </h3>
+                    <p className="text-lg text-gray-600 mb-4">
+                      <span className="font-medium">Yazar:</span> Bihter Sabanoğlu
+                    </p>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Her gün çehresi değişen kadim kenti farklı bir gözle izleyen bir roman. 
+                      Tesadüf süsü verilmiş bir karşılaşmanın ardından eski mektuplar kutulardan 
+                      çıkıyor ve geçmiş ile şimdi arasında bir yolculuk başlıyor. İstanbul&apos;un 
+                      tarihi mekânlarında geçen 29 günlük Şubat ayı boyunca süren hikâye.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+                    <div>
+                      <span className="text-gray-500">Yayın Yılı:</span>
+                      <div className="font-medium text-gray-900">2022</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Yayınevi:</span>
+                      <div className="font-medium text-gray-900">Edisyon Kitap</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Sayfa Sayısı:</span>
+                      <div className="font-medium text-gray-900">260</div>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Boyut:</span>
+                      <div className="font-medium text-gray-900">13,5 x 21 cm</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a
+                      href="https://www.dr.com.tr/Kitap/supheli-seylerin-Kesfi/Edebiyat/Roman/Turkiye-Roman/urunno=0001959706001"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                    >
+                      Satın Al
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Öne Çıkan İçerikler */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,9 +272,9 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Öne Çıkan İçerikler
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {/* <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Yazılarımdan, podcastlerimden ve etkinliklerimden seçmeler
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -202,88 +389,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Kitabım */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Kitabım
-            </h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                {/* Kitap Kapağı */}
-                <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-8 flex items-center justify-center">
-                  <div className="relative">
-                    <Image
-                      src="/dr.jpeg"
-                      alt="Şüpheli Şeylerin Keşfi - Bihter Sabanoğlu"
-                      width={256}
-                      height={384}
-                      className="w-64 h-auto rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
-                    />
-                    {/* Dekoratif element */}
-                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
-                    <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-                  </div>
-                </div>
-
-                {/* Kitap Bilgileri */}
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <div className="mb-6">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-3">
-                      Şüpheli Şeylerin Keşfi
-                    </h3>
-                    <p className="text-lg text-gray-600 mb-4">
-                      <span className="font-medium">Yazar:</span> Bihter Sabanoğlu
-                    </p>
-                    <p className="text-gray-600 leading-relaxed mb-6">
-                      Her gün çehresi değişen kadim kenti farklı bir gözle izleyen bir roman. 
-                      Tesadüf süsü verilmiş bir karşılaşmanın ardından eski mektuplar kutulardan 
-                      çıkıyor ve geçmiş ile şimdi arasında bir yolculuk başlıyor. İstanbul&apos;un 
-                      tarihi mekânlarında geçen 29 günlük Şubat ayı boyunca süren hikâye.
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
-                    <div>
-                      <span className="text-gray-500">Yayın Yılı:</span>
-                      <div className="font-medium text-gray-900">2022</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-500">Yayınevi:</span>
-                      <div className="font-medium text-gray-900">Edisyon Kitap</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-500">Sayfa Sayısı:</span>
-                      <div className="font-medium text-gray-900">260</div>
-                    </div>
-                    <div>
-                      <span className="text-gray-500">Boyut:</span>
-                      <div className="font-medium text-gray-900">13,5 x 21 cm</div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a
-                      href="https://www.dr.com.tr/Kitap/supheli-seylerin-Kesfi/Edebiyat/Roman/Turkiye-Roman/urunno=0001959706001"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                    >
-                      Satın Al
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Son Yazılar */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -291,9 +396,9 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Son Yazılar
             </h2>
-            <p className="text-lg text-gray-600">
+            {/* <p className="text-lg text-gray-600">
               En güncel yazılarımdan birkaçı
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -392,6 +497,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <Lightbox
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        images={kitapHaberleri}
+        currentIndex={currentImageIndex}
+        onNext={nextImage}
+        onPrev={prevImage}
+        onGoTo={goToImage}
+      />
     </div>
   );
 }
