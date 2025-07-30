@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BookOpen, Mic, Users, Calendar, Video, ExternalLink } from 'lucide-react';
 import StructuredData from './components/StructuredData';
 import { useState, useEffect } from 'react';
@@ -209,7 +210,7 @@ export default function Home() {
               Kitabım
             </h2>
             <p className="text-lg text-gray-600">
-              İlk romanım "Şüpheli Şeylerin Keşfi"
+              İlk romanım &quot;Şüpheli Şeylerin Keşfi&quot;
             </p>
           </div>
 
@@ -219,9 +220,11 @@ export default function Home() {
                 {/* Kitap Kapağı */}
                 <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-8 flex items-center justify-center">
                   <div className="relative">
-                    <img
+                    <Image
                       src="/dr.jpg"
                       alt="Şüpheli Şeylerin Keşfi - Bihter Sabanoğlu"
+                      width={256}
+                      height={384}
                       className="w-64 h-auto rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
                     />
                     {/* Dekoratif element */}
@@ -242,7 +245,7 @@ export default function Home() {
                     <p className="text-gray-600 leading-relaxed mb-6">
                       Her gün çehresi değişen kadim kenti farklı bir gözle izleyen bir roman. 
                       Tesadüf süsü verilmiş bir karşılaşmanın ardından eski mektuplar kutulardan 
-                      çıkıyor ve geçmiş ile şimdi arasında bir yolculuk başlıyor. İstanbul'un 
+                      çıkıyor ve geçmiş ile şimdi arasında bir yolculuk başlıyor. İstanbul&apos;un 
                       tarihi mekânlarında geçen 29 günlük Şubat ayı boyunca süren hikâye.
                     </p>
                   </div>
