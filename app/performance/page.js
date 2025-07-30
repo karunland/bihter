@@ -8,16 +8,16 @@ import { performances } from '@/data/performances';
 export default function PerformancePage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
-  const [performances, setPerformances] = useState([]);
+  const [performancesData, setPerformancesData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
+  const [categoriesData, setCategoriesData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      setPerformances(performances || []);
+      setPerformancesData(performances || []);
       var uniqueCategories = [...new Set(performances.map(performance => performance.category))];
       uniqueCategories.unshift('Tümü');
-      setCategories(uniqueCategories);
+      setCategoriesData(uniqueCategories);
       setLoading(false);
     };
 
@@ -25,7 +25,7 @@ export default function PerformancePage() {
   }, []);
 
   const filteredAndSortedPerformances = useMemo(() => {
-    let filtered = performances;
+    let filtered = performancesData;
     
     // Kategori filtreleme
     if (selectedCategory !== 'Tümü') {
@@ -45,7 +45,7 @@ export default function PerformancePage() {
     });
     
     return filtered;
-  }, [performances, selectedCategory, sortOrder]);
+  }, [performancesData, selectedCategory, sortOrder]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -106,7 +106,7 @@ export default function PerformancePage() {
             <div className="flex items-center space-x-4">
               {/* <Filter className="h-5 w-5 text-gray-500" /> */}
               <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
+                {categoriesData.map((category) => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
@@ -145,7 +145,7 @@ export default function PerformancePage() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
               <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
+                {categoriesData.map((category) => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}

@@ -16,7 +16,7 @@ export const performances = [
         date: "2024-04-18",
         time: "19:30",
         location: "Lütfi Kırdar ICEC",
-        category: "Müzik",
+    category: "Müzik",
         image: "/images/performance/classical-music.jpg"
     },
     {

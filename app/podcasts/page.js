@@ -8,17 +8,17 @@ import { podcasts } from '@/data/podcasts';
 export default function PodcastsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc'); // 'asc' veya 'desc'
-  const [podcasts, setPodcasts] = useState([]);
+  const [podcastsData, setPodcastsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
+  const [categoriesData, setCategoriesData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      setPodcasts(podcasts || []);
+      setPodcastsData(podcasts || []);
       
       var uniqueCategories = [...new Set(podcasts.map(podcast => podcast.category))];
       uniqueCategories.reverse();
-      setCategories(uniqueCategories);
+      setCategoriesData(uniqueCategories);
       setLoading(false);
     };
 
@@ -26,7 +26,7 @@ export default function PodcastsPage() {
   }, []);
 
   const filteredAndSortedPodcasts = useMemo(() => {
-    let filtered = podcasts;
+    let filtered = podcastsData;
     
     // Kategori filtreleme
     if (selectedCategory !== 'Tümü') {
@@ -46,7 +46,7 @@ export default function PodcastsPage() {
     });
     
     return filtered;
-  }, [podcasts, selectedCategory, sortOrder]);
+  }, [podcastsData, selectedCategory, sortOrder]);
 
   return (
     <div className="bg-white min-h-screen">
@@ -92,7 +92,7 @@ export default function PodcastsPage() {
                 >
                   Tümü
                 </button>
-                {categories.map((category) => (
+                {categoriesData.map((category) => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
@@ -136,7 +136,7 @@ export default function PodcastsPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
               >
                 <option value="Tümü">Tümü</option>
-                {categories.map((category) => (
+                {categoriesData.map((category) => (
                   <option key={category} value={category}>{category}</option>
                 ))}
               </select>
