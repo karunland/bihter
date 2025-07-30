@@ -159,14 +159,6 @@
       "isExternal": true
     },
     {
-      "id": "modern-turk-edebiyatinda-bizans-imgesi",
-      "title": "Modern Türk edebiyatında Bizans imgesi",
-      "date": "2023-10-15",
-      "category": "Edebiyat Eleştirisi",
-      "externalUrl": "https://t24.com.tr/k24/yazi/modern-turk-edebiyatinda-bizans-imgesi,3903",
-      "isExternal": true
-    },
-    {
       "id": "guneydogu-sinirlarinda-hortlak-ruzihayal",
       "title": "Güneydoğu'nun Sınırlarında Hortlak Ruzihayâl, Oryantal Zevk Âlemleri ve Vampir Ekonomisi",
       "date": "2022-08-02",
@@ -188,6 +180,7 @@
       "date": "2021-07-15",
       "category": "Kültür Yazısı",
       "externalUrl": "https://www.academia.edu/49505414/Bilim_Kurgusal_%C4%B0ntikam_Fantezilerinin_Ba%C5%9Frol%C3%BCnde_%C4%B0stanbul",
+      "pdfLink": "/Bilim_Kurgusal_Intikam_Fantezilerinin_Ba-1.pdf",
       "isExternal": true
     },
     {
@@ -333,6 +326,7 @@
       "date": "2022-04-21",
       "category": "unlimitedrag",
       "externalUrl": "https://www.unlimitedrag.com/post/modern-harem-kadinin-uretilisi",
+      "pdfLink": "https://static1.squarespace.com/static/58d3ea4f1e5b6c804e67e48a/t/65a532143f0f8f3543d8f45f/1705325078299/Bihter+Sabanoglu+%28Complete%29.pdf",
       "readingTime": "9 dk",
       "isExternal": true
     },
@@ -389,6 +383,71 @@
       "externalUrl": "https://www.unlimitedrag.com/post/likenden-deri",
       "readingTime": "5 dk",
       "isExternal": true
+    },
+    {
+      "id": "dogunun-kubbelerinde-tuhaf-bir-meyve",
+      "title": "Doğu’nun Kubbelerinde Tuhaf Bir Meyve Yetişir",
+      "date": "2021-11-08",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://www.unlimitedrag.com/post/dogunun-kubbelerinde-tuhaf-bir-meyve-yetisir",
+      "readingTime": "4 dakikada okunur",
+      "isExternal": true
+    },
+    {
+      "id": "abdulmecid-efendi-sergisi",
+      "title": "Şehzade’nin Sıra Dışı Dünyası: Abdülmecid Efendi. Sakıp Sabancı Müzesi, 21 Aralık 2021–28 Ağustos 2022. Küratör: Nazan Ölçer",
+      "date": "2022-01-01",
+      "category": "Kültür Yazısı",
+      "externalUrl": "https://dergipark.org.tr/tr/download/article-file/2864129",
+      "isExternal": true
+    },
+    {
+      "id": "modern-turk-edebiyatinda-bizans-imgesi",
+      "title": "Modern Türk Edebiyatında Bizans İmgesi",
+      "date": "2022-09-29",
+      "category": "K24",
+      "externalUrl": "https://www.k24kitap.org/modern-turk-edebiyatinda-bizans-imgesi-3771",
+      "isExternal": true
+    },
+    {
+      "id": "manifold-bihter-sabanoglu",
+      "title": "Manifold: Bihter Şabanoğlu Yazısı",
+      "date": "2024-01-01",
+      "category": "Saha",
+      "externalUrl": "https://www.saha.org.tr/en/saha-art-writing/manifold-bihter-sabanoglu",
+      "isExternal": true
+    },
+    {
+      "id": "istanbulda-cinsiyet-karnavali",
+      "title": "İstanbul’da Cinsiyet Karnavalı",
+      "date": "2021-09-20",
+      "category": "Üretimhane",
+      "externalUrl": "https://uretimhane.com.tr/istanbulda-cinsiyet-karnavali/",
+      "isExternal": true
+    },
+    {
+      "id": "ex-oriente-tenebrae",
+      "title": "Out of the East, Darkness Ex Oriente Tenebrae: Byzantine presence in video games",
+      "date": "2024-01-01",
+      "category": "Nuova Antologia Militare",
+      "externalUrl": "https://www.tabedizioni.it/web/content/302556",
+      "isExternal": true
+    },
+    {
+      "id": "teyeller-ve-aksayan-uzuvlar",
+      "title": "Yakıcı Kumaşların Teyelleri, Yamalı Canavarların Aksayan Uzuvları",
+      "date": "2024-01-01",
+      "category": "Sergi Metni",
+      "externalUrl": "/Teyel_Uzuv_Ilizarov_Sergisi_22_09_04_11-1.pdf",
+      "isExternal": true
+    },
+    {
+      "id": "odysseianin-kadin-cevirmenleri",
+      "title": "Odysseia'nın Kadın Çevirmenleri: Azra Erhat'tan Emily Wilson'a Çağrışımlar",
+      "date": "2024-01-01",
+      "category": "Şerhh",
+      "externalUrl": "/Odysseianin_kadin_cevirmenleri_Azra_Erha.pdf",
+      "isExternal": true
     }
   ],
   "podcasts": [
@@ -402,17 +461,6 @@
       "platform": "Spotify",
       "platformUrl": "https://open.spotify.com/episode/3zeXbGTqMUKwWxk4QnORNg",
       "category": "Edebiyat"
-    },
-    {
-      "id": "spotify-podcast-2",
-      "title": "Sanat Eleştirisi ve Kültür Söyleşileri",
-      "subtitle": "Çağdaş Sanat ve Kültür Üzerine Eleştirel Bakış",
-      "excerpt": "Günümüz sanatının farklı alanları, kültür politikaları ve sanatın toplumsal rolü üzerine eleştirel değerlendirmeler.",
-      "date": "2021-12-27",
-      "duration": "22:52",
-      "platform": "Spotify",
-      "platformUrl": "https://open.spotify.com/episode/59b1NuI3AiFrRPzM7oU4G2",
-      "category": "Sanat Eleştirisi"
     },
     {
       "id": "spotify-podcast-3",

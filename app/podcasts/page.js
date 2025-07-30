@@ -28,7 +28,6 @@ export default function PodcastsPage() {
       setPodcasts(data.podcasts || []);
       
       var uniqueCategories = [...new Set(data.podcasts.map(podcast => podcast.category))];
-      uniqueCategories.push('Tümü');
       uniqueCategories.reverse();
       setCategories(uniqueCategories);
       

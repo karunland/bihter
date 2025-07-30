@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, use } from 'react';
-import { ArrowLeft, Calendar, Clock, User, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, BookOpen, Download } from 'lucide-react';
 import Sidebar from '../../components/Sidebar';
 import Image from 'next/image';
 
@@ -178,19 +178,37 @@ export default function WritingDetailPage({ params }) {
                   {writing.excerpt}
                 </p> */}
                 
-                <div className="flex items-center space-x-6 text-sm text-white/80">
-                  <div className="flex items-center">
-                    <User className="h-4 w-4 mr-2" />
-                    <span>{writing.author}</span>
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center space-x-6 text-sm text-white/80">
+                    <div className="flex items-center">
+                      <User className="h-4 w-4 mr-2" />
+                      <span>{writing.author}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      <span>{formatDate(writing.date)}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-2" />
+                      <span>{writing.readTime}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    <span>{formatDate(writing.date)}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 mr-2" />
-                    <span>{writing.readTime}</span>
-                  </div>
+                  
+                  {/* PDF İndir Butonu */}
+                  {writing.pdfLink && (
+                    <div>
+                      <a
+                        href={writing.pdfLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-md hover:bg-white/20 transition-colors font-medium"
+                        title="PDF'i indir"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        PDF İndir
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

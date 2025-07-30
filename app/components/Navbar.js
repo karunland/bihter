@@ -13,6 +13,7 @@ const navigation = [
   { name: 'Performans', href: '/performance' },
   { name: 'Etkinlikler', href: '/events' },
   { name: 'Medya', href: '/media' },
+  { name: 'Basında', href: '/basinda' },
   { name: 'Hakkında', href: '/about' },
   { name: 'İletişim', href: '/contact' },
 ];

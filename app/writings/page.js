@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Calendar, Clock, Filter, SortAsc, SortDesc, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Filter, SortAsc, SortDesc, ExternalLink, Download } from 'lucide-react';
 
 const loadContentData = async () => {
   try {
@@ -262,25 +262,43 @@ export default function WritingsPage() {
 
                       {/* Card Footer */}
                       <div className="px-6 pb-6">
-                        {writing.isExternal ? (
-                          <a
-                            href={writing.externalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
-                          >
-                            Okumaya git
-                            <ExternalLink className="ml-1 h-3 w-3" />
-                          </a>
-                        ) : (
-                          <Link
-                            href={`/writings/${writing.id}`}
-                            className="inline-flex items-center text-sm text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                          >
-                            Devamını oku
-                            <ArrowLeft className="ml-1 h-3 w-3 rotate-180" />
-                          </Link>
-                        )}
+                        <div className="flex items-center justify-between">
+                          <div>
+                            {writing.isExternal ? (
+                              <a
+                                href={writing.externalUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                              >
+                                Okumaya git
+                                <ExternalLink className="ml-1 h-3 w-3" />
+                              </a>
+                            ) : (
+                              <Link
+                                href={`/writings/${writing.id}`}
+                                className="inline-flex items-center text-sm text-gray-900 font-medium hover:text-gray-700 transition-colors"
+                              >
+                                Devamını oku
+                                <ArrowLeft className="ml-1 h-3 w-3 rotate-180" />
+                              </Link>
+                            )}
+                          </div>
+                          
+                          {/* PDF İndir Butonu */}
+                          {writing.pdfLink && (
+                            <a
+                              href={writing.pdfLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-3 py-1.5 text-xs bg-red-50 text-red-700 border border-red-200 rounded-md hover:bg-red-100 transition-colors font-medium"
+                              title="PDF'i indir"
+                            >
+                              <Download className="h-3 w-3 mr-1" />
+                              PDF İndir
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </article>
                   ))}

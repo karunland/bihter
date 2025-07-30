@@ -209,9 +209,6 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Kitabım
             </h2>
-            <p className="text-lg text-gray-600">
-              İlk romanım &quot;Şüpheli Şeylerin Keşfi&quot;
-            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -221,7 +218,7 @@ export default function Home() {
                 <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-8 flex items-center justify-center">
                   <div className="relative">
                     <Image
-                      src="/dr.jpg"
+                      src="/dr.jpeg"
                       alt="Şüpheli Şeylerin Keşfi - Bihter Sabanoğlu"
                       width={256}
                       height={384}
