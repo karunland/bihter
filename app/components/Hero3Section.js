@@ -68,7 +68,7 @@ export default function Hero3Section() {
                 Sanatsal Performans
               </h3>
               <p className="text-gray-600">
-                İstanbul'un tarihi mekânlarında gerçekleştirilen özel bir performanstan kesitler
+                İstanbul&apos;un tarihi mekânlarında gerçekleştirilen özel bir performanstan kesitler
               </p>
               
               {/* Video Stats */}

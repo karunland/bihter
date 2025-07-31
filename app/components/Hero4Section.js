@@ -22,8 +22,8 @@ export default function Hero4Section() {
                 </p>
                 <p>
                   Podcastler, performanslar ve çeşitli etkinliklerle de sanat ve edebiyat 
-                  dünyasına katkıda bulunuyor. "Şüpheli Şeylerin Keşfi" romanıyla 
-                  okuyucularını İstanbul'un tarihi dokularında bir yolculuğa çıkarıyor.
+                  dünyasına katkıda bulunuyor. &quot;Şüpheli Şeylerin Keşfi&quot; romanıyla 
+                  okuyucularını İstanbul&apos;un tarihi dokularında bir yolculuğa çıkarıyor.
                 </p>
               </div>
             </div>
