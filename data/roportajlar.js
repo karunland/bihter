@@ -15,7 +15,6 @@ export const roportajlar = [
     link: "#",
     source: "Radikal",
   },
-
   {
     id: 3,
     title: "Edebiyat Haber",
