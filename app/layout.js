@@ -84,6 +84,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-icon" />
@@ -95,10 +96,10 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#BDB395" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <div className="min-h-screen flex flex-col">
+      <body className={`${inter.variable} font-sans antialiased overflow-x-hidden`}>
+        <div className="min-h-screen flex flex-col max-w-full overflow-x-hidden">
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 w-full max-w-full overflow-x-hidden">
             {children}
           </main>
           <Footer />
