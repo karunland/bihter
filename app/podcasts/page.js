@@ -196,60 +196,74 @@ export default function PodcastsPage() {
                       key={podcast.id}
                       className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow"
                     >
-                      <div className="flex items-center text-sm text-gray-500 mb-4">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        <span>{new Date(podcast.date).toLocaleDateString('tr-TR', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}</span>
-                        <span className="mx-2">•</span>
-                        <Clock className="h-4 w-4 mr-2" />
-                        <span>{podcast.duration}</span>
-                        <span className="mx-2">•</span>
-                        <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                          {podcast.category}
-                        </span>
-                      </div>
-
-                      <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                        {podcast.title}
-                      </h2>
-                      
-                      <h3 className="text-lg font-medium text-gray-700 mb-4">
-                        {podcast.subtitle}
-                      </h3>
-
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {podcast.excerpt}
-                      </p>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <a
-                            href={podcast.platformUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
-                          >
-                            <Play className="h-4 w-4 mr-2" />
-                            {podcast.platform}&apos;da Dinle
-                          </a>
-                          
-                          <span className="text-sm text-gray-500">
-                            Platform: {podcast.platform}
-                          </span>
+                      <div className="flex flex-col sm:flex-row gap-6">
+                        {/* Podcast Kapak Resmi */}
+                        <div className="flex-shrink-0 sm:w-32">
+                          <img 
+                            src={podcast.image} 
+                            alt={podcast.title}
+                            className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover shadow-sm mx-auto sm:mx-0"
+                          />
                         </div>
 
-                        <a
-                          href={podcast.platformUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-gray-600 transition-colors"
-                          aria-label={`${podcast.platform} linki`}
-                        >
-                          <ExternalLink className="h-5 w-5" />
-                        </a>
+                        {/* Podcast İçeriği */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center text-sm text-gray-500 mb-4">
+                            <Calendar className="h-4 w-4 mr-2" />
+                            <span>{new Date(podcast.date).toLocaleDateString('tr-TR', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric'
+                            })}</span>
+                            <span className="mx-2">•</span>
+                            <Clock className="h-4 w-4 mr-2" />
+                            <span>{podcast.duration}</span>
+                            <span className="mx-2">•</span>
+                            <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
+                              {podcast.category}
+                            </span>
+                          </div>
+
+                          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                            {podcast.title}
+                          </h2>
+                          
+                          <h3 className="text-lg font-medium text-gray-700 mb-4">
+                            {podcast.subtitle}
+                          </h3>
+
+                          <p className="text-gray-600 mb-6 leading-relaxed">
+                            {podcast.excerpt}
+                          </p>
+
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-4">
+                              <a
+                                href={podcast.platformUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+                              >
+                                <Play className="h-4 w-4 mr-2" />
+                                {podcast.platform}&apos;da Dinle
+                              </a>
+                              
+                              <span className="text-sm text-gray-500">
+                                Platform: {podcast.platform}
+                              </span>
+                            </div>
+
+                            <a
+                              href={podcast.platformUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-400 hover:text-gray-600 transition-colors"
+                              aria-label={`${podcast.platform} linki`}
+                            >
+                              <ExternalLink className="h-5 w-5" />
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </article>
                   ))}
