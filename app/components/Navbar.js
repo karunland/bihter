@@ -28,10 +28,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors ">
-              <div className="font-light drop-shadow-lg">
-                Bihter Sabanoğlu
-              </div>
+            <Link href="/" className="text-3xl font-dancing-script font-bold text-gray-900 hover:text-gray-700 transition-colors drop-shadow-sm">
+              Bihter Sabanoğlu
             </Link>
           </div>
 

@@ -11,6 +11,9 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'dancing-script': ['var(--font-dancing-script)', 'cursive'],
+      },
     },
   },
   plugins: [

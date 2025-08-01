@@ -6,9 +6,9 @@ export default function Hero4Section() {
           {/* Sol taraf - Yazar Biyografisi */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Yazar Hakkında
-              </h2>
+              </h2> */}
               <div className="prose prose-lg text-gray-600 leading-relaxed">
                 <p className="mb-4">
                   İngiliz Edebiyatı, Bizans ve klasik sanat tarihinin yanı sıra hiyeroglif, 

@@ -28,21 +28,19 @@ body {
   margin: 0;
 }
 
-/* Mobile overflow koruması */
-*,
-*::before,
-*::after {
+/* Mobile overflow koruması - sadece problematik elementler için */
+pre,
+code,
+table {
   max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-/* Container'lar için ek koruma */
-.container,
-[class*="container"],
-[class*="max-w"],
-section,
-article,
-div {
-  max-width: 100%;
+/* Sadece text içerikleri için koruma */
+p,
+span:not([class*="max-w"]),
+h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -117,6 +115,13 @@ code {
 }
 
 /* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

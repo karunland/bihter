@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Calendar, Clock, MapPin, SortAsc, SortDesc } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink } from 'lucide-react';
 import { events } from '@/data/events';
+import Lightbox from '@/app/components/Lightbox';
 
 export default function EventsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
@@ -11,6 +12,10 @@ export default function EventsPage() {
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriesData, setCategoriesData] = useState([]);
+  
+  // Lightbox state
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +64,42 @@ export default function EventsPage() {
 
   const isUpcoming = (dateString) => {
     return new Date(dateString) > new Date();
+  };
+
+  // Lightbox için veri hazırlama
+  const lightboxImages = useMemo(() => {
+    return filteredAndSortedEvents.map(event => ({
+      image: event.image,
+      title: event.title,
+      source: `${formatDate(event.date)} • ${event.location}`,
+      link: event.link || '#'
+    }));
+  }, [filteredAndSortedEvents]);
+
+  // Lightbox kontrol fonksiyonları
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === lightboxImages.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? lightboxImages.length - 1 : prev - 1
+    );
+  };
+
+  const goToImage = (index) => {
+    setCurrentImageIndex(index);
   };
 
   return (
@@ -170,95 +211,94 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* Etkinlikler Listesi */}
+      {/* Etkinlikler Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Ana İçerik */}
-            <div className="flex-1">
-              {loading ? (
-                <div className="space-y-8">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 animate-pulse">
-                      <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
-                      <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
-                      <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-                      <div className="h-4 bg-gray-200 rounded w-2/3"></div>
-                    </div>
-                  ))}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden animate-pulse">
+                  <div className="aspect-[3/4] bg-gray-200"></div>
+                  <div className="p-6">
+                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                  </div>
                 </div>
-              ) : filteredAndSortedEvents.length === 0 ? (
-                <div className="text-center py-12">
-                  <p className="text-gray-500 text-lg">
-                    Seçilen kategoride etkinlik bulunamadı.
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-8">
-                  {filteredAndSortedEvents.map((event) => (
-                    <article
-                      key={event.id}
-                      className={`bg-white rounded-lg shadow-sm border p-8 hover:shadow-md transition-shadow ${
-                        isUpcoming(event.date) 
-                          ? 'border-blue-200 bg-blue-50' 
-                          : 'border-gray-100'
-                      }`}
-                    >
-                      <div className="flex items-center text-sm text-gray-500 mb-4">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        <span>{formatDate(event.date)}</span>
-                        <span className="mx-2">•</span>
-                        <Clock className="h-4 w-4 mr-2" />
-                        <span>{event.time}</span>
-                        <span className="mx-2">•</span>
-                        <span className={`px-2 py-1 rounded-full text-xs ${
-                          isUpcoming(event.date)
-                            ? 'bg-blue-100 text-blue-800'
-                            : 'bg-gray-100 text-gray-700'
-                        }`}>
-                          {isUpcoming(event.date) ? 'Yaklaşan' : 'Geçmiş'}
-                        </span>
-                        <span className="mx-2">•</span>
-                        <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                          {event.category}
-                        </span>
-                      </div>
-
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                        <Link
-                          href={`/events/${event.id}`}
-                          className="hover:text-gray-700 transition-colors"
-                        >
-                          {event.title}
-                        </Link>
-                      </h2>
-
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {event.excerpt}
-                      </p>
-
-                      <div className="flex items-center text-sm text-gray-500 mb-4">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        <span>{event.location}</span>
-                      </div>
-
-                      <Link
-                        href={`/events/${event.id}`}
-                        className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                      >
-                        Detayları gör
-                        <ArrowLeft className="ml-1 h-4 w-4 rotate-180" />
-                      </Link>
-                    </article>
-                  ))}
-                </div>
-              )}
+              ))}
             </div>
+          ) : filteredAndSortedEvents.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">
+                Seçilen kategoride etkinlik bulunamadı.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredAndSortedEvents.map((event, index) => (
+                <article
+                  key={event.id}
+                  className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                  onClick={() => openLightbox(index)}
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    
+                    {/* Overlay with upcoming status - sadece yaklaşan etkinlikler için */}
+                    {isUpcoming(event.date) && (
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                          Yaklaşan
+                        </span>
+                      </div>
+                    )}
 
-            {/* Sidebar - sadece detay sayfalarında gösterilecek */}
-          </div>
+                    {/* External link indicator */}
+                    {event.link && event.link !== '#' && (
+                      <div className="absolute top-4 right-4">
+                        <div className="bg-white/90 p-2 rounded-full">
+                          <ExternalLink className="h-4 w-4 text-gray-600" />
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Bottom gradient overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                      <div className="text-white">
+                        <h3 className="text-lg font-bold mb-2 line-clamp-2">
+                          {event.title}
+                        </h3>
+                        <div className="flex items-center text-sm text-white/90 mb-1">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          <span>{formatDate(event.date)}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-white/90">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          <span className="line-clamp-1">{event.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Lightbox */}
+      <Lightbox
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        images={lightboxImages}
+        currentIndex={currentImageIndex}
+        onNext={nextImage}
+        onPrev={prevImage}
+        onGoTo={goToImage}
+      />
     </div>
   );
 } 
