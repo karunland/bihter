@@ -4,9 +4,9 @@ import { ArrowLeft, Mail, Phone, MapPin, ExternalLink, Instagram, Twitter, Linke
 export default function ContactPage() {
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white">
       {/* Header */}
-      <section className="py-16 bg-gray-50">
+      <section className="pt-32 pb-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Link
@@ -27,7 +27,7 @@ export default function ContactPage() {
       </section>
 
       {/* İletişim Bilgileri ve Form */}
-      <section className="py-16">
+      <section className="py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* İletişim Bilgileri */}
@@ -138,10 +138,6 @@ export default function ContactPage() {
                   E-posta Gönder
                   <ExternalLink className="h-4 w-4 ml-2" />
                 </a>
-
-                <p className="text-sm text-gray-500 mt-4">
-                  Buton varsayılan e-posta uygulamanızı açacaktır
-                </p>
               </div>
             </div>
           </div>

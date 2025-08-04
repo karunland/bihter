@@ -52,7 +52,7 @@ const BasindaPage = () => {
   };
 
   return (
-    <div className="py-10">
+    <div className="pt-32 pb-10">
 
       {/* Gazete Küpürleri Bölümü - Slider */}
       <section className="mb-16">
@@ -86,7 +86,12 @@ const BasindaPage = () => {
           
           {/* Navigation Arrows */}
           <button
-            onClick={() => sliderRef.current?.scrollBy({ left: -320, behavior: 'smooth' })}
+            onClick={() => {
+              if (sliderRef.current) {
+                const scrollAmount = 320;
+                sliderRef.current.scrollLeft -= scrollAmount;
+              }
+            }}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white rounded-full p-3 transition-all z-20 shadow-lg"
             aria-label="Önceki"
           >
@@ -96,7 +101,12 @@ const BasindaPage = () => {
           </button>
           
           <button
-            onClick={() => sliderRef.current?.scrollBy({ left: 320, behavior: 'smooth' })}
+            onClick={() => {
+              if (sliderRef.current) {
+                const scrollAmount = 320;
+                sliderRef.current.scrollLeft += scrollAmount;
+              }
+            }}
             className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white rounded-full p-3 transition-all z-20 shadow-lg"
             aria-label="Sonraki"
           >

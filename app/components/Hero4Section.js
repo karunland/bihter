@@ -1,6 +1,6 @@
 export default function Hero4Section() {
   return (
-    <section className="bg-white">
+    <section className="bg-white pt-16">
       <div className="w-full">
         <div className="relative w-full h-[80vh] overflow-hidden">
           <video

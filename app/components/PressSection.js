@@ -72,9 +72,14 @@ export default function PressSection() {
             </div>
           </div>
           
-          {/* Navigation Arrows */}
+                    {/* Navigation Arrows */}
           <button
-            onClick={() => sliderRef.current?.scrollBy({ left: -300, behavior: 'smooth' })}
+            onClick={() => {
+              if (sliderRef.current) {
+                const scrollAmount = 300;
+                sliderRef.current.scrollLeft -= scrollAmount;
+              }
+            }}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white rounded-full p-3 transition-all z-20 shadow-lg"
             aria-label="Önceki"
           >
@@ -84,7 +89,12 @@ export default function PressSection() {
           </button>
           
           <button
-            onClick={() => sliderRef.current?.scrollBy({ left: 300, behavior: 'smooth' })}
+            onClick={() => {
+              if (sliderRef.current) {
+                const scrollAmount = 300;
+                sliderRef.current.scrollLeft += scrollAmount;
+              }
+            }}
             className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white rounded-full p-3 transition-all z-20 shadow-lg"
             aria-label="Sonraki"
           >

@@ -49,7 +49,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
       </button>
 
       {/* Ana görsel container */}
-      <div className="h-full w-full flex items-center justify-center p-4">
+      <div className="h-full w-full flex items-center justify-center p-4 relative z-10">
         <div className="relative max-w-4xl max-h-full">
           <img
             src={currentImage.image}
@@ -95,8 +95,11 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
       {/* Sol navigation */}
       {images.length > 1 && (
         <button
-          onClick={onPrev}
-          className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-4 transition-all"
+          onClick={(e) => {
+            e.stopPropagation();
+            onPrev();
+          }}
+          className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-4 transition-all z-50"
           aria-label="Önceki görsel"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,8 +111,11 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
       {/* Sağ navigation */}
       {images.length > 1 && (
         <button
-          onClick={onNext}
-          className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-4 transition-all"
+          onClick={(e) => {
+            e.stopPropagation();
+            onNext();
+          }}
+          className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-4 transition-all z-50"
           aria-label="Sonraki görsel"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,11 +126,14 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
 
       {/* Thumbnail navigation - Alt */}
       {images.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 backdrop-blur-sm rounded-lg p-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 backdrop-blur-sm rounded-lg p-2 z-50">
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => onGoTo && onGoTo(index)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onGoTo && onGoTo(index);
+              }}
               className={`w-3 h-3 rounded-full transition-all ${
                 index === currentIndex 
                   ? 'bg-white' 
@@ -138,7 +147,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
 
       {/* Background click to close */}
       <div 
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 z-0"
         onClick={onClose}
       />
     </div>
