@@ -12,11 +12,9 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        'dancing-script': ['var(--font-dancing-script)', 'cursive'],
+        'playfair': ['var(--font-playfair)', 'serif'],
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [],
 }

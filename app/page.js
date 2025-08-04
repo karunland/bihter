@@ -1,8 +1,6 @@
 'use client';
 
 import StructuredData from './components/StructuredData';
-import HeroSection from './components/HeroSection';
-import Hero2Section from './components/Hero2Section';
 import Hero4Section from './components/Hero4Section';
 import PressSection from './components/PressSection';
 import EventsCarousel from './components/EventsCarousel';
@@ -19,7 +17,7 @@ export default function Home() {
       <Hero4Section />
       <PressSection />
       <EventsCarousel />
-      <BookSection />
+      {/* <BookSection /> */}
       <FeaturedContentSection />
       <RecentArticlesSection />
     </div>

@@ -2,41 +2,28 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Calendar, Clock, Filter, SortAsc, SortDesc, ExternalLink, Download } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, SortAsc, SortDesc, ExternalLink, Download } from 'lucide-react';
 import { writings } from '@/data/writings';
 
 export default function WritingsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc');
   const [writingsData, setWritingsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
   
   useEffect(() => {
     const fetchData = async () => {
       setWritingsData(writings || []);
-      
-      var uniqueCategories = [...new Set(writings.map(writing => writing.category))];
-      uniqueCategories.push('Tümü');
-      uniqueCategories.reverse();
-      setCategories(uniqueCategories);
-      
       setLoading(false);
     };
 
     fetchData();
   }, []);
 
-  const filteredAndSortedWritings = useMemo(() => {
-    let filtered = writingsData;
-    
-    // Kategori filtreleme
-    if (selectedCategory !== 'Tümü') {
-      filtered = writingsData.filter(writing => writing.category === selectedCategory);
-    }
+  const sortedWritings = useMemo(() => {
+    let sorted = [...writingsData];
     
     // Sadece tarihe göre sıralama
-    filtered.sort((a, b) => {
+    sorted.sort((a, b) => {
       const aValue = new Date(a.date);
       const bValue = new Date(b.date);
       
@@ -47,8 +34,8 @@ export default function WritingsPage() {
       }
     });
     
-    return filtered;
-  }, [writingsData, selectedCategory, sortOrder]);
+    return sorted;
+  }, [writingsData, sortOrder]);
 
   return (
     <div className="bg-white min-h-screen">
@@ -63,7 +50,7 @@ export default function WritingsPage() {
               <ArrowLeft className="h-4 w-4 mr-2" />
               Ana Sayfa
             </Link>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
               Yazılar
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -73,90 +60,27 @@ export default function WritingsPage() {
         </div>
       </section>
 
-      {/* Filtreler ve Sıralama */}
+      {/* Sıralama */}
       <section className="py-8 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Desktop Filtreler */}
-          <div className="hidden md:flex flex-col gap-6">
-            {/* Kategori Filtresi */}
+          <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              {/* <Filter className="h-5 w-5 text-gray-500" /> */}
-              {/* <span className="text-sm font-medium text-gray-700">Kategori:</span> */}
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${
-                      selectedCategory === category
-                        ? 'bg-gray-900 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Sıralama */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
-                  title={sortOrder === 'asc' ? 'En yeni önce' : 'En eski önce'}
-                >
-                  {sortOrder === 'asc' ? 'Eski önce' : 'Yeni önce'}
-                  {sortOrder === 'asc' ? (
-                    <SortAsc className="ml-2 h-4 w-4" />
-                  ) : (
-                    <SortDesc className="ml-2 h-4 w-4" />
-                  )}
-                </button>
-              </div>
-
-              <div className="text-sm text-gray-500">
-                {filteredAndSortedWritings.length} yazı bulundu
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Filtreler */}
-          <div className="md:hidden space-y-4">
-            {/* Kategori Filtresi */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
-              >
-                <option value="Tümü">Tümü</option>
-                {categories.map((category) => (
-                  <option key={category} value={category}>{category}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Sıralama */}
-            <div>
               <button
                 onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                className="w-full flex items-center justify-between px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                 title={sortOrder === 'asc' ? 'En yeni önce' : 'En eski önce'}
               >
-                <span>{sortOrder === 'asc' ? 'Eski önce' : 'Yeni önce'}</span>
+                {sortOrder === 'asc' ? 'Eski önce' : 'Yeni önce'}
                 {sortOrder === 'asc' ? (
-                  <SortAsc className="h-4 w-4" />
+                  <SortAsc className="ml-2 h-4 w-4" />
                 ) : (
-                  <SortDesc className="h-4 w-4" />
+                  <SortDesc className="ml-2 h-4 w-4" />
                 )}
               </button>
             </div>
 
-            <div className="text-sm text-gray-500 text-center">
-              {filteredAndSortedWritings.length} yazı bulundu
+            <div className="text-sm text-gray-500">
+              {sortedWritings.length} yazı
             </div>
           </div>
         </div>
@@ -179,15 +103,15 @@ export default function WritingsPage() {
                     </div>
                   ))}
                 </div>
-              ) : filteredAndSortedWritings.length === 0 ? (
+              ) : sortedWritings.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-gray-500 text-lg">
-                    Seçilen kategoride yazı bulunamadı.
+                    Henüz yazı bulunmuyor.
                   </p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredAndSortedWritings.map((writing) => (
+                  {sortedWritings.map((writing) => (
                     <article
                       key={writing.id}
                       className="bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 overflow-hidden group"
@@ -205,9 +129,12 @@ export default function WritingsPage() {
                             })}</span>
                           </div>
                           
-                          <span className="bg-gray-100 px-2 py-1 rounded-full">
-                            {writing.category}
-                          </span>
+                          {/* Yayın mecrası */}
+                          {writing.publication && (
+                            <span className="bg-gray-100 px-2 py-1 rounded-full">
+                              {writing.publication}
+                            </span>
+                          )}
                           
                           {(writing.readTime || writing.readingTime) && (
                             <div className="flex items-center">
@@ -215,12 +142,6 @@ export default function WritingsPage() {
                               <span>{writing.readTime || writing.readingTime}</span>
                             </div>
                           )}
-                          
-                          {/* {writing.isExternal && (
-                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                              Harici
-                            </span>
-                          )} */}
                         </div>
 
                         {/* Title */}
@@ -295,8 +216,6 @@ export default function WritingsPage() {
                 </div>
               )}
             </div>
-
-            {/* Sidebar - sadece detay sayfalarında gösterilecek */}
           </div>
         </div>
       </section>

@@ -6,14 +6,11 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navigation = [
-  // { name: 'Ana Sayfa', href: '/' },
+  { name: 'Kurgu', href: '/kurgu' },
   { name: 'Yazılar', href: '/writings' },
   { name: 'Basında', href: '/basinda' },
   { name: 'Podcastler', href: '/podcasts' },
   { name: 'Etkinlikler', href: '/events' },
-  { name: 'Editörlük', href: '/editorial' },
-  { name: 'Performans', href: '/performance' },
-  { name: 'Medya', href: '/media' },
   { name: 'Hakkında', href: '/about' },
   { name: 'İletişim', href: '/contact' },
 ];
@@ -28,7 +25,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-3xl font-dancing-script font-bold text-gray-900 hover:text-gray-700 transition-colors drop-shadow-sm">
+            <Link href="/" className="text-3xl font-playfair font-bold text-gray-900 hover:text-gray-700 transition-colors drop-shadow-sm">
               Bihter Sabanoğlu
             </Link>
           </div>

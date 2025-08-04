@@ -1,4 +1,4 @@
-import { Inter, Dancing_Script } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -8,10 +8,10 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const dancingScript = Dancing_Script({
-  weight: ["400", "700"],
+const playfairDisplay = Playfair_Display({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-dancing-script",
+  variable: "--font-playfair",
 });
 
 export const metadata = {
@@ -102,7 +102,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#BDB395" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className={`${inter.variable} ${dancingScript.variable} font-sans antialiased overflow-x-hidden`}>
+      <body className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased overflow-x-hidden`}>
         <div className="min-h-screen flex flex-col max-w-full overflow-x-hidden">
           <Navbar />
           <main className="flex-1 w-full max-w-full overflow-x-hidden">
