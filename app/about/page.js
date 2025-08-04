@@ -31,23 +31,13 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            {/* Animasyon */}
+            {/* Portre */}
             <div className="relative">
-              <video
+              <img 
+                src="/portrait.jpeg" 
+                alt="Bihter Sabanoğlu"
                 className="w-3/4 h-auto rounded-lg shadow-lg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-              >
-                <source src="/heroAnimation.webm" type="video/webm" />
-                <img 
-                  src="/bihterAnimation.png" 
-                  alt="Bihter Sabanoğlu"
-                  className="w-3/4 h-auto rounded-lg shadow-lg"
-                />
-              </video>
+              />
             </div>
 
             {/* Biyografi */}

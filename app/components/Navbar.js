@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navigation = [
+  { name: 'Ana Sayfa', href: '/' },
   { name: 'Kurgu', href: '/kurgu' },
   { name: 'Yazılar', href: '/writings' },
   { name: 'Basında', href: '/basinda' },
@@ -17,10 +18,50 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Navbar'ı gizle/göster
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Aşağı scroll - navbar'ı gizle
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Yukarı scroll - navbar'ı göster
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
+  // Mobile menu açıldığında body scroll'u engelle
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <nav className={`bg-white border-b border-gray-100 fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -52,7 +93,7 @@ export default function Navbar() {
                     )}
                     {/* Hover durumunda alt çizgi (aktif değilse) */}
                     {!isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center"></div>
                     )}
                   </Link>
                 );
@@ -80,25 +121,42 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`block px-3 py-2 text-base font-medium transition-all duration-200 ${
-                    isActive 
-                      ? 'text-gray-900 bg-gray-50 border-l-4 border-gray-900' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 border-l-4 border-transparent hover:border-gray-300'
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
+        <div className="md:hidden fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[9999] bg-white">
+          <div className="flex flex-col w-full h-full bg-white">
+            {/* Header with close button */}
+            <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-white">
+              <div className="text-3xl font-playfair font-bold text-gray-900">
+                Bihter Sabanoğlu
+              </div>
+              <button
+                type="button"
+                className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <X className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            
+            {/* Navigation items */}
+            <div className="flex-1 px-4 py-8 space-y-2 bg-white flex flex-col justify-center">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block px-4 py-4 text-xl font-medium transition-all duration-200 rounded-lg ${
+                      isActive 
+                        ? 'text-gray-900 bg-gray-100 border-l-4 border-gray-900' 
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 border-l-4 border-transparent hover:border-gray-300'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
