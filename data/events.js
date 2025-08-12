@@ -33,6 +33,17 @@ export const events = [
         link: "https://muzegazhane.istanbul/etkinlikler/basarinin-pesinde-bihter-sabanoglu/"
     },
     {
+        id: "hastalik-kampi-deyip-gecmeyin",
+        title: "Hastalık Kampı (deyip geçmeyin)",
+        excerpt: "Bu kamp, hastalığı sadece bir patoloji değil, aynı zamanda bir hikâye, bir deneyim, bir anlatı olarak yeniden düşünmeye davet ediyor. Disiplinlerarası bir mercekle geçmişten bugüne uzanan bu bakış, hastalıkla kurduğumuz ilişkiyi sorgulamak ve anlamlandırmak için bir başlangıç noktası sunuyor. ",
+        date: "2025-08-10",
+        time: "12:00",
+        location: "İzmir Şirince",
+        category: "Kamp",
+        image: "/events/hastalikEvent.jpg",
+        link: "https://archeprojesi.com/kamp/hastalik-kampi-deyip-gecmeyin/513"
+    },
+    {
         id: "tedx-etkinligi",
         title: "TEDx Konuşması",
         excerpt: "Edebiyat, sanat ve yaratıcılık üzerine ilham verici konuşma.",

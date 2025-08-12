@@ -71,7 +71,31 @@ export default function PodcastsPage() {
         </div>
       </section>
 
+      {/* Sıralama */}
+      <section className="py-8 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                title={sortOrder === 'asc' ? 'En yeni önce' : 'En eski önce'}
+              >
+                {sortOrder === 'asc' ? 'Eski önce' : 'Yeni önce'}
+                {sortOrder === 'asc' ? (
+                  <SortAsc className="ml-2 h-4 w-4" />
+                ) : (
+                  <SortDesc className="ml-2 h-4 w-4" />
+                )}
+              </button>
+            </div>
 
+            <div className="text-sm text-gray-500">
+              {filteredAndSortedPodcasts.length} podcast
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Podcastler Listesi */}
       <section className="py-16">
