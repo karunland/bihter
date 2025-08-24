@@ -1,31 +1,34 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import BookSection from '../components/BookSection';
+import BasindaSupheliSection from '../components/BasindaSupheliSection';
 import GallerySection from '../components/GallerySection';
 
-export const metadata = {
-  title: 'Kurgu - Bihter Sabanoğlu',
-  description: '1980 yılında İstanbul\'da doğan Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir.',
-  openGraph: {
-    title: 'Kurgu - Bihter Sabanoğlu',
-    description: '1980 yılında İstanbul\'da doğan Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir.',
-    images: [
-      {
-        url: '/portrait.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Bihter Sabanoğlu',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Kurgu - Bihter Sabanoğlu',
-    description: '1980 yılında İstanbul\'da doğan Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir.',
-    images: ['/portrait.jpeg'],
-  },
-};
+// export const metadata = {
+//   title: 'Kurgu - Bihter Sabanoğlu',
+//   description: '1980 yılında İstanbul\'da doğan Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir.',
+//   openGraph: {
+//     title: 'Kurgu - Bihter Sabanoğlu',
+//     description: '1980 yılında İstanbul\'da doğan Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir.',
+//     images: [
+//       {
+//         url: '/portrait.jpeg',
+//         width: 1200,
+//         height: 630,
+//         alt: 'Bihter Sabanoğlu',
+//       },
+//     ],
+//     type: 'website',
+//   },
+//   twitter: {
+//     card: 'summary_large_image',
+//     title: 'Kurgu - Bihter Sabanoğlu',
+//     description: '1980 yılında İstanbul\'da doğan Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir.',
+//     images: ['/portrait.jpeg'],
+//   },
+// };
 
 export default function KurguPage() {
   return (
@@ -50,6 +53,9 @@ export default function KurguPage() {
 
       {/* BookSection */}
       <BookSection />
+
+      {/* Basında Şüpheli Şeyler Bölümü */}
+      <BasindaSupheliSection />
 
       {/* GallerySection */}
       <GallerySection />
