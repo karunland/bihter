@@ -18,9 +18,7 @@ export default function FeaturedContentSection() {
               <BookOpen className="h-8 w-8 text-gray-600" />
               <h3 className="ml-3 text-xl font-semibold text-gray-900">Yazılar</h3>
             </div>
-            <p className="text-gray-600 mb-4">
-              Edebiyat eleştirileri, sanat yazıları ve kültür denemeleri
-            </p>
+           
             <Link
               href="/writings"
               className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
@@ -36,9 +34,6 @@ export default function FeaturedContentSection() {
               <Mic className="h-8 w-8 text-gray-600" />
               <h3 className="ml-3 text-xl font-semibold text-gray-900">Podcastler</h3>
             </div>
-            <p className="text-gray-600 mb-4">
-              Spotify ve iVoox&apos;ta yayınlanan sanat ve edebiyat podcastleri
-            </p>
             <Link
               href="/podcasts"
               className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
@@ -84,41 +79,6 @@ export default function FeaturedContentSection() {
             </Link>
           </div>
 
-          {/* Editörlük */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <BookOpen className="h-8 w-8 text-gray-600" />
-              <h3 className="ml-3 text-xl font-semibold text-gray-900">Editörlük</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Editörlüğünü üstlendiği kitaplar ve yayınlar
-            </p>
-            <Link
-              href="/editorial"
-              className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
-            >
-              Editörlük çalışmaları
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </div>
-
-          {/* Medya */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <Video className="h-8 w-8 text-gray-600" />
-              <h3 className="ml-3 text-xl font-semibold text-gray-900">Medya</h3>
-            </div>
-            <p className="text-gray-600 mb-4">
-              Belgesel ve video içerikleri
-            </p>
-            <Link
-              href="/media"
-              className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
-            >
-              Medya içerikleri
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

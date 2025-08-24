@@ -101,14 +101,6 @@ export const writings = [
         isExternal: true
     },
     {
-        id: "out-east-darkness-ex-oriente-tenebrae",
-        title: "Out of the East, Darkness Ex Oriente Tenebrae: Byzantine presence in video games (A chapter in contemporary Orientalism)",
-        date: "2024-04-17",
-        category: "Kültür Yazısı",
-        externalUrl: "https://manifold.press/bay-maurel-cimiskis-olum-nobeti-bocegi",
-        isExternal: true
-    },
-    {
         id: "fabrication-modern-harem-woman",
         title: "The Fabrication of the Modern Harem Woman: The Dissection of the painting \"Goethe in the Harem\" by Abdülmecid Efendi",
         date: "2024-01-15",
@@ -133,35 +125,11 @@ export const writings = [
         isExternal: true
     },
     {
-        id: "yamuk-giden-teyeller-betonlasan-uzuvlar",
-        title: "Yamuk Giden Teyeller, Betonlaşan Uzuvlar",
-        date: "2023-09-27",
-        category: "Sanat Eleştirisi",
-        externalUrl: "https://manifold.press/yamuk-giden-teyeller-betonlasan-uzuvlar",
-        isExternal: true
-    },
-    {
         id: "kendi-uzerine-kapanan-kivrimlar",
         title: "Kendi üzerine kapanan kıvrımlar",
         date: "2024-01-10",
         category: "Sanat Eleştirisi",
         externalUrl: "https://www.unlimitedrag.com/post/kendi-uzerine-kapanan-kivrimlar",
-        isExternal: true
-    },
-    {
-        id: "sehzadenin-siradisi-dunyasi",
-        title: "Şehzade'nin Sıradışı Dünyası: Sergi İncelemesi",
-        date: "2023-12-15",
-        category: "Sanat Eleştirisi",
-        externalUrl: "https://dergipark.org.tr/tr/download/article-file/2864129",
-        isExternal: true
-    },
-    {
-        id: "guneydogu-sinirlarinda-hortlak-ruzihayal",
-        title: "Güneydoğu'nun Sınırlarında Hortlak Ruzihayâl, Oryantal Zevk Âlemleri ve Vampir Ekonomisi",
-        date: "2022-08-02",
-        category: "Kültür Yazısı",
-        externalUrl: "https://manifold.press/guneydogu-nun-sinirlarinda-hortlak-ruzihayal-oryantal-zevk-alemleri-ve-vampir-ekonomisi",
         isExternal: true
     },
     {
@@ -190,27 +158,11 @@ export const writings = [
         isExternal: true
     },
     {
-        id: "osman-hamdi-epistoler-maceralari",
-        title: "Osman Hamdy'nin Epistoler Maceraları",
-        date: "2021-11-26",
-        category: "Sanat Eleştirisi",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/osman-hamdi-nin-epistoler-maceralari",
-        isExternal: true
-    },
-    {
         id: "super-kadin-ulviye-trans-orlando",
         title: "Süper Kadın Ulviye vs Trans Orlando: İstanbul'da Cinsiyet Karnavalı",
         date: "2021-09-20",
         category: "Kültür Yazısı",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/super-kadin-ulviye-vs-trans-orlando-istanbul-da-cinsiyet-karnavali",
-        isExternal: true
-    },
-    {
-        id: "bergama-stereotip-bildungsroman",
-        title: "Bergama Stereotip'in Bir Bildungsroman Kahramanı Olarak Portresi",
-        date: "2021-02-21",
-        category: "Edebiyat Eleştirisi",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/bergama-stereotip-in-bir-bildungsroman-kahramani-olarak-portresi",
+        externalUrl: "https://uretimhane.com.tr/istanbulda-cinsiyet-karnavali/",
         isExternal: true
     },
     {
@@ -218,7 +170,7 @@ export const writings = [
         title: "Tanagra-mania: Bir Boeotia Köyünden Osman Hamdi'nin Yaradılışı'na",
         date: "2021-01-15",
         category: "Sanat Eleştirisi",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/tanagra-mania-bir-boeotia-koyunden-osman-hamdi-nin-yaradilisi-na",
+        externalUrl: "https://sanatkritik.com/yazilar/tanagra-mania-bir-boeotia-koyunden-osman-hamdinin-yaradilisina-yolculuk/",
         isExternal: true
     },
     {
@@ -227,14 +179,6 @@ export const writings = [
         date: "2021-01-10",
         category: "Kültür Yazısı",
         externalUrl: "https://www.k24kitap.org/k24-yazisi/istanbul-anksiyetelerinin-cizgi-kahramani-bayan-istanbullu",
-        isExternal: true
-    },
-    {
-        id: "odysseia-kadin-cevirmenleri",
-        title: "Odysseia'nın Kadın Çevirmenleri: Azra Erhat'tan Emily Wilson'a Çağrışımlar",
-        date: "2020-11-20",
-        category: "Edebiyat Eleştirisi",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/odysseia-nin-kadin-cevirmenleri-azra-erhat-tan-emily-wilson-a-cagrisimlar",
         isExternal: true
     },
     {
@@ -405,22 +349,6 @@ export const writings = [
         date: "2022-09-29",
         category: "K24",
         externalUrl: "https://www.k24kitap.org/modern-turk-edebiyatinda-bizans-imgesi-3771",
-        isExternal: true
-    },
-    {
-        id: "manifold-bihter-sabanoglu",
-        title: "Manifold: Bihter Şabanoğlu Yazısı",
-        date: "2024-01-01",
-        category: "Saha",
-        externalUrl: "https://www.saha.org.tr/en/saha-art-writing/manifold-bihter-sabanoglu",
-        isExternal: true
-    },
-    {
-        id: "istanbulda-cinsiyet-karnavali",
-        title: "İstanbul’da Cinsiyet Karnavalı",
-        date: "2021-09-20",
-        category: "Üretimhane",
-        externalUrl: "https://uretimhane.com.tr/istanbulda-cinsiyet-karnavali/",
         isExternal: true
     },
     {

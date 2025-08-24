@@ -62,7 +62,7 @@ export default function BookSection() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://www.dr.com.tr/Kitap/supheli-seylerin-Kesfi/Edebiyat/Roman/Turkiye-Roman/urunno=0001959706001"
+                    href="https://www.kitapyurdu.com/kitap/supheli-seylerin-kesfi/606867.html&filter_name=%C5%9F%C3%BCpheli+%C5%9Feylerin+ke%C5%9Ffi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"

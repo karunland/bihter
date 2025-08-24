@@ -72,7 +72,7 @@ export default function PressSection() {
             </div>
           </div>
           
-                    {/* Navigation Arrows */}
+          {/* Navigation Arrows */}
           <button
             onClick={() => {
               if (sliderRef.current) {

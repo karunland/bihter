@@ -43,9 +43,6 @@ export default function KurguPage() {
             <h1 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
               Kurgu
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Edebiyat dünyasından seçkiler
-            </p>
           </div>
         </div>
       </section>

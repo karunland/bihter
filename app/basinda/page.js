@@ -131,47 +131,6 @@ const BasindaPage = () => {
         </div>
       </section>
 
-      {/* Röportajlar Bölümü */}
-      <section className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b-2 border-gray-200 pb-3">
-          🎤 Röportajlar
-        </h2>
-        <div className="space-y-6">
-          {roportajlar.map((item) => (
-            <div key={item.id} className="flex bg-white rounded-2xl shadow hover:shadow-lg transition-all overflow-hidden">
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="w-48 h-32 object-cover flex-shrink-0" 
-              />
-              <div className="p-6 flex-1">
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-xs bg-green-100 text-green-600 px-2 py-0.5 rounded">
-                    {item.type}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-500 mb-4">
-                  {item.source}
-                </p>
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                >
-                  Röportajı Oku
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Lightbox Modal */}
       <Lightbox

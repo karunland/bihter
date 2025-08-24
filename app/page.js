@@ -18,8 +18,8 @@ export default function Home() {
       <PressSection />
       <EventsCarousel />
       {/* <BookSection /> */}
-      <FeaturedContentSection />
       <RecentArticlesSection />
+      <FeaturedContentSection />
     </div>
   );
 }

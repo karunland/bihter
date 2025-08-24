@@ -118,9 +118,6 @@ export default function EventsPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Etkinlikler
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Edebiyat, sanat ve kültür etkinlikleri
-            </p>
           </div>
         </div>
       </section>

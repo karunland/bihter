@@ -1,7 +1,7 @@
 export const podcasts = [
     {
         id: "spotify-podcast-1",
-        title: "Edebiyat ve Sanat Söyleşileri",
+        title: "Yerden Yüksek Açık Radyo",
         subtitle: "Modern Edebiyat ve Sanat Üzerine Derinlemesine Analiz",
         excerpt: "Edebiyat ve sanat dünyasından güncel konular, yazarlar ve sanatçılarla söyleşiler, eleştiriler ve analizler.",
         date: "2022-03-16",
@@ -13,7 +13,7 @@ export const podcasts = [
     },
     {
         id: "spotify-podcast-3",
-        title: "Edebiyat ve Felsefe Söyleşileri",
+        title: "PlumeMag ile Söyleşiler",
         subtitle: "Edebiyatın Felsefi Boyutları ve Düşünce Dünyası",
         excerpt: "Edebiyatın felsefi temelleri, yazarların düşünce dünyaları ve edebiyat-felsefe ilişkisi üzerine derinlemesine söyleşiler.",
         date: "2022-5-19",
@@ -49,7 +49,7 @@ export const podcasts = [
     },
     {
         id: "spotify-podcast-5",
-        title: "Edebiyat ve Kültür Söyleşileri",
+        title: "Ben Buradan Okuyorum",
         subtitle: "Güncel Edebiyat ve Kültürel Tartışmalar",
         excerpt: "Edebiyat dünyasından güncel konular, yazarlar ve kültürel olaylar üzerine değerlendirmeler.",
         date: "2021-12-27",
@@ -57,11 +57,11 @@ export const podcasts = [
         platform: "Spotify",
         platformUrl: "https://open.spotify.com/episode/59b1NuI3AiFrRPzM7oU4G2",
         category: "Edebiyat",
-        image: "/podcasts/spotify.png"
+        image: "/podcasts/apacikRadyo.jpg"
     },
     {
         id: "spotify-podcast-6",
-        title: "Mahxtep ile Söyleşiler",
+        title: "Şüpheli Şeyleri Keşfederek Hayatta Kalma",
         subtitle: "Sanat ve Edebiyat Dünyasından Görüşler",
         excerpt: "Sanat ve edebiyat dünyasındaki güncel gelişmeler, eleştiriler ve analizler üzerine konuşmalar.",
         date: "2023-12-23",

@@ -53,9 +53,6 @@ export default function WritingsPage() {
             <h1 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
               Yazılar
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Edebiyat eleştirileri, sanat yazıları ve kültür denemeleri
-            </p>
           </div>
         </div>
       </section>
@@ -164,11 +161,11 @@ export default function WritingsPage() {
                         </h3>
 
                         {/* Excerpt */}
-                        {!writing.isExternal && writing.excerpt && (
+                        {/* {!writing.isExternal && writing.excerpt && (
                           <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
                             {writing.excerpt}
                           </p>
-                        )}
+                        )} */}
                       </div>
 
                       {/* Card Footer */}

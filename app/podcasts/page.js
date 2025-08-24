@@ -64,9 +64,7 @@ export default function PodcastsPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Podcastler
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Spotify ve iVoox&apos;ta yayınlanan sanat ve edebiyat podcastleri
-            </p>
+           
           </div>
         </div>
       </section>
@@ -209,7 +207,7 @@ export default function PodcastsPage() {
       </section>
 
       {/* Platform Bilgileri */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">
@@ -250,7 +248,7 @@ export default function PodcastsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 } 

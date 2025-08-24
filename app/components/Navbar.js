@@ -9,11 +9,10 @@ const navigation = [
   { name: 'Ana Sayfa', href: '/' },
   { name: 'Kurgu', href: '/kurgu' },
   { name: 'Yazılar', href: '/writings' },
-  { name: 'Basında', href: '/basinda' },
   { name: 'Podcastler', href: '/podcasts' },
+  { name: 'Basında', href: '/basinda' },
   { name: 'Etkinlikler', href: '/events' },
   { name: 'Hakkında', href: '/about' },
-  { name: 'İletişim', href: '/contact' },
 ];
 
 export default function Navbar() {
