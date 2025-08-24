@@ -144,7 +144,7 @@ export const events = [
         time: "16:00",
         location: "İz TV Stüdyo",
         category: "Belgesel",
-        image: "/events/sarnıç çekim.heic"
+        image: "/events/sarnıç çekim.webp"
     },
     {
         id: "iz-tv-hafiza-duraklari-2",
@@ -154,7 +154,7 @@ export const events = [
         time: "16:00",
         location: "İz TV Stüdyo",
         category: "Belgesel",
-        image: "/events/sarnıç çekim 2.HEIC"
+        image: "/events/sarnıç çekim 2.webp"
     },
     {
         id: "iz-tv-hafiza-duraklari-3",
@@ -164,7 +164,7 @@ export const events = [
         time: "16:00",
         location: "İz TV Stüdyo",
         category: "Belgesel",
-        image: "/events/sarnıç çekim 3.HEIC"
+        image: "/events/sarnıç çekim 3.webp"
     },
     {
         id: "depo-etkinligi-2",

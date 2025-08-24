@@ -5,8 +5,9 @@ import { ArrowRight } from 'lucide-react';
 import { useState, useRef } from 'react';
 import Lightbox from './Lightbox';
 import { events } from '@/data/events';
+import { news } from '@/data/news';
 
-const EventCard = ({ event, onClick }) => {
+const MediaCard = ({ item, type, onClick }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('tr-TR', {
@@ -28,16 +29,16 @@ const EventCard = ({ event, onClick }) => {
       {/* Ana Görsel - Dikey Format */}
       <div className="relative h-[400px] w-full">
         <img 
-          src={event.image} 
-          alt={event.title} 
+          src={item.image} 
+          alt={type === 'events' ? item.title : (item.title || item.source || 'Basın haberi')} 
           className="w-full h-full object-cover" 
         />
         
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         
-        {/* Yaklaşan Etkinlik Badge - Üst Sol */}
-        {isUpcoming(event.date) && (
+        {/* Yaklaşan Etkinlik Badge - Sadece etkinlikler için */}
+        {type === 'events' && isUpcoming(item.date) && (
           <div className="absolute top-4 left-4">
             <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
               Yaklaşan
@@ -46,7 +47,7 @@ const EventCard = ({ event, onClick }) => {
         )}
 
         {/* External Link Badge - Üst Sağ */}
-        {event.link && event.link !== '#' && (
+        {item.link && item.link !== '#' && (
           <div className="absolute top-4 right-4">
             <div className="bg-white/90 p-2 rounded-full">
               <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,21 +61,29 @@ const EventCard = ({ event, onClick }) => {
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <div className="text-white">
             <h3 className="text-lg font-bold mb-2 line-clamp-2">
-              {event.title}
+              {type === 'events' ? item.title : (item.title || item.source || 'Basın haberi')}
             </h3>
-            <div className="flex items-center text-sm text-white/90 mb-1">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>{formatDate(event.date)}</span>
-            </div>
-            <div className="flex items-center text-sm text-white/90">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span className="line-clamp-1">{event.location}</span>
-            </div>
+            {type === 'events' ? (
+              <>
+                <div className="flex items-center text-sm text-white/90 mb-1">
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span>{formatDate(item.date)}</span>
+                </div>
+                <div className="flex items-center text-sm text-white/90">
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span className="line-clamp-1">{item.location}</span>
+                </div>
+              </>
+            ) : (
+              <div className="flex items-center text-sm text-white/90">
+                <span>{item.source || item.type || 'Medya'}</span>
+              </div>
+            )}
           </div>
         </div>
         
@@ -91,32 +100,41 @@ const EventCard = ({ event, onClick }) => {
   );
 };
 
-export default function EventsCarousel() {
+const MediaCarousel = ({ title, items, type, viewAllLink, viewAllText }) => {
   const sliderRef = useRef(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // İlk 9 etkinliği al
-  const featuredEvents = events.slice(0, 9);
+  // İlk 9 öğeyi al
+  const featuredItems = items.slice(0, 9);
 
   // Lightbox için veri hazırlama
-  const lightboxImages = featuredEvents.map(event => {
-    const formatDate = (dateString) => {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('tr-TR', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    };
+  const lightboxImages = featuredItems.map(item => {
+    if (type === 'events') {
+      const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('tr-TR', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      };
 
-    return {
-      image: event.image,
-      title: event.title,
-      source: `${formatDate(event.date)} • ${event.location}`,
-      link: event.link || '#'
-    };
+      return {
+        image: item.image,
+        title: item.title,
+        source: `${formatDate(item.date)} • ${item.location}`,
+        link: item.link || '#'
+      };
+    } else {
+      return {
+        image: item.image,
+        title: item.title || item.source || 'Basın haberi',
+        source: item.source || item.type || 'Medya',
+        link: item.link || '#'
+      };
+    }
   });
 
   // Lightbox fonksiyonları
@@ -131,13 +149,13 @@ export default function EventsCarousel() {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === featuredEvents.length - 1 ? 0 : prev + 1
+      prev === featuredItems.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === 0 ? featuredEvents.length - 1 : prev - 1
+      prev === 0 ? featuredItems.length - 1 : prev - 1
     );
   };
 
@@ -151,7 +169,7 @@ export default function EventsCarousel() {
         <div className="max-w-6xl mx-auto px-4 mb-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Etkinlikler
+              {title}
             </h2>
           </div>
         </div>
@@ -163,14 +181,15 @@ export default function EventsCarousel() {
             className="overflow-x-auto scrollbar-hide px-4"
           >
             <div className="flex gap-4 md:gap-6 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
-              {featuredEvents.map((event, index) => (
+              {featuredItems.map((item, index) => (
                 <div 
-                  key={event.id} 
+                  key={item.id} 
                   className="flex-shrink-0 w-64 md:w-72 lg:w-80"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <EventCard 
-                    event={event}
+                  <MediaCard 
+                    item={item}
+                    type={type}
                     onClick={() => openLightbox(index)}
                   />
                 </div>
@@ -212,10 +231,10 @@ export default function EventsCarousel() {
           {/* Daha fazla göster butonu */}
           <div className="text-center mt-8">
             <Link
-              href="/events"
+              href={viewAllLink}
               className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm"
             >
-              Tüm etkinlikleri görüntüle
+              {viewAllText}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
@@ -231,6 +250,30 @@ export default function EventsCarousel() {
         onNext={nextImage}
         onPrev={prevImage}
         onGoTo={goToImage}
+      />
+    </>
+  );
+};
+
+export default function EventsCarousel() {
+  return (
+    <>
+      {/* Etkinlikler Bölümü */}
+      <MediaCarousel
+        title="Etkinlikler"
+        items={events}
+        type="events"
+        viewAllLink="/events"
+        viewAllText="Tüm etkinlikleri görüntüle"
+      />
+      
+      {/* Basında Bölümü */}
+      <MediaCarousel
+        title="Basında"
+        items={news}
+        type="news"
+        viewAllLink="/basinda"
+        viewAllText="Tüm basın haberlerini görüntüle"
       />
     </>
   );

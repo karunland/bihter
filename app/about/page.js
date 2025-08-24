@@ -34,7 +34,7 @@ export default function AboutPage() {
             {/* Portre */}
             <div className="relative">
               <img 
-                src="/portrait.jpeg" 
+                src="/bihtersabanoglu.webp" 
                 alt="Bihter Sabanoğlu"
                 className="w-3/4 h-auto rounded-lg shadow-lg"
               />

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import BookSection from '../components/BookSection';
+import GallerySection from '../components/GallerySection';
 
 export const metadata = {
   title: 'Kurgu - Bihter Sabanoğlu',
@@ -49,6 +50,9 @@ export default function KurguPage() {
 
       {/* BookSection */}
       <BookSection />
+
+      {/* GallerySection */}
+      <GallerySection />
     </div>
   );
 } 

@@ -1,76 +1,76 @@
 import Image from 'next/image';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Download } from 'lucide-react';
 
 export default function BookSection() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-3xl shadow-xl border border-emerald-200 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Kitap Kapağı */}
-              <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-8 flex items-center justify-center">
+              <div className="relative p-12 lg:p-16 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-emerald-600">
                 <div className="relative">
                   <Image
                     src="/dr.jpeg"
                     alt="Şüpheli Şeylerin Keşfi - Bihter Sabanoğlu"
-                    width={256}
-                    height={384}
-                    className="w-64 h-auto rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
+                    width={280}
+                    height={420}
+                    className="w-72 h-auto rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-700 hover:scale-105"
                   />
-                  {/* Dekoratif element */}
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+                  {/* Dekoratif elementler */}
+                  <div className="absolute -top-6 -right-6 w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                  <div className="absolute top-1/2 -right-4 w-8 h-8 bg-white/30 rounded-full blur-lg"></div>
                 </div>
               </div>
 
-              {/* Kitap Bilgileri */}
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                <div className="mb-6">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-3">
+              {/* Sağ Taraf - Minimal Bilgi ve Satın Al */}
+              <div className="p-12 lg:p-16 flex flex-col justify-center items-center text-center">
+                <div className="mb-8">
+                  <h3 className="text-4xl font-bold text-gray-900 mb-4">
                     Şüpheli Şeylerin Keşfi
                   </h3>
-                  <p className="text-lg text-gray-600 mb-4">
-                    <span className="font-medium">Yazar:</span> Bihter Sabanoğlu
+                  <p className="text-xl text-gray-600 mb-2">
+                    Roman 
                   </p>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Her gün çehresi değişen kadim kenti farklı bir gözle izleyen bir roman. 
-                    Tesadüf süsü verilmiş bir karşılaşmanın ardından eski mektuplar kutulardan 
-                    çıkıyor ve geçmiş ile şimdi arasında bir yolculuk başlıyor. İstanbul&apos;un 
-                    tarihi mekânlarında geçen 29 günlük Şubat ayı boyunca süren hikâye.
+                  <p className="text-sm text-gray-500 mb-4">
+                    İstanbul'u farklı bir bakış açısıyla anlatan roman
                   </p>
+                  <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
-                  <div>
-                    <span className="text-gray-500">Yayın Yılı:</span>
-                    <div className="font-medium text-gray-900">2022</div>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Yayınevi:</span>
-                    <div className="font-medium text-gray-900">Edisyon Kitap</div>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Sayfa Sayısı:</span>
-                    <div className="font-medium text-gray-900">260</div>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Boyut:</span>
-                    <div className="font-medium text-gray-900">13,5 x 21 cm</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="mb-8 flex flex-col items-center space-y-4">
                   <a
                     href="https://www.kitapyurdu.com/kitap/supheli-seylerin-kesfi/606867.html&filter_name=%C5%9F%C3%BCpheli+%C5%9Feylerin+ke%C5%9Ffi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                    className="inline-flex items-center justify-center px-8 py-4 border-2 border-emerald-600 text-lg font-semibold rounded-2xl text-emerald-600 bg-white hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     Satın Al
-                    <ExternalLink className="ml-2 h-4 w-4" />
+                    <ExternalLink className="ml-3 h-5 w-5" />
                   </a>
+                  
+                  <div className="flex flex-col items-center space-y-2">
+                    <a
+                      href="/Bilim_Kurgusal_Intikam_Fantezilerinin_Ba-1.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-6 py-3 border border-emerald-300 text-base font-medium rounded-xl text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-all duration-300 shadow-sm hover:shadow-md"
+                    >
+                      <Download className="mr-2 h-4 w-4" />
+                      İstanbul Haritası PDF
+                    </a>
+                    <p className="text-xs text-gray-500">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. ! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. 
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      ⚠️ Büyük dosya (~400MB)
+                    </p>
+                  </div>
                 </div>
+
+               
               </div>
             </div>
           </div>
