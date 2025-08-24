@@ -35,7 +35,7 @@ export default function BookSection() {
                     Roman 
                   </p>
                   <p className="text-sm text-gray-500 mb-4">
-                    İstanbul'u farklı bir bakış açısıyla anlatan roman
+                    İstanbul&apos;u farklı bir bakış açısıyla anlatan roman
                   </p>
                   <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
                 </div>

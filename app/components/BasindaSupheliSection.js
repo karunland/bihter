@@ -65,7 +65,7 @@ export default function BasindaSupheliSection() {
               Basında Şüpheli Şeyler
             </h2>
             <p className="text-gray-600 text-center max-w-2xl mx-auto">
-              "Şüpheli Şeylerin Keşfi" kitabının basında yer alan tanıtımları ve röportajları
+              &ldquo;Şüpheli Şeylerin Keşfi&rdquo; kitabının basında yer alan tanıtımları ve röportajları
             </p>
           </div>
           
