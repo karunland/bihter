@@ -53,7 +53,7 @@ export default function BookSection() {
                   
                   <div className="flex flex-col items-center space-y-2">
                     <a
-                      href="/Bilim_Kurgusal_Intikam_Fantezilerinin_Ba-1.pdf"
+                      href="https://drive.google.com/file/d/1qBLe1DKxijIZQxax2N_VcmK5pkExaRmu/view"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-6 py-3 border border-emerald-300 text-base font-medium rounded-xl text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-all duration-300 shadow-sm hover:shadow-md"
