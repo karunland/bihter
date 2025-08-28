@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Play, ExternalLink, Calendar, Clock, Filter, SortAsc, SortDesc } from 'lucide-react';
+import { ArrowLeft, Play, ExternalLink, Calendar, Clock, Filter, SortAsc, SortDesc, Youtube } from 'lucide-react';
 import { podcasts } from '@/data/podcasts';
 
 export default function PodcastsPage() {
@@ -160,10 +160,20 @@ export default function PodcastsPage() {
                                 href={podcast.platformUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+                                className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white transition-colors ${
+                                  podcast.platform === 'YouTube' 
+                                    ? 'bg-red-600 hover:bg-red-700' 
+                                    : podcast.platform === 'iVoox'
+                                    ? 'bg-orange-600 hover:bg-orange-700'
+                                    : 'bg-green-600 hover:bg-green-700'
+                                }`}
                               >
-                                <Play className="h-4 w-4 mr-2" />
-                                {podcast.platform}&apos;da Dinle
+                                {podcast.platform === 'YouTube' ? (
+                                  <Youtube className="h-4 w-4 mr-2" />
+                                ) : (
+                                  <Play className="h-4 w-4 mr-2" />
+                                )}
+                                {podcast.platform === 'YouTube' ? 'YouTube\'da İzle' : `${podcast.platform}'da Dinle`}
                               </a>
                             </div>
 

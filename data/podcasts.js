@@ -70,5 +70,17 @@ export const podcasts = [
         platformUrl: "https://open.spotify.com/episode/0SRZZC4dr3i6blRrQJD32Y",
         category: "Sanat",
         image: "/podcasts/mahxtep.jpg"
+    },
+    {
+        id: "bizantolog-soylesti",
+        title: "Bizantolog ile Söyleşi",
+        subtitle: "Edebiyat ve Kültür Üzerine Video Söyleşi",
+        excerpt: "Edebiyat ve kültür dünyasından güncel konular üzerine video formatında söyleşi ve analizler.",
+        date: "2022-04-13",
+        duration: "1:03:29",
+        platform: "YouTube",
+        platformUrl: "https://www.youtube.com/watch?v=OZKB_AXUTlU&ab_channel=Bizantolog",
+        category: "Edebiyat",
+        image: "/podcasts/ozkb.jpg"
     }
 ]
