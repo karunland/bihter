@@ -31,7 +31,7 @@ export default function KurguPage() {
       <BookSection />
 
       {/* Basında Şüpheli Şeyler Bölümü */}
-      <BasindaSupheliSection />
+      {/* <BasindaSupheliSection /> */}
 
       {/* GallerySection */}
       <GallerySection />

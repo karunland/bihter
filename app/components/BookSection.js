@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ExternalLink, Download } from 'lucide-react';
+import { ExternalLink, Download, Instagram } from 'lucide-react';
 
 export default function BookSection() {
   return (
@@ -32,7 +32,7 @@ export default function BookSection() {
                     Şüpheli Şeylerin Keşfi
                   </h3>
                   <p className="text-xl text-gray-600 mb-2">
-                    Roman 
+                    Roman
                   </p>
                   <p className="text-sm text-gray-500 mb-4">
                     İstanbul&apos;u farklı bir bakış açısıyla anlatan roman
@@ -50,7 +50,7 @@ export default function BookSection() {
                     Satın Al
                     <ExternalLink className="ml-3 h-5 w-5" />
                   </a>
-                  
+
                   <div className="flex flex-col items-center space-y-2">
                     <a
                       href="https://drive.google.com/file/d/1qBLe1DKxijIZQxax2N_VcmK5pkExaRmu/view"
@@ -59,18 +59,26 @@ export default function BookSection() {
                       className="inline-flex items-center justify-center px-6 py-3 border border-emerald-300 text-base font-medium rounded-xl text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                       <Download className="mr-2 h-4 w-4" />
-                      İstanbul Haritası PDF
+                      ŞŞK Harita
                     </a>
                     <p className="text-xs text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. ! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. 
+                      <a href="https://www.instagram.com/sehirdedektifi" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:text-emerald-600 inline-flex items-center">
+                        <Instagram className="mr-1 h-4 w-4" /> Gizem Kıygı - Harita editörü
+                      </a>
                     </p>
+                    <p className="text-xs text-gray-500">
+                      <a href="#" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:text-emerald-600 inline-flex items-center">
+                        Gülzade Şentürk - Harita illüstrasyon
+                      </a>
+                    </p>
+
                     <p className="text-xs text-gray-500">
                       ⚠️ Büyük dosya (~400MB)
                     </p>
                   </div>
                 </div>
 
-               
+
               </div>
             </div>
           </div>

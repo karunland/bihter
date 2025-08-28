@@ -78,9 +78,6 @@ export default function GallerySection() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1">
-                    {item.title}
-                  </h3>
                   <p className="text-sm text-gray-600 line-clamp-3 mb-4">
                     {item.description}
                   </p>
