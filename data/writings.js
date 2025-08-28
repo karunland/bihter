@@ -1,100 +1,7 @@
 export const writings = [
     {
-        id: "modern-edebiyatta-kadin-yazarlar",
-        title: "Modern Edebiyatta Kadın Yazarların Rolü",
-        excerpt: "Türk edebiyatında kadın yazarların katkıları ve modern edebiyattaki yerleri üzerine kapsamlı bir değerlendirme. Kadın yazarların seslerini duyurma mücadelesi ve edebiyat dünyasındaki etkileri.",
-        date: "2024-03-15",
-        readTime: "8 dk",
-        isExternal: false,
-        category: "Edebiyat Eleştirisi",
-        coverImage: "https://picsum.photos/800/400?random=1",
-        author: "Bihter Sabanoğlu",
-        content: [
-            {
-                type: "paragraph",
-                text: "Türk edebiyatının modern döneminde kadın yazarların katkıları, sadece edebi eserlerle sınırlı kalmamış, aynı zamanda toplumsal değişimin de öncüleri olmuştur. Bu yazıda, kadın yazarların edebiyat dünyasındaki yerini ve etkilerini derinlemesine inceleyeceğiz."
-            },
-            {
-                type: "image",
-                src: "https://picsum.photos/800/600?random=2",
-                alt: "Halide Edip Adıvar'ın eserlerinden bir sayfa",
-                caption: "Halide Edip Adıvar'ın 'Sinekli Bakkal' romanından bir sayfa"
-            },
-            {
-                type: "paragraph",
-                text: "Cumhuriyet'in ilk yıllarında, kadın yazarların seslerini duyurma mücadelesi oldukça zorlu geçmiştir. Geleneksel toplum yapısının baskıları altında, kadın yazarlar hem edebi hem de toplumsal açıdan büyük zorluklarla karşılaşmıştır."
-            },
-            {
-                type: "paragraph",
-                text: "Halide Edip Adıvar, Yakup Kadri Karaosmanoğlu ile birlikte 'Milli Edebiyat' akımının öncülerinden biri olmuştur. 'Sinekli Bakkal' romanı, sadece edebi bir başarı değil, aynı zamanda toplumsal bir manifesto niteliği taşımaktadır."
-            },
-            {
-                type: "image",
-                src: "https://picsum.photos/800/600?random=3",
-                alt: "Adalet Ağaoğlu'nun eserlerinden bir koleksiyon",
-            },
-            {
-                type: "paragraph",
-                text: "1960'lardan sonra, Adalet Ağaoğlu gibi yazarların ortaya çıkmasıyla birlikte, kadın yazarların edebiyat dünyasındaki konumu daha da güçlenmiştir. Ağaoğlu'nun 'Dar Zamanlar' üçlemesi, Türk romanının en önemli eserleri arasında yer almaktadır."
-            },
-            {
-                type: "paragraph",
-                text: "Günümüzde ise kadın yazarlar, edebiyatın her alanında aktif olarak yer almaktadır. Roman, öykü, şiir ve deneme türlerinde önemli eserler veren kadın yazarlar, sadece edebi değil, aynı zamanda toplumsal konularda da seslerini duyurmaktadır."
-            }
-        ]
-    },
-    {
-        id: "sanat-ve-toplumsal-degisim",
-        title: "Sanat ve Toplumsal Değişim",
-        excerpt: "Sanatın toplumsal değişimdeki rolü ve günümüz sanatçılarının sorumlulukları hakkında derinlemesine bir analiz. Sanatın gücü ve toplumu dönüştürme kapasitesi.",
-        date: "2024-03-08",
-        readTime: "12 dk",
-        isExternal: false,
-        category: "Sanat Eleştirisi",
-        coverImage: "https://picsum.photos/800/400?random=4",
-        author: "Bihter Sabanoğlu",
-        content: [
-            {
-                type: "paragraph",
-                text: "Sanat, tarih boyunca toplumsal değişimin en güçlü araçlarından biri olmuştur. Bu yazıda, sanatın toplumu nasıl dönüştürdüğünü ve günümüz sanatçılarının bu süreçteki rolünü inceleyeceğiz."
-            },
-            {
-                type: "image",
-                src: "https://picsum.photos/800/600?random=5",
-                alt: "Pablo Picasso'nun Guernica tablosu",
-                caption: "Pablo Picasso'nun 'Guernica' tablosu, savaşın yıkıcı etkilerini gösteren en güçlü sanat eserlerinden biri"
-            },
-            {
-                type: "paragraph",
-                text: "Picasso'nun 'Guernica' tablosu, sanatın toplumsal değişimdeki gücünü en iyi örnekleyen eserlerden biridir. Bu tablo, sadece estetik bir değer taşımakla kalmamış, aynı zamanda savaşın yıkıcı etkilerini tüm dünyaya göstermiştir."
-            },
-            {
-                type: "paragraph",
-                text: "Günümüzde, dijital teknolojilerin gelişimi ile birlikte sanatın toplumsal etkisi daha da artmıştır. Sosyal medya platformları, sanatçıların eserlerini milyonlarca insana ulaştırmasını sağlamaktadır."
-            },
-            {
-                type: "image",
-                src: "https://picsum.photos/800/600?random=6",
-                alt: "Çağdaş sanat sergisi",
-                caption: "İstanbul Modern'de düzenlenen çağdaş sanat sergisi"
-            },
-            {
-                type: "paragraph",
-                text: "Türkiye'de de çağdaş sanat, toplumsal konulara duyarlılığı ile öne çıkmaktadır. Kadın hakları, çevre sorunları, göç ve kimlik gibi konular, sanatçıların en çok ele aldığı temalar arasında yer almaktadır."
-            }
-        ]
-    },
-    {
         id: "key-ingredients-successful-performance",
         title: "Key Ingredients for a Successful Performance: Mister Maurel, Tzimiskes, Deathwatch Beetle",
-        date: "2024-11-23",
-        category: "Sanat Eleştirisi",
-        externalUrl: "https://www.saha.org.tr/en/saha-art-writing/manifold-bihter-sabanoglu",
-        isExternal: true
-    },
-    {
-        id: "basari-bir-performans-gerekenler",
-        title: "Başarılı Bir Performans İçin Gerekenler: Bay Maurel, Çimiskis, Ölüm Nöbeti Böceği",
         date: "2024-11-23",
         category: "Sanat Eleştirisi",
         externalUrl: "https://www.saha.org.tr/en/saha-art-writing/manifold-bihter-sabanoglu",
@@ -150,14 +57,6 @@ export const writings = [
         isExternal: true
     },
     {
-        id: "karanlik-dogudan-yukselir-video-oyunlarinda-bizans",
-        title: "Karanlık Doğudan Yükselir: Video Oyunlarında Bizans",
-        date: "2022-01-17",
-        category: "Kültür Yazısı",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/karanlik-dogudan-yukselir-video-oyunlarinda-bizans",
-        isExternal: true
-    },
-    {
         id: "super-kadin-ulviye-trans-orlando",
         title: "Süper Kadın Ulviye vs Trans Orlando: İstanbul'da Cinsiyet Karnavalı",
         date: "2021-09-20",
@@ -171,23 +70,6 @@ export const writings = [
         date: "2021-01-15",
         category: "Sanat Eleştirisi",
         externalUrl: "https://sanatkritik.com/yazilar/tanagra-mania-bir-boeotia-koyunden-osman-hamdinin-yaradilisina-yolculuk/",
-        isExternal: true
-    },
-    {
-        id: "istanbul-anksiyetelerinin-cizgi-kahramani",
-        title: "İstanbul Anksiyetelerinin Çizgi Kahramanı: Bayan İstanbullu",
-        date: "2021-01-10",
-        category: "Kültür Yazısı",
-        externalUrl: "https://www.k24kitap.org/k24-yazisi/istanbul-anksiyetelerinin-cizgi-kahramani-bayan-istanbullu",
-        isExternal: true
-    },
-    {
-        id: "gecmis-yabanci-bir-ulkedir",
-        title: "Geçmiş Yabancı Bir Ülkedir: Bizans'ı Farklı Bilirler",
-        date: "2022-01-02",
-        category: "manifold",
-        externalUrl: "https://manifold.press/gecmis-yabanci-bir-ulkedir-orada-bizans-i-farkli-bilirler",
-        readingTime: "7 dk",
         isExternal: true
     },
     {
@@ -210,7 +92,7 @@ export const writings = [
     },
     {
         id: "bay-maurel-cimiskis-olum-nobeti",
-        title: "Bay Maurel Çimişki’nin Ölüm Nöbeti Böceği",
+        title: "Başarılı Bir Performans İçin Gerekenler: Bay Maurel, Çimiskis, Ölüm Nöbeti Böceği",
         date: "2024-11-23",
         category: "manifold",
         externalUrl: "https://manifold.press/bay-maurel-cimiskis-olum-nobeti-bocegi",
@@ -246,7 +128,7 @@ export const writings = [
     },
     {
         id: "ritm-iste-boyle-basliyor",
-        title: "Ritmi İşte Böyle Başlıyor: Görüyor Musunuz?",
+        title: "Ritm İşte Böyle Başlıyor, Görüyor Musunuz?",
         date: "2021-01-21",
         category: "unlimitedrag",
         externalUrl: "https://www.unlimitedrag.com/post/ritm-i%C5%9Fte-b%C3%B6yle-ba%C5%9Fl%C4%B1yor-g%C3%B6r%C3%BCyor-musunuz",
@@ -264,7 +146,7 @@ export const writings = [
     },
     {
         id: "modern-harem-kadinin-uretilisi",
-        title: "Modern Harem: Kadının Üretilişi",
+        title: "Modern Harem Kadının Üretilişi",
         date: "2022-04-21",
         category: "unlimitedrag",
         externalUrl: "https://www.unlimitedrag.com/post/modern-harem-kadinin-uretilisi",
@@ -360,19 +242,19 @@ export const writings = [
         isExternal: true
     },
     {
-        id: "teyeller-ve-aksayan-uzuvlar",
-        title: "Yakıcı Kumaşların Teyelleri, Yamalı Canavarların Aksayan Uzuvları",
-        date: "2024-01-01",
-        category: "Sergi Metni",
-        externalUrl: "/Teyel_Uzuv_Ilizarov_Sergisi_22_09_04_11-1.pdf",
-        isExternal: true
-    },
-    {
         id: "odysseianin-kadin-cevirmenleri",
         title: "Odysseia'nın Kadın Çevirmenleri: Azra Erhat'tan Emily Wilson'a Çağrışımlar",
         date: "2024-01-01",
         category: "Şerhh",
         externalUrl: "/Odysseianin_kadin_cevirmenleri_Azra_Erha.pdf",
+        isExternal: true
+    },
+    {
+        id: "gercegin-gozyaşlari-vardir",
+        title: "Gerçeğin gözyaşları vardır – Sunt lacrimae rerum",
+        date: "2025-08-14",
+        category: "Sanat Eleştirisi",
+        externalUrl: "https://argonotlar.com/gercegin-gozyaslari-vardir-kemal-ozen/",
         isExternal: true
     }
 ]
