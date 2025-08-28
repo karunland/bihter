@@ -27,16 +27,10 @@ export default function BookSection() {
 
               {/* Sağ Taraf - Minimal Bilgi ve Satın Al */}
               <div className="p-12 lg:p-16 flex flex-col justify-center items-center text-center">
-                <div className="mb-8">
+                <div className="mb-16">
                   <h3 className="text-4xl font-bold text-gray-900 mb-4">
                     Şüpheli Şeylerin Keşfi
                   </h3>
-                  <p className="text-xl text-gray-600 mb-2">
-                    Roman
-                  </p>
-                  <p className="text-sm text-gray-500 mb-4">
-                    İstanbul&apos;u farklı bir bakış açısıyla anlatan roman
-                  </p>
                   <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
                 </div>
 

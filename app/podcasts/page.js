@@ -148,23 +148,11 @@ export default function PodcastsPage() {
                             <span className="mx-2">•</span>
                             <Clock className="h-4 w-4 mr-2" />
                             <span>{podcast.duration}</span>
-                            <span className="mx-2">•</span>
-                            <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                              {podcast.category}
-                            </span>
                           </div>
 
                           <h2 className="text-2xl font-bold text-gray-900 mb-2">
                             {podcast.title}
                           </h2>
-                          
-                          <h3 className="text-lg font-medium text-gray-700 mb-4">
-                            {podcast.subtitle}
-                          </h3>
-
-                          <p className="text-gray-600 mb-6 leading-relaxed">
-                            {podcast.excerpt}
-                          </p>
 
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-4">
@@ -177,10 +165,6 @@ export default function PodcastsPage() {
                                 <Play className="h-4 w-4 mr-2" />
                                 {podcast.platform}&apos;da Dinle
                               </a>
-                              
-                              <span className="text-sm text-gray-500">
-                                Platform: {podcast.platform}
-                              </span>
                             </div>
 
                             <a

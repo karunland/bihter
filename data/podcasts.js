@@ -9,7 +9,7 @@ export const podcasts = [
         platform: "Spotify",
         platformUrl: "https://open.spotify.com/episode/3zeXbGTqMUKwWxk4QnORNg",
         category: "Edebiyat",
-        image: "/podcasts/orhanPamuk.jpg"
+        image: "/podcasts/yerdenyuksek.png"
     },
     {
         id: "spotify-podcast-3",

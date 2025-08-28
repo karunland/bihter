@@ -63,9 +63,6 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
               {/* <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold">
                 {currentImage.type}
               </span> */}
-              <span className="text-white/100 text-md font-bold">
-                {currentIndex + 1} / {images.length}
-              </span>
             </div>
               {/* <h3 className="text-xl font-bold text-white mb-2">
                 {currentImage.title}
