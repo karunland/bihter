@@ -1,4 +1,4 @@
-export const galleryImages = [
+export const kurguImages = [
   {
     id: 1,
     title: "",

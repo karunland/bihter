@@ -15,7 +15,7 @@ export const press = [
         date: "18 Nisan 2022",
         link: null,
         images: [
-            { subId: 1, src: "/press/birgün.jpg" }
+            { subId: 1, src: "/press/birgun.jpg" }
         ],
     },
     {
@@ -24,7 +24,7 @@ export const press = [
         date: "Nisan 2022",
         link: null,
         images: [
-            { subId: 1, src: "/press/dünya-kitap.jpg" }
+            { subId: 1, src: "/press/dunya-kitap.jpeg" }
         ],
     },
     {
@@ -138,7 +138,7 @@ export const press = [
         date: "Ocak 2023",
         link: "https://www.izmir.art/tr/romanimla-istanbul-un-korunmasina-katkida-bulunmak-istedim-bihter-sabanoglu-ile-roportaj",
         images: [
-            { subId: 1, src: "/press/izmirart.png" }
+            { subId: 1, src: "/press/izmirart.webp" }
         ],
     },
     {

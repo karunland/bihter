@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Lightbox from './Lightbox';
-import { galleryImages } from '@/data/gallery';
+import { kurguImages } from '@/data/kurgu';
 
 export default function GallerySection() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -20,13 +20,13 @@ export default function GallerySection() {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === galleryImages.length - 1 ? 0 : prev + 1
+      prev === kurguImages.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => 
-      prev === 0 ? galleryImages.length - 1 : prev - 1
+      prev === 0 ? kurguImages.length - 1 : prev - 1
     );
   };
 
@@ -35,7 +35,7 @@ export default function GallerySection() {
   };
 
   // Lightbox için veri hazırlama
-  const lightboxImages = galleryImages.map(item => ({
+  const lightboxImages = kurguImages.map(item => ({
     image: item.image,
     title: item.title,
     source: item.description,
@@ -51,7 +51,7 @@ export default function GallerySection() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {galleryImages.map((item, index) => (
+            {kurguImages.map((item, index) => (
               <article
                 key={item.id}
                 className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group"
