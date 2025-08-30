@@ -14,7 +14,7 @@ export default function RecentArticlesSection() {
       try {
         const sortedWritings = writings.sort((a, b) => new Date(b.date) - new Date(a.date));
         const recent = sortedWritings.slice(0, 3);
-        
+
         setRecentWritings(recent);
         setLoading(false);
       } catch (error) {
@@ -67,52 +67,35 @@ export default function RecentArticlesSection() {
                     })}
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {writing.isExternal ? (
-                      <a
-                        href={writing.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-gray-700 transition-colors inline-flex items-center"
-                      >
-                        {writing.title}
-                        <ExternalLink className="ml-2 h-4 w-4 text-gray-400" />
-                      </a>
-                    ) : (
-                      <Link
-                        href={`/writings/${writing.id}`}
-                        className="hover:text-gray-700 transition-colors"
-                      >
-                        {writing.title}
-                      </Link>
-                    )}
+                    <a
+                      href={writing.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-gray-700 transition-colors inline-flex items-center"
+                    >
+                      {writing.title}
+                      <ExternalLink className="ml-2 h-4 w-4 text-gray-400" />
+                    </a>
                   </h3>
-                  {!writing.isExternal && writing.excerpt && (
+                  {writing.excerpt && (
                     <p className="text-gray-600 mb-4">
-                      {typeof writing.excerpt === 'string' && writing.excerpt.length > 150 
-                        ? writing.excerpt.substring(0, 150) + '...' 
+                      {typeof writing.excerpt === 'string' && writing.excerpt.length > 150
+                        ? writing.excerpt.substring(0, 150) + '...'
                         : writing.excerpt
                       }
                     </p>
                   )}
                   <div className="flex items-center justify-between">
-                    {writing.isExternal ? (
-                      <a
-                        href={writing.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center"
-                      >
-                        Harici siteye git
-                        <ExternalLink className="ml-1 h-4 w-4" />
-                      </a>
-                    ) : (
-                      <Link
-                        href={`/writings/${writing.id}`}
-                        className="text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                      >
-                        Devamını oku →
-                      </Link>
-                    )}
+                    <a
+                      href={writing.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center"
+                    >
+                      Harici siteye git
+                      <ExternalLink className="ml-1 h-4 w-4" />
+                    </a>
+
                   </div>
                 </div>
               </article>

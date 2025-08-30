@@ -6,13 +6,12 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import Lightbox from '@/app/components/Lightbox';
 import press from '@/data/press';
 
-export default function BasindaPage() {
+export default function PressPage() {
   const [selectedYear, setSelectedYear] = useState('Tümü');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedPress, setSelectedPress] = useState(null);
 
-  // Tüm yılları çıkar (string tarihlerden yıl ayıkla)
   const years = useMemo(() => {
     const yearSet = new Set();
     press.forEach((item) => {
@@ -110,22 +109,22 @@ export default function BasindaPage() {
               {filteredPress.map((item) => (
                 <div key={item.id} className="space-y-4">
                   {/* Başlık */}
-                                     <div className="text-center">
-                     <h3 className="text-lg font-bold text-gray-900 mb-2">
-                       {item.link && item.link !== '#' ? (
-                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-800 hover:underline inline-flex items-center gap-2">
-                           {item.title}
-                           <ExternalLink className="h-4 w-4" />
-                         </a>
-                       ) : (
-                         <span className="text-lg font-bold text-gray-900 mb-2">
-                           {item.title}
-                         </span>
-                       )}
-                     </h3>
-                     <p className="text-sm text-gray-600">{item.date || '—'}</p>
-                   </div>
-                  
+                  <div className="text-center">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      {item.link && item.link !== '#' ? (
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-800 hover:underline inline-flex items-center gap-2">
+                          {item.title}
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      ) : (
+                        <span className="text-lg font-bold text-gray-900 mb-2">
+                          {item.title}
+                        </span>
+                      )}
+                    </h3>
+                    <p className="text-sm text-gray-600">{item.date || '—'}</p>
+                  </div>
+
                   {/* Görseller */}
                   <div className="grid grid-cols-1 gap-4">
                     {item.images && item.images.map((img, imgIndex) => (

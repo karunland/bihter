@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import BookSection from '../components/BookSection';
-import BasindaSupheliSection from '../components/BasindaSupheliSection';
 import GallerySection from '../components/GallerySection';
 
 export default function KurguPage() {
@@ -27,13 +26,8 @@ export default function KurguPage() {
         </div>
       </section>
 
-      {/* BookSection */}
       <BookSection />
 
-      {/* Basında Şüpheli Şeyler Bölümü */}
-      {/* <BasindaSupheliSection /> */}
-
-      {/* GallerySection */}
       <GallerySection />
     </div>
   );

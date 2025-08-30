@@ -28,15 +28,15 @@ const MediaCard = ({ item, type, onClick }) => {
     >
       {/* Ana Görsel - Dikey Format */}
       <div className="relative h-[400px] w-full">
-        <img 
-          src={item.image} 
-          alt={type === 'events' ? item.title : (item.title || item.source || 'Basın haberi')} 
-          className="w-full h-full object-cover" 
+        <img
+          src={item.image}
+          alt={type === 'events' ? item.title : (item.title || item.source || 'Basın haberi')}
+          className="w-full h-full object-cover"
         />
-        
+
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-        
+
         {/* Yaklaşan Etkinlik Badge - Sadece etkinlikler için */}
         {type === 'events' && isUpcoming(item.date) && (
           <div className="absolute top-4 left-4">
@@ -56,7 +56,7 @@ const MediaCard = ({ item, type, onClick }) => {
             </div>
           </div>
         )}
-        
+
         {/* Bottom Content */}
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <div className="text-white">
@@ -86,7 +86,7 @@ const MediaCard = ({ item, type, onClick }) => {
             )}
           </div>
         </div>
-        
+
         {/* Hover efekti - Büyüteç ikonu */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
           <div className="bg-white/70 backdrop-blur-sm rounded-full p-4">
@@ -148,13 +148,13 @@ const MediaCarousel = ({ title, items, type, viewAllLink, viewAllText }) => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === featuredItems.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? featuredItems.length - 1 : prev - 1
     );
   };
@@ -173,21 +173,21 @@ const MediaCarousel = ({ title, items, type, viewAllLink, viewAllText }) => {
             </h2>
           </div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto">
           {/* Slider Container */}
-          <div 
+          <div
             ref={sliderRef}
             className="overflow-x-auto scrollbar-hide px-4"
           >
             <div className="flex gap-4 md:gap-6 pb-4" style={{ scrollSnapType: 'x mandatory' }}>
               {featuredItems.map((item, index) => (
-                <div 
-                  key={item.id} 
+                <div
+                  key={item.id}
                   className="flex-shrink-0 w-64 md:w-72 lg:w-80"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <MediaCard 
+                  <MediaCard
                     item={item}
                     type={type}
                     onClick={() => openLightbox(index)}
@@ -196,7 +196,7 @@ const MediaCarousel = ({ title, items, type, viewAllLink, viewAllText }) => {
               ))}
             </div>
           </div>
-          
+
           {/* Navigation Arrows */}
           <button
             onClick={() => {
@@ -212,7 +212,7 @@ const MediaCarousel = ({ title, items, type, viewAllLink, viewAllText }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          
+
           <button
             onClick={() => {
               if (sliderRef.current) {
@@ -227,7 +227,7 @@ const MediaCarousel = ({ title, items, type, viewAllLink, viewAllText }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
-          
+
           {/* Daha fazla göster butonu */}
           <div className="text-center mt-8">
             <Link
@@ -266,7 +266,7 @@ export default function EventsCarousel() {
         viewAllLink="/events"
         viewAllText="Tüm etkinlikleri görüntüle"
       />
-      
+
       {/* Basında Bölümü */}
       <MediaCarousel
         title="Basında"

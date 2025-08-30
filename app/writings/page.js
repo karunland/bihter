@@ -9,7 +9,7 @@ export default function WritingsPage() {
   const [sortOrder, setSortOrder] = useState('desc');
   const [writingsData, setWritingsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       setWritingsData(writings || []);
@@ -21,19 +21,19 @@ export default function WritingsPage() {
 
   const sortedWritings = useMemo(() => {
     let sorted = [...writingsData];
-    
+
     // Sadece tarihe göre sıralama
     sorted.sort((a, b) => {
       const aValue = new Date(a.date);
       const bValue = new Date(b.date);
-      
+
       if (sortOrder === 'asc') {
         return aValue > bValue ? 1 : -1;
       } else {
         return aValue < bValue ? 1 : -1;
       }
     });
-    
+
     return sorted;
   }, [writingsData, sortOrder]);
 
@@ -125,14 +125,14 @@ export default function WritingsPage() {
                               year: 'numeric'
                             })}</span>
                           </div>
-                          
+
                           {/* Yayın mecrası */}
                           {writing.publication && (
                             <span className="bg-gray-100 px-2 py-1 rounded-full">
                               {writing.publication}
                             </span>
                           )}
-                          
+
                           {(writing.readTime || writing.readingTime) && (
                             <div className="flex items-center">
                               <Clock className="h-3 w-3 mr-1" />
@@ -143,56 +143,34 @@ export default function WritingsPage() {
 
                         {/* Title */}
                         <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-gray-700 transition-colors">
-                          {writing.isExternal ? (
-                            <a
-                              href={writing.externalUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-start"
-                            >
-                              <span className="flex-1">{writing.title}</span>
-                              <ExternalLink className="h-4 w-4 ml-2 mt-1 flex-shrink-0 text-gray-400" />
-                            </a>
-                          ) : (
-                            <Link href={`/writings/${writing.id}`}>
-                              {writing.title}
-                            </Link>
-                          )}
+                          <a
+                            href={writing.externalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-start"
+                          >
+                            <span className="flex-1">{writing.title}</span>
+                            <ExternalLink className="h-4 w-4 ml-2 mt-1 flex-shrink-0 text-gray-400" />
+                          </a>
                         </h3>
-
-                        {/* Excerpt */}
-                        {/* {!writing.isExternal && writing.excerpt && (
-                          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
-                            {writing.excerpt}
-                          </p>
-                        )} */}
                       </div>
 
                       {/* Card Footer */}
                       <div className="px-6 pb-6">
                         <div className="flex items-center justify-between">
                           <div>
-                            {writing.isExternal ? (
-                              <a
-                                href={writing.externalUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
-                              >
-                                Okumaya git
-                                <ExternalLink className="ml-1 h-3 w-3" />
-                              </a>
-                            ) : (
-                              <Link
-                                href={`/writings/${writing.id}`}
-                                className="inline-flex items-center text-sm text-gray-900 font-medium hover:text-gray-700 transition-colors"
-                              >
-                                Devamını oku
-                                <ArrowLeft className="ml-1 h-3 w-3 rotate-180" />
-                              </Link>
-                            )}
+                            <a
+                              href={writing.externalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                            >
+                              Okumaya git
+                              <ExternalLink className="ml-1 h-3 w-3" />
+                            </a>
+
                           </div>
-                          
+
                           {/* PDF İndir Butonu */}
                           {writing.pdfLink && (
                             <a

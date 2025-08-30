@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { ExternalLink, Download } from 'lucide-react';
 import Lightbox from './Lightbox';
 import { galleryImages } from '@/data/gallery';
 

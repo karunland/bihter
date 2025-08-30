@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Kurgu', href: '/kurgu' },
   { name: 'Yazılar', href: '/writings' },
   { name: 'Podcastler', href: '/podcasts' },
-  { name: 'Basında', href: '/basinda' },
+  { name: 'Basında', href: '/press' },
   { name: 'Etkinlikler', href: '/events' },
   { name: 'Hakkında', href: '/about' },
 ];

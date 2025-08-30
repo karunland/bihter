@@ -1,4 +1,4 @@
-const press = [
+export const press = [
     {
         id: 1,
         title: "Aujourd'hui la Turquie",

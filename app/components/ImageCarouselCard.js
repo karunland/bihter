@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const ImageCarouselCard = ({ image, type, onClick }) => {
+const ImageCarouselCard = ({ image, onClick }) => {
   return (
     <button
       onClick={onClick}
@@ -18,13 +18,6 @@ const ImageCarouselCard = ({ image, type, onClick }) => {
         
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-        
-        {/* Type Badge - Üst Sol */}
-        <div className="absolute top-6 left-6">
-          <span className="bg-white/95 backdrop-blur-sm text-gray-800 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-            {type}
-          </span>
-        </div>
         
         {/* Hover efekti - Büyüteç ikonu */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">

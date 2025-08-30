@@ -1,14 +1,13 @@
 import Link from 'next/link';
-import { Mail, Instagram, BookOpen } from 'lucide-react';
+import { Mail, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Alt Bilgi */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Bihter Sabanoğlu.
+            {new Date().getFullYear()} Bihter Sabanoğlu
           </p>
           <div className="flex space-x-4">
             <a
@@ -37,9 +36,6 @@ export default function Footer() {
               <img src="/academiaLogo.avif" alt="Academia" className=" h-5 w-5" />
             </a>
           </div>
-          <p className="text-gray-500 text-sm mt-2 md:mt-0">
-            Sanat, edebiyat ve kültür üzerine çalışmalar
-          </p>
         </div>
       </div>
     </footer>

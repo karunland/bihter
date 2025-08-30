@@ -6,7 +6,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isOpen) return;
-      
+
       if (e.key === 'Escape') {
         onClose();
       } else if (e.key === 'ArrowRight') {
@@ -17,7 +17,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    
+
     // Body scroll'u engelle
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -56,17 +56,11 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
             alt={currentImage.title}
             className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
           />
-          
+
           {/* İçerik bilgileri - Alt overlay */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
             <div className="flex items-center justify-between mb-2">
-              {/* <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold">
-                {currentImage.type}
-              </span> */}
             </div>
-              {/* <h3 className="text-xl font-bold text-white mb-2">
-                {currentImage.title}
-              </h3> */}
             <div className="flex items-center justify-between">
               <p className="text-white/80 text-sm">
                 {currentImage.source}
@@ -131,11 +125,10 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
                 e.stopPropagation();
                 onGoTo && onGoTo(index);
               }}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentIndex 
-                  ? 'bg-white' 
+              className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
+                  ? 'bg-white'
                   : 'bg-white/40 hover:bg-white/60'
-              }`}
+                }`}
               aria-label={`${index + 1}. görsele git`}
             />
           ))}
@@ -143,7 +136,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
       )}
 
       {/* Background click to close */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         onClick={onClose}
       />
