@@ -24,7 +24,6 @@ export default function PressSection() {
       }))
     );
     setPressImages(flattenedImages);
-    console.log('Press images loaded:', flattenedImages.length);
   }, []);
 
   const openLightbox = (index) => {
@@ -56,7 +55,6 @@ export default function PressSection() {
     if (sliderRef.current) {
       const scrollAmount = 300;
       sliderRef.current.scrollLeft -= scrollAmount;
-      console.log('Scrolling left, new scrollLeft:', sliderRef.current.scrollLeft);
     }
   };
 
@@ -64,7 +62,6 @@ export default function PressSection() {
     if (sliderRef.current) {
       const scrollAmount = 300;
       sliderRef.current.scrollLeft += scrollAmount;
-      console.log('Scrolling right, new scrollLeft:', sliderRef.current.scrollLeft);
     }
   };
 

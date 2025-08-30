@@ -18,7 +18,6 @@ export default function RecentArticlesSection() {
         setRecentWritings(recent);
         setLoading(false);
       } catch (error) {
-        console.error('Yazılar yüklenirken hata oluştu:', error);
         setLoading(false);
       }
     };
