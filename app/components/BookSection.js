@@ -39,7 +39,7 @@ export default function BookSection() {
                     href="https://www.kitapyurdu.com/kitap/supheli-seylerin-kesfi/606867.html&filter_name=%C5%9F%C3%BCpheli+%C5%9Feylerin+ke%C5%9Ffi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-4 border-2 border-emerald-600 text-lg font-semibold rounded-2xl text-emerald-600 bg-white hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="inline-flex items-center justify-center px-8 py-4 border-2 border-emerald-700 text-lg font-semibold rounded-2xl text-emerald-700 bg-white hover:bg-emerald-700 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     Satın Al
                     <ExternalLink className="ml-3 h-5 w-5" />
