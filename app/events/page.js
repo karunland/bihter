@@ -2,17 +2,15 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink, Clock } from 'lucide-react';
 import { events } from '@/data/events';
 import Lightbox from '@/app/components/Lightbox';
 
 export default function EventsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [sortOrder, setSortOrder] = useState('desc');
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categoriesData, setCategoriesData] = useState([]);
-  
+
   // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,9 +18,6 @@ export default function EventsPage() {
   useEffect(() => {
     const fetchData = async () => {
       setEventsData(events || []);
-      var uniqueCategories = [...new Set(events.map(event => event.category))];
-      uniqueCategories.unshift('Tümü');
-      setCategoriesData(uniqueCategories);
       setLoading(false);
     };
 
@@ -31,26 +26,21 @@ export default function EventsPage() {
 
   const filteredAndSortedEvents = useMemo(() => {
     let filtered = eventsData;
-    
-    // Kategori filtreleme
-    if (selectedCategory !== 'Tümü') {
-      filtered = filtered.filter(event => event.category === selectedCategory);
-    }
-    
+
     // Sadece tarihe göre sıralama
     filtered.sort((a, b) => {
       const aValue = new Date(a.date);
       const bValue = new Date(b.date);
-      
+
       if (sortOrder === 'asc') {
         return aValue > bValue ? 1 : -1;
       } else {
         return aValue < bValue ? 1 : -1;
       }
     });
-    
+
     return filtered;
-  }, [eventsData, selectedCategory, sortOrder]);
+  }, [eventsData, sortOrder]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -87,13 +77,13 @@ export default function EventsPage() {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === lightboxImages.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? lightboxImages.length - 1 : prev - 1
     );
   };
@@ -166,7 +156,7 @@ export default function EventsPage() {
           ) : filteredAndSortedEvents.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                Seçilen kategoride etkinlik bulunamadı.
+                Etkinlik bulunamadı.
               </p>
             </div>
           ) : (
@@ -183,7 +173,7 @@ export default function EventsPage() {
                       alt={event.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    
+
                     {/* Overlay with upcoming status - sadece yaklaşan etkinlikler için */}
                     {isUpcoming(event.date) && (
                       <div className="absolute top-4 left-4">
@@ -208,14 +198,24 @@ export default function EventsPage() {
                         <h3 className="text-lg font-bold mb-2 line-clamp-2">
                           {event.title}
                         </h3>
-                        <div className="flex items-center text-sm text-white/90 mb-1">
-                          <Calendar className="h-4 w-4 mr-2" />
-                          <span>{formatDate(event.date)}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-white/90">
-                          <MapPin className="h-4 w-4 mr-2" />
-                          <span className="line-clamp-1">{event.location}</span>
-                        </div>
+                        {event.time && event.time !== '' && (
+                          <div className="flex items-center text-sm text-white/90 mb-1">
+                            <Clock className="h-4 w-4 mr-2" />
+                            <span>{event.time}</span>
+                          </div>
+                        )}
+                        {event.date && event.date !== '' && (
+                          <div className="flex items-center text-sm text-white/90 mb-1">
+                            <Calendar className="h-4 w-4 mr-2" />
+                            <span>{formatDate(event.date)}</span>
+                          </div>
+                        )}
+                        {event.location && event.location !== '' && (
+                          <div className="flex items-center text-sm text-white/90">
+                            <MapPin className="h-4 w-4 mr-2" />
+                            <span className="line-clamp-1">{event.location}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
