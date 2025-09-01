@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 
 const navigation = [
   { name: 'Ana Sayfa', href: '/' },
-  { name: 'Kurgu', href: '/kurgu' },
+  { name: 'Kurgu', href: '/fiction' },
   { name: 'Yazılar', href: '/writings' },
   { name: 'Podcastler', href: '/podcasts' },
   { name: 'Basında', href: '/press' },
