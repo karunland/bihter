@@ -33,7 +33,7 @@ export default function sitemap() {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/kurgu`,
+      url: `${baseUrl}/fiction`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -50,6 +50,5 @@ export default function sitemap() {
       changeFrequency: 'yearly',
       priority: 0.7,
     },
-    // Dinamik yazı sayfaları
   ]
 } 
