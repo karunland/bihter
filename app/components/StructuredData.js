@@ -8,7 +8,6 @@ export default function StructuredData() {
     "url": "https://bihtersabanoglu.com",
     "image": "https://bihtersabanoglu.com/bihtersabanoglu.webp",
     "sameAs": [
-      "https://twitter.com/bihtersabanoglu",
       "https://instagram.com/bihtersabanoglu",
       "https://univ-paris3.academia.edu/BihterSabanoglu"
     ],
@@ -52,7 +51,7 @@ export default function StructuredData() {
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Sanat Eleştirmeni ve Yazar",
+      "name": "",
       "occupationLocation": [
         {
           "@type": "Place",
@@ -84,8 +83,8 @@ export default function StructuredData() {
     "birthDate": "1980",
     "memberOf": {
       "@type": "Organization",
-      "name": "AICA (Uluslararası Sanat Eleştirmenleri Derneği)",
-      "url": "https://aica-int.org"
+      "name": "AICA",
+      "url": "https://www.aicaturkey.org/"
     },
     "publisher": {
       "@type": "Organization",

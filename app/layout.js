@@ -22,7 +22,6 @@ export const metadata = {
   description: "",
   keywords: [
     "Bihter Sabanoğlu",
-    "sanat eleştirmeni",
     "yazar",
     "edebiyat eleştirisi",
     "Türk edebiyatı",
@@ -34,7 +33,6 @@ export const metadata = {
     "Paris",
     "İstanbul",
     "akademik yazılar",
-    "sanat eleştirisi"
   ],
   authors: [{ name: "Bihter Sabanoğlu" }],
   creator: "Bihter Sabanoğlu",
@@ -103,6 +101,15 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-title" content="Bihter Sabanoğlu" />
         <meta name="msapplication-TileColor" content="#BDB395" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        
+        {/* WhatsApp ve diğer mesajlaşma uygulamaları için ek meta tag'ler */}
+        <meta property="og:image" content="https://bihtersabanoglu.com/bihtersabanoglu.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:alt" content="Bihter Sabanoğlu" />
+        <meta name="twitter:image" content="https://bihtersabanoglu.com/bihtersabanoglu.webp" />
+        <meta name="twitter:image:alt" content="Bihter Sabanoğlu" />
       </head>
       <body className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased overflow-x-hidden`}>
         <div className="min-h-screen flex flex-col max-w-full overflow-x-hidden">
