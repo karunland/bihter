@@ -55,7 +55,7 @@ export const metadata = {
     siteName: 'Bihter Sabanoğlu',
     images: [
       {
-        url: 'https://bihtersabanoglu.com/bihtersabanoglu.webp',
+        url: 'https://bihtersabanoglu.com/bihtersabanoglu.jpg',
         width: 1200,
         height: 630,
         alt: 'Bihter Sabanoğlu',
