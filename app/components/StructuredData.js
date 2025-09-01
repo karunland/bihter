@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Bihter Sabanoğlu",
-    "jobTitle": "Sanat Eleştirmeni, Yazar ve Akademisyen",
+    "jobTitle": "",
     "description": "Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Bizans sanat tarihi, çağdaş sanat ve edebiyat alanlarında uzmanlaşmıştır.",
     "url": "https://bihtersabanoglu.com",
     "image": "https://bihtersabanoglu.com/bihtersabanoglu.webp",
@@ -40,7 +40,6 @@ export default function StructuredData() {
     ],
     "knowsAbout": [
       "Bizans Sanat Tarihi",
-      "Sanat Eleştirisi",
       "Çağdaş Sanat",
       "Edebiyat",
       "Epigrafi",
