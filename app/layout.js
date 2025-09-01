@@ -44,20 +44,20 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://bihtersabanoglu.com'),
+  metadataBase: new URL('https://demo.bihtersabanoglu.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://bihtersabanoglu.com',
+    url: 'https://demo.bihtersabanoglu.com',
     title: 'Bihter Sabanoğlu',
     description: '',
     siteName: 'Bihter Sabanoğlu',
     images: [
       {
-        url: 'https://bihtersabanoglu.com/bihtersabanoglu.webp',
+        url: 'https://demo.bihtersabanoglu.com/bihtersabanoglu.webp',
         width: 200,
         height: 200,
         alt: 'Bihter Sabanoğlu',
