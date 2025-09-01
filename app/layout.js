@@ -50,8 +50,8 @@ export const metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: 'https://bihtersabanoglu.com',
-    title: 'Bihter Sabanoğlu',
-    description: '',
+    title: 'Bihter.Sabanoğlu',
+    description: 'Personal website',
     siteName: 'Bihter Sabanoğlu',
     images: [
       {
