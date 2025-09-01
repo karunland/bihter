@@ -9,17 +9,17 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon.png",
+      "src": "/glob.webp",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/apple-icon.png",
+      "src": "/glob.webp",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/edebiyat.jpg",
+      "src": "/bihtersabanoglu.webp",
       "sizes": "200x200",
       "type": "image/jpeg"
     }
