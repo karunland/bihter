@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://bihter.com'
+  const baseUrl = 'https://bihtersabanoglu.com'
   
   return [
     {
@@ -12,13 +12,13 @@ export default function sitemap() {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/writings`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/podcasts`,
@@ -30,68 +30,26 @@ export default function sitemap() {
       url: `${baseUrl}/events`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.85,
     },
     {
-      url: `${baseUrl}/performance`,
+      url: `${baseUrl}/kurgu`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/editorial`,
+      url: `${baseUrl}/press`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/media`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 0.6,
+      priority: 0.7,
     },
     // Dinamik yazı sayfaları
-    {
-      url: `${baseUrl}/writings/modern-edebiyatta-kadin-yazarlar`,
-      lastModified: new Date('2024-03-15'),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/writings/sanat-ve-toplumsal-degisim`,
-      lastModified: new Date('2024-03-08'),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/writings/dijital-cagda-edebiyat`,
-      lastModified: new Date('2024-03-01'),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/writings/postmodern-roman-teknigi`,
-      lastModified: new Date('2024-02-20'),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/writings/sanat-ve-felsefe`,
-      lastModified: new Date('2024-02-10'),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/writings/cumhuriyet-donemi-edebiyati`,
-      lastModified: new Date('2024-01-25'),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
   ]
 } 

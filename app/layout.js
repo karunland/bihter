@@ -16,23 +16,25 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata = {
   title: {
-    default: "Bihter Sabanoğlu - Sanat Eleştirmeni, Yazar ve Akademisyen",
+    default: "Bihter Sabanoğlu - Sanat Eleştirmeni ve Yazar",
     template: "%s | Bihter Sabanoğlu"
   },
-  description: "Bihter Sabanoğlu&apos;nun kişisel portfolyo sitesi. Edebiyat eleştirileri, sanat yazıları, podcastler ve akademik çalışmalarını keşfedin.",
+  description: "Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Bizans sanat tarihi, çağdaş sanat ve edebiyat alanlarında uzmanlaşmıştır. Yazılar, podcastler ve etkinlikler.",
   keywords: [
     "Bihter Sabanoğlu",
     "sanat eleştirmeni",
     "yazar",
-    "akademisyen",
     "edebiyat eleştirisi",
     "Türk edebiyatı",
-    "feminist edebiyat",
-    "sanat yazıları",
     "podcast",
-    "akademik çalışmalar",
-    "İstanbul Üniversitesi",
-    "edebiyat araştırmaları"
+    "Sorbonne Üniversitesi",
+    "Bizans sanat tarihi",
+    "çağdaş sanat",
+    "AICA üyesi",
+    "Paris",
+    "İstanbul",
+    "akademik yazılar",
+    "sanat eleştirisi"
   ],
   authors: [{ name: "Bihter Sabanoğlu" }],
   creator: "Bihter Sabanoğlu",
@@ -42,32 +44,25 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://bihter.com'),
+  metadataBase: new URL('https://bihtersabanoglu.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://bihter.com',
-    title: 'Bihter Sabanoğlu - Sanat Eleştirmeni, Yazar ve Akademisyen',
-    description: 'Bihter Sabanoğlu&apos;nun kişisel portfolyo sitesi. Edebiyat eleştirileri, sanat yazıları, podcastler ve akademik çalışmalarını keşfedin.',
+    url: 'https://bihtersabanoglu.com',
+    title: 'Bihter Sabanoğlu',
+    description: 'Bihter Sabanoğlu&apos;nun kişisel websitesi.',
     siteName: 'Bihter Sabanoğlu',
     images: [
       {
-        url: 'https://bihter.whoisedgar.net/edebiyat.jpg',
+        url: 'https://bihtersabanoglu.com/edebiyat.jpg',
         width: 200,
         height: 200,
         alt: 'Bihter Sabanoğlu - Sanat Eleştirmeni ve Yazar',
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Bihter Sabanoğlu - Sanat Eleştirmeni, Yazar ve Akademisyen',
-    description: 'Bihter Sabanoğlu&apos;nun kişisel portfolyo sitesi. Edebiyat eleştirileri, sanat yazıları, podcastler ve akademik çalışmalarını keşfedin.',
-    images: ['https://bihter.whoisedgar.net/edebiyat.jpg'],
-    creator: '@bihter_sabanoglu',
   },
   robots: {
     index: true,
@@ -81,8 +76,8 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
+    google: '',
+    yandex: '',
   },
 };
 

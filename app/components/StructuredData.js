@@ -4,69 +4,93 @@ export default function StructuredData() {
     "@type": "Person",
     "name": "Bihter Sabanoğlu",
     "jobTitle": "Sanat Eleştirmeni, Yazar ve Akademisyen",
-    "description": "Bihter Sabanoğlu, Türk edebiyatı, feminist edebiyat eleştirisi ve sanat eleştirisi alanlarında uzmanlaşmış bir akademisyen ve yazardır.",
-    "url": "https://bihter.com",
-    "image": "https://bihter.com/edebiyat.jpg",
+    "description": "Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Bizans sanat tarihi, çağdaş sanat ve edebiyat alanlarında uzmanlaşmıştır.",
+    "url": "https://bihtersabanoglu.com",
+    "image": "https://bihtersabanoglu.com/bihtersabanoglu.webp",
     "sameAs": [
-      "https://twitter.com/bihter_sabanoglu",
-      "https://linkedin.com/in/bihter-sabanoglu"
+      "https://twitter.com/bihtersabanoglu",
+      "https://instagram.com/bihtersabanoglu",
+      "https://univ-paris3.academia.edu/BihterSabanoglu"
     ],
     "worksFor": {
       "@type": "Organization",
-      "name": "İstanbul Üniversitesi",
-      "url": "https://istanbul.edu.tr"
+      "name": "Sorbonne Paris III Üniversitesi",
+      "url": "https://www.univ-paris3.fr"
     },
-    "alumniOf": {
-      "@type": "Organization",
-      "name": "İstanbul Üniversitesi",
-      "url": "https://istanbul.edu.tr"
-    },
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "İstanbul Üniversitesi",
+        "url": "https://istanbul.edu.tr"
+      },
+      {
+        "@type": "Organization", 
+        "name": "Paris III Sorbonne Üniversitesi",
+        "url": "https://www.univ-paris3.fr"
+      },
+      {
+        "@type": "Organization",
+        "name": "Ecole du Louvre",
+        "url": "https://www.ecoledulouvre.fr"
+      },
+      {
+        "@type": "Organization",
+        "name": "Notre Dame de Sion Fransız Kız Lisesi",
+        "url": "https://www.nds.k12.tr"
+      }
+    ],
     "knowsAbout": [
-      "Türk Edebiyatı",
-      "Feminist Edebiyat Eleştirisi",
-      "Postmodern Edebiyat",
+      "Bizans Sanat Tarihi",
       "Sanat Eleştirisi",
-      "Kültür Çalışmaları",
-      "Dijital Edebiyat"
+      "Çağdaş Sanat",
+      "Edebiyat",
+      "Epigrafi",
+      "Hiyeroglif Çözümlemesi",
+      "İngiliz Dili ve Edebiyatı",
+      "Tarih Araştırmaları",
+      "Mimarlık Tarihi"
     ],
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Akademisyen",
-      "occupationLocation": {
-        "@type": "Place",
-        "name": "İstanbul, Türkiye"
+      "name": "Sanat Eleştirmeni ve Yazar",
+      "occupationLocation": [
+        {
+          "@type": "Place",
+          "name": "Paris, Fransa"
+        },
+        {
+          "@type": "Place", 
+          "name": "İstanbul, Türkiye"
+        }
+      ]
+    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
       }
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "İstanbul",
-      "addressCountry": "TR"
-    },
+    ],
     "nationality": "Turkish",
     "birthPlace": {
       "@type": "Place",
       "name": "İstanbul, Türkiye"
     },
-    "birthDate": "1985",
-    "award": [
-      "Türk Edebiyatı Araştırma Ödülü - Türk Dil Kurumu (2023)",
-      "Sanat Eleştirisi Ödülü - İstanbul Sanat Vakfı (2021)",
-      "Genç Akademisyen Ödülü - İstanbul Üniversitesi (2019)"
-    ],
-    "publication": [
-      {
-        "@type": "Article",
-        "name": "Modern Edebiyatta Kadın Yazarların Rolü",
-        "datePublished": "2024-03-15",
-        "url": "https://bihter.com/writings/modern-edebiyatta-kadin-yazarlar"
-      },
-      {
-        "@type": "Article",
-        "name": "Sanat ve Toplumsal Değişim",
-        "datePublished": "2024-03-08",
-        "url": "https://bihter.com/writings/sanat-ve-toplumsal-degisim"
-      }
-    ]
+    "birthDate": "1980",
+    "memberOf": {
+      "@type": "Organization",
+      "name": "AICA (Uluslararası Sanat Eleştirmenleri Derneği)",
+      "url": "https://aica-int.org"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arketon Yayınları"
+    }
   };
 
   return (
