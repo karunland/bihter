@@ -15,7 +15,7 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/writings`,
+      url: `${baseUrl}/articles`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.95,

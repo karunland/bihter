@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Yazılar - Bihter Sabanoğlu',
-  description: 'Bihter Sabanoğlu\'nun sanat eleştirisi, edebiyat ve kültür üzerine yazıları. Akademik makaleler, eleştiri yazıları ve araştırma metinleri.',
+  description: '',
   keywords: [
     'Bihter Sabanoğlu yazıları',
     'sanat eleştirisi',
@@ -13,6 +13,6 @@ export const metadata = {
   ],
 };
 
-export default function WritingsLayout({ children }) {
+export default function ArticlesLayout({ children }) {
   return children;
 }

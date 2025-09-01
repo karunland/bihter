@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Etkinlikler - Bihter Sabanoğlu',
-  description: 'Bihter Sabanoğlu\'nun katıldığı konferanslar, söyleşiler, sergiler ve akademik etkinlikler. Geçmiş ve yaklaşan etkinliklerin detayları.',
+  description: '',
   keywords: [
     'Bihter Sabanoğlu etkinlikler',
     'konferanslar',

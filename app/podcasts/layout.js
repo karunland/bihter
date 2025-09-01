@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Podcastler - Bihter Sabanoğlu',
-  description: 'Bihter Sabanoğlu\'nun edebiyat, sanat ve kültür üzerine podcast programları. YouTube, Spotify ve iVoox platformlarında yayınlanan söyleşiler.',
+  description: '',
   keywords: [
     'Bihter Sabanoğlu podcast',
     'edebiyat podcast',

@@ -5,7 +5,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, SortAsc, SortDesc, ExternalLink, Download } from 'lucide-react';
 import { writings } from '@/data/writings';
 
-export default function WritingsPage() {
+export default function ArticlesPage() {
   const [sortOrder, setSortOrder] = useState('desc');
   const [writingsData, setWritingsData] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -8,7 +8,7 @@ import { Menu, X } from 'lucide-react';
 const navigation = [
   { name: 'Ana Sayfa', href: '/' },
   { name: 'Kurgu', href: '/fiction' },
-  { name: 'Yazılar', href: '/writings' },
+  { name: 'Yazılar', href: '/articles' },
   { name: 'Podcastler', href: '/podcasts' },
   { name: 'Basında', href: '/press' },
   { name: 'Etkinlikler', href: '/events' },
