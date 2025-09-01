@@ -19,7 +19,7 @@ export const metadata = {
     default: "Bihter Sabanoğlu",
     template: "%s | Bihter Sabanoğlu"
   },
-  description: "Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Bizans sanat tarihi, çağdaş sanat ve edebiyat alanlarında uzmanlaşmıştır. Yazılar, podcastler ve etkinlikler.",
+  description: "",
   keywords: [
     "Bihter Sabanoğlu",
     "sanat eleştirmeni",
