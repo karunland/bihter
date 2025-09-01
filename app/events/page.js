@@ -52,16 +52,12 @@ export default function EventsPage() {
     });
   };
 
-  const isUpcoming = (dateString) => {
-    return new Date(dateString) > new Date();
-  };
-
   // Lightbox için veri hazırlama
   const lightboxImages = useMemo(() => {
     return filteredAndSortedEvents.map(event => ({
       image: event.image,
       title: event.title,
-      source: `${formatDate(event.date)} • ${event.location}`,
+      source: `${event.date !== '' ? formatDate(event.date) : ''} • ${event.location !== '' ? event.location : ''}`,
       link: event.link || '#'
     }));
   }, [filteredAndSortedEvents]);
@@ -165,7 +161,12 @@ export default function EventsPage() {
                 <article
                   key={event.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group"
-                  onClick={() => openLightbox(index)}
+                  onClick={(e) => {
+                    // Eğer external link butonuna tıklanmadıysa lightbox aç
+                    if (!e.target.closest('.external-link-btn') && !e.target.closest('.link-badge')) {
+                      openLightbox(index);
+                    }
+                  }}
                 >
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <img
@@ -174,30 +175,31 @@ export default function EventsPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
 
-                    {/* Overlay with upcoming status - sadece yaklaşan etkinlikler için */}
-                    {isUpcoming(event.date) && (
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
-                          Yaklaşan
-                        </span>
-                      </div>
-                    )}
-
                     {/* External link indicator */}
-                    {event.link && event.link !== '#' && (
-                      <div className="absolute top-4 right-4">
-                        <div className="bg-white/90 p-2 rounded-full">
-                          <ExternalLink className="h-4 w-4 text-gray-600" />
-                        </div>
-                      </div>
-                    )}
+                   
 
                     {/* Bottom gradient overlay */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                       <div className="text-white">
-                        <h3 className="text-lg font-bold mb-2 line-clamp-2">
-                          {event.title}
-                        </h3>
+                        <div className="flex items-start justify-between mb-2">
+                          <h3 className="text-lg font-bold line-clamp-2 flex-1">
+                            {event.title}
+                          </h3>
+                          {event.link && event.link !== '#' && (
+                            <div className="ml-2 flex-shrink-0">
+                              <div 
+                                className="link-badge bg-blue-500/80 hover:bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.open(event.link, '_blank', 'noopener,noreferrer');
+                                }}
+                              >
+                                <ExternalLink className="h-3 w-3" />
+                                Linke git
+                              </div>
+                            </div>
+                          )}
+                        </div>
                         {event.time && event.time !== '' && (
                           <div className="flex items-center text-sm text-white/90 mb-1">
                             <Clock className="h-4 w-4 mr-2" />
@@ -207,13 +209,13 @@ export default function EventsPage() {
                         {event.date && event.date !== '' && (
                           <div className="flex items-center text-sm text-white/90 mb-1">
                             <Calendar className="h-4 w-4 mr-2" />
-                            <span>{formatDate(event.date)}</span>
+                            <span>{event.date !== '' ? formatDate(event.date) : ''}</span>
                           </div>
                         )}
                         {event.location && event.location !== '' && (
                           <div className="flex items-center text-sm text-white/90">
                             <MapPin className="h-4 w-4 mr-2" />
-                            <span className="line-clamp-1">{event.location}</span>
+                            <span className="line-clamp-1">{event.location !== '' ? event.location : ''}</span>
                           </div>
                         )}
                       </div>
