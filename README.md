@@ -1,4 +1,4 @@
-# 📚 Bihter Sabanoğlu – Kişisel Portfolyo Sitesi
+# 📚 Bihter Sabanoğlu – Kişisel Web Sitesi
 
 ## 🧰 Kullanılan Teknolojiler
 

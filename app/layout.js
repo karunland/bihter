@@ -16,7 +16,7 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata = {
   title: {
-    default: "Bihter Sabanoğlu - Sanat Eleştirmeni ve Yazar",
+    default: "Bihter Sabanoğlu",
     template: "%s | Bihter Sabanoğlu"
   },
   description: "Bihter Sabanoğlu, Paris-İstanbul arasında yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Bizans sanat tarihi, çağdaş sanat ve edebiyat alanlarında uzmanlaşmıştır. Yazılar, podcastler ve etkinlikler.",
@@ -53,14 +53,14 @@ export const metadata = {
     locale: 'tr_TR',
     url: 'https://bihtersabanoglu.com',
     title: 'Bihter Sabanoğlu',
-    description: 'Bihter Sabanoğlu&apos;nun kişisel websitesi.',
+    description: '',
     siteName: 'Bihter Sabanoğlu',
     images: [
       {
-        url: 'https://bihtersabanoglu.com/edebiyat.jpg',
+        url: 'https://bihtersabanoglu.com/bihtersabanoglu.webp',
         width: 200,
         height: 200,
-        alt: 'Bihter Sabanoğlu - Sanat Eleştirmeni ve Yazar',
+        alt: 'Bihter Sabanoğlu',
       },
     ],
   },

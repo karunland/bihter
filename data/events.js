@@ -46,20 +46,20 @@ export const events = [
     },
     {
         id: "6",
-        title: "Hafıza Durakları - Kitapçılar",
+        title: "Hafıza Durakları Belgeseli: Kitapçılar",
         excerpt: "",
         date: "2023-09",
-        time: "14:00",
+        time: "",
         location: "",
         link: "https://www.beinconnect.com.tr/tod-studios/hafiza-duraklari/1-sezon-v318",
         image: "/events/kitapcilarcekim.JPEG"
     },
     {
         id: "7",
-        title: "Kitapçılar yapalım",
+        title: "Hafıza Durakları Belgeseli: Sarnıçlar",
         excerpt: "",
         date: "2023-09",
-        time: "18:00",
+        time: "",
         location: "",
         link: "https://www.beinconnect.com.tr/tod-studios/hafiza-duraklari/1-sezon-v318",
         image: "/events/sarniccekim.webp"
@@ -102,8 +102,8 @@ export const events = [
     },
     {
         id: "12",
-        title: "",
-        excerpt: "",
+        title: "Lâle Müldür Sempozyumu",
+        excerpt: "Konuşma: Lâle Müldür ve Her Şeyin Teorisi",
         date: "2024-10-25",
         time: "19:00",
         location: "Yapı Kredi Kültür Sanat",
@@ -138,7 +138,7 @@ export const events = [
     },
     {
         id: "16",
-        title: "Arkhe - Resim Sanatında Hastalık ve Müdahele",
+        title: "Arkhe - Resim Sanatında Hastalık ve Müdahale",
         excerpt: "",
         date: "",
         time: "",

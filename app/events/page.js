@@ -181,23 +181,30 @@ export default function EventsPage() {
                     {/* Bottom gradient overlay */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                       <div className="text-white">
-                        <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-lg font-bold line-clamp-2 flex-1">
-                            {event.title}
-                          </h3>
-                          {event.link && event.link !== '#' && (
-                            <div className="ml-2 flex-shrink-0">
-                              <div 
-                                className="link-badge bg-blue-500/80 hover:bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  window.open(event.link, '_blank', 'noopener,noreferrer');
-                                }}
-                              >
-                                <ExternalLink className="h-3 w-3" />
-                                Linke git
+                        <div className="mb-2">
+                          <div className="flex items-start justify-between mb-1">
+                            <h3 className="text-lg font-bold line-clamp-2 flex-1">
+                              {event.title}
+                            </h3>
+                            {event.link && event.link !== '#' && (
+                              <div className="ml-2 flex-shrink-0">
+                                <div 
+                                  className="link-badge bg-blue-500/80 hover:bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    window.open(event.link, '_blank', 'noopener,noreferrer');
+                                  }}
+                                >
+                                  <ExternalLink className="h-3 w-3" />
+                                  Linke git
+                                </div>
                               </div>
-                            </div>
+                            )}
+                          </div>
+                          {event.excerpt && (
+                            <p className="text-sm text-white/80 line-clamp-2">
+                              {event.excerpt}
+                            </p>
                           )}
                         </div>
                         {event.time && event.time !== '' && (
