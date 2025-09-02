@@ -73,7 +73,7 @@ export default function RecentArticlesSection() {
                       className="hover:text-gray-700 transition-colors inline-flex items-center"
                     >
                       {writing.title}
-                      <ExternalLink className="ml-2 h-4 w-4 text-gray-400" />
+                      {/* <ExternalLink className="ml-2 h-4 w-4 text-gray-400" /> */}
                     </a>
                   </h3>
                   {writing.excerpt && (
@@ -89,9 +89,9 @@ export default function RecentArticlesSection() {
                       href={writing.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center"
+                      className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center hover:underline"
                     >
-                      Harici siteye git
+                      Yazının tamamı için tıklayınız
                       <ExternalLink className="ml-1 h-4 w-4" />
                     </a>
 

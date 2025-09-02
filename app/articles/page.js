@@ -150,7 +150,7 @@ export default function ArticlesPage() {
                             className="inline-flex items-start"
                           >
                             <span className="flex-1">{writing.title}</span>
-                            <ExternalLink className="h-4 w-4 ml-2 mt-1 flex-shrink-0 text-gray-400" />
+                            {/* <ExternalLink className="h-4 w-4 ml-2 mt-1 flex-shrink-0 text-gray-400" /> */}
                           </a>
                         </h3>
                       </div>
@@ -163,9 +163,9 @@ export default function ArticlesPage() {
                               href={writing.externalUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                              className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors hover:underline"
                             >
-                              Okumaya git
+                              Yazının tamamı için tıklayınız
                               <ExternalLink className="ml-1 h-3 w-3" />
                             </a>
 
