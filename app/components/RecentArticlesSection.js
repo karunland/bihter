@@ -91,7 +91,7 @@ export default function RecentArticlesSection() {
                       rel="noopener noreferrer"
                       className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center hover:underline"
                     >
-                      Yazının tamamı için tıklayınız
+                      Devamını Oku
                       <ExternalLink className="ml-1 h-4 w-4" />
                     </a>
 

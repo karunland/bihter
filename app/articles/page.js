@@ -165,7 +165,7 @@ export default function ArticlesPage() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors hover:underline"
                             >
-                              Yazının tamamı için tıklayınız
+                              Devamını Oku
                               <ExternalLink className="ml-1 h-3 w-3" />
                             </a>
 
