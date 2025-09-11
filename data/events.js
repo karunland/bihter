@@ -173,4 +173,36 @@ export const events = [
         location: "",
         image: "/events/itu taskisla 2.jpg"
     }
+    ,
+    {
+        id: "20",
+        title: "",
+        excerpt: "",
+        date: "2022-09-9",
+        time: "",
+        location: "İstanbul",
+        image: "/events/mimiko.jpeg",
+        link: "https://mimiko.net/portfolio/kiz-gibi-dovus-fight-like-a-girl/",
+    }
+    ,
+    {
+        id: "21",
+        title: "Bedenin Mücadele Alanındır -  Kız Gibi Dövüş sergi söyleşisi",
+        excerpt: "",
+        date: "2022-10-22",
+        time: "",
+        location: "İstanbul",
+        image: "/events/bedenin.jpeg",
+        link: "",
+    },
+    {
+        id: "22",
+        title: "",
+        excerpt: "",
+        date: "2022-10-21",
+        time: "21:30",
+        location: "",
+        image: "/events/supheli.jpeg",
+        link: "",
+    }
 ]
