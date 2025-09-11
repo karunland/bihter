@@ -178,7 +178,7 @@ export const events = [
         id: "20",
         title: "",
         excerpt: "",
-        date: "2022-09-9",
+        date: "2022-09-09",
         time: "",
         location: "İstanbul",
         image: "/events/mimiko.jpeg",
