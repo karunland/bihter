@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Etkinlikler - Bihter Sabanoğlu',
+  title: 'Etkinlikler',
   description: '',
   keywords: [
     'Bihter Sabanoğlu etkinlikler',

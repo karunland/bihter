@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'Hakkında - Bihter Sabanoğlu',
+  title: 'Hakkında',
   description: 'Bihter Sabanoğlu&apos;nun biyografisi ve akademik geçmişi',
 };
 

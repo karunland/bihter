@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Podcastler - Bihter Sabanoğlu',
+  title: 'Podcastler',
   description: '',
   keywords: [
     'Bihter Sabanoğlu podcast',
