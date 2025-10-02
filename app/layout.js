@@ -19,7 +19,7 @@ export const metadata = {
     default: "Bihter Sabanoğlu",
     template: "%s | Bihter Sabanoğlu"
   },
-  description: "",
+  description: "Bihter Sabanoğlu - Sorbonne Üniversitesi mezunu, AICA üyesi yazar ve sanat eleştirmeni. Edebiyat eleştirisi, çağdaş sanat ve Bizans sanat tarihi üzerine yazılar, podcastler ve etkinlikler.",
   keywords: [
     "Bihter Sabanoğlu",
     "yazar",
@@ -51,7 +51,7 @@ export const metadata = {
     locale: 'tr_TR',
     url: 'https://bihtersabanoglu.com',
     title: 'Bihter Sabanoğlu',
-    description: '',
+    description: 'Bihter Sabanoğlu - Sorbonne Üniversitesi mezunu, AICA üyesi yazar ve sanat eleştirmeni. Edebiyat eleştirisi, çağdaş sanat ve Bizans sanat tarihi üzerine yazılar, podcastler ve etkinlikler.',
     siteName: 'Bihter Sabanoğlu',
     images: [
       {

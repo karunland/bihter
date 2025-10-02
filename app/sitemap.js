@@ -8,17 +8,13 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 1,
     },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
+    
+    // Ana navigasyon sayfaları - yüksek priority
     {
       url: `${baseUrl}/articles`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.95,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/podcasts`,
@@ -30,7 +26,7 @@ export default function sitemap() {
       url: `${baseUrl}/events`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.85,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/fiction`,
@@ -45,10 +41,16 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }
   ]
 } 

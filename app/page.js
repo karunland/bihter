@@ -9,7 +9,7 @@ import PressSection from './components/PressSection';
 export default function Home() {
   return (
     <div className="bg-white page-transition">
-      {/* <StructuredData /> */}
+      <StructuredData />
       <HeroSection />
       <BookSection />
       <RecentArticlesSection />
