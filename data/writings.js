@@ -214,5 +214,20 @@ export const writings = [
         title: "Osmanlıca-Latince ilk sözlük ve Deniz Gül'ün \"Klavuz\"u Üzerine Bir Egzersiz",
         date: "2021-06-21",
         externalUrl: "https://sanatkritik.com/yazilar/osmanlica-latince-ilk-sozluk-ve-deniz-gulun-kilavuzu-uzerine-bir-egzersiz/",
+    },
+    {
+        id: 34,
+        title: "Masumiyet Çağında İmha: “Innocide”",
+        date: "2025-11-18",
+        externalUrl: "https://www.artfulliving.com.tr/sanat/masumiyet-caginda-imha-innocide-i-33645",
     }
+    ,
+    {
+        id: 35,
+        title: "Landscaping The Whisper of Things ",
+        date: "2025-11-10",
+        externalUrl: "https://e-issues.globalartdaily.com/Landscaping-The-Whisper-of-Things-at-SANATORIUM",
+    },
+    
+
 ]
