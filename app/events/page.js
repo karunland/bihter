@@ -255,7 +255,7 @@ export default function EventsPage() {
                                     }}
                                   >
                                     <Youtube className="h-3 w-3" />
-                                    YouTube'da İzle
+                                    YouTube&apos;da İzle
                                   </div>
                                 ) : (
                                   <div 

@@ -80,7 +80,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
                   {currentImage.linkType === 'youtube' ? (
                     <>
                       <Youtube className="w-4 h-4" />
-                      YouTube'da İzle
+                      YouTube&apos;da İzle
                     </>
                   ) : (
                     <>
