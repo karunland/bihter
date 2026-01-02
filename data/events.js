@@ -220,7 +220,7 @@ export const events = [
         id: "24",
         title: "Quick Art Space: Kısmet Büfesinden Dolaşarak",
         excerpt: "",
-        date: "2025-12-11",
+        date: "2025-11-28",
         time: "16:00",
         location: "Santral İstanbul Kampüsü Et - 306",
         image: "/events/kismetbufesindendolasarak.JPG"
@@ -230,10 +230,10 @@ export const events = [
         id: "25",
         title: "Türkiye Virginia Woolf Topluluğu: Yazar ve Editör Söyleşisi",
         excerpt: "",
-        date: "2025-11-28",
+        date: "2025-10-23",
         time: "",
         location: "Quick Art Space",
-        image: "/events/xkZ4od860FU-HD1.jpg",
+        image: "/events/virginia.jpg",
         link: "https://www.youtube.com/watch?v=xkZ4od860FU",
         linkType: "youtube",
     }
