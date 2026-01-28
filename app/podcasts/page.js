@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Play, ExternalLink, Calendar, Clock, Filter, SortAsc, SortDesc, Youtube } from 'lucide-react';
 import { podcasts } from '@/data/podcasts';
@@ -129,11 +130,15 @@ export default function PodcastsPage() {
                       <div className="flex flex-col sm:flex-row gap-6">
                         {/* Podcast Kapak Resmi */}
                         <div className="flex-shrink-0 sm:w-32">
-                          <img 
-                            src={podcast.image} 
-                            alt={podcast.title}
-                            className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover shadow-sm mx-auto sm:mx-0"
-                          />
+                          <div className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto sm:mx-0">
+                            <Image
+                              src={podcast.image}
+                              alt={podcast.title}
+                              fill
+                              className="rounded-lg object-cover shadow-sm"
+                              sizes="128px"
+                            />
+                          </div>
                         </div>
 
                         {/* Podcast İçeriği */}

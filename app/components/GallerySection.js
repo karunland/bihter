@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Lightbox from './Lightbox';
 import { kurguImages } from '@/data/kurgu';
 
@@ -58,10 +59,12 @@ export default function GallerySection() {
                 onClick={() => openLightbox(index)}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                   
                   {/* Hover overlay */}

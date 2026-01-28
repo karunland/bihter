@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import Lightbox from '@/app/components/Lightbox';
@@ -134,10 +135,12 @@ export default function PressPage() {
                         onClick={() => openLightbox(item)}
                       >
                         <div className="relative aspect-[3/4] overflow-hidden">
-                          <img
+                          <Image
                             src={img.src}
                             alt={`${item.title} - ${img.subId}`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
                           />
                         </div>
                       </article>

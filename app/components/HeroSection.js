@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroSection() {
   return (
@@ -14,10 +15,12 @@ export default function HeroSection() {
             preload="auto"
           >
             <source src="/heroAnimation.webm" type="video/webm" />
-            <img
-              src="/bihterAnimation.png"
+            <Image
+              src="/bihtersabanoglu.webp"
               alt="Bihter Sabanoğlu"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
             />
           </video>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const MediaCard = ({ title, image, link, source, type }) => {
   return (
@@ -10,11 +11,15 @@ const MediaCard = ({ title, image, link, source, type }) => {
       rel="noopener noreferrer"
       className="block rounded-2xl shadow hover:shadow-lg transition-all bg-white"
     >
-      <img 
-        src={image} 
-        alt={title} 
-        className="rounded-t-2xl w-full h-56 object-cover" 
-      />
+      <div className="relative w-full h-56">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="rounded-t-2xl object-cover"
+          sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+        />
+      </div>
       <div className="p-4">
         <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
           {type}

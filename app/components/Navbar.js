@@ -85,7 +85,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-4">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (

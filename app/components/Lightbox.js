@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import Image from 'next/image';
 
 const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoTo }) => {
   useEffect(() => {
@@ -51,11 +52,15 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
       {/* Ana görsel container */}
       <div className="h-full w-full flex items-center justify-center p-4 relative z-10">
         <div className="relative max-w-4xl max-h-full">
-          <img
-            src={currentImage.image}
-            alt={currentImage.title}
-            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-          />
+          <div className="relative w-full h-[70vh]">
+            <Image
+              src={currentImage.image}
+              alt={currentImage.title}
+              fill
+              className="object-contain rounded-lg shadow-2xl"
+              sizes="90vw"
+            />
+          </div>
 
           {/* İçerik bilgileri - Alt overlay */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">

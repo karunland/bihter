@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const ImageCarouselCard = ({ image, onClick }) => {
   return (
@@ -10,10 +11,12 @@ const ImageCarouselCard = ({ image, onClick }) => {
     >
       {/* Ana Görsel - Dikey Format */}
       <div className="relative h-[500px] w-full">
-        <img 
-          src={image} 
-          alt="Gazete küpürü" 
-          className="w-full h-full object-cover object-top" 
+        <Image
+          src={image}
+          alt="Gazete küpürü"
+          fill
+          className="object-cover object-top"
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
         />
         
         {/* Gradient Overlay */}

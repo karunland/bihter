@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Instagram } from 'lucide-react';
 
 export default function Footer() {
@@ -33,7 +34,13 @@ export default function Footer() {
               className="text-gray-400 hover:text-gray-600 transition-colors"
               aria-label="Academia"
             >
-              <img src="/academiaLogo.avif" alt="Academia" className=" h-5 w-5" />
+              <Image
+                src="/academiaLogo.avif"
+                alt="Academia"
+                width={20}
+                height={20}
+                className="h-5 w-5"
+              />
             </a>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
@@ -32,11 +33,14 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Portre */}
-            <div className="relative">
-              <img 
-                src="/bihtersabanoglu.webp" 
+            <div className="relative w-3/4 h-auto">
+              <Image
+                src="/bihtersabanoglu.webp"
                 alt="Bihter Sabanoğlu"
-                className="w-3/4 h-auto rounded-lg shadow-lg"
+                width={800}
+                height={1000}
+                className="w-full h-auto rounded-lg shadow-lg"
+                priority
               />
             </div>
 
