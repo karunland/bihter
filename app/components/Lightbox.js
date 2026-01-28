@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoTo }) => {
@@ -75,12 +76,23 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
                   href={currentImage.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+                  className={`${
+                    currentImage.linkType === 'youtube'
+                      ? 'bg-red-600 hover:bg-red-700'
+                      : 'bg-blue-600 hover:bg-blue-700'
+                  } text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2`}
                 >
-                  Linke git
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  {currentImage.linkType === 'youtube' ? (
+                    <>
+                      <Youtube className="w-4 h-4" />
+                      YouTube&apos;da İzle
+                    </>
+                  ) : (
+                    <>
+                      Linke git
+                      <ExternalLink className="w-4 h-4" />
+                    </>
+                  )}
                 </a>
               )}
             </div>

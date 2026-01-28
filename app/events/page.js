@@ -1,9 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink, Clock } from 'lucide-react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
+import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink, Clock, Youtube } from 'lucide-react';
 import { events } from '@/data/events';
 import Lightbox from '@/app/components/Lightbox';
 
@@ -26,17 +25,61 @@ export default function EventsPage() {
   }, []);
 
   const filteredAndSortedEvents = useMemo(() => {
-    let filtered = eventsData;
+    let filtered = [...eventsData];
 
-    // Sadece tarihe göre sıralama
+    // Tarihe göre sıralama - tarihi olmayanlar en sona
     filtered.sort((a, b) => {
-      const aValue = new Date(a.date);
-      const bValue = new Date(b.date);
+      const aDate = a.date ? a.date.trim() : '';
+      const bDate = b.date ? b.date.trim() : '';
 
-      if (sortOrder === 'asc') {
-        return aValue > bValue ? 1 : -1;
+      // Tarihi olmayanlar en sona
+      if (!aDate && !bDate) return 0; // İkisi de tarihsiz, sıralama değişmez
+      if (!aDate) return 1; // a tarihsiz, en sona
+      if (!bDate) return -1; // b tarihsiz, en sona
+
+      // Tarih formatlarını kontrol et ve parse et
+      // "2023-09" gibi eksik tarihler için ayın son gününü kullan
+      let aValue, bValue;
+      
+      if (aDate.match(/^\d{4}-\d{2}$/)) {
+        // Sadece yıl-ay formatı (örn: "2023-09")
+        const [year, monthStr] = aDate.split('-');
+        const month = parseInt(monthStr); // "09" -> 9 (1-indexed, Eylül = 9. ay)
+        // JavaScript'te month 0-indexed (0=Ocak, 11=Aralık)
+        // "2023-09" için month=9, JavaScript'te bu Ekim (month 9 = 10. ay)
+        // new Date(year, month, 0) bir önceki ayın son gününü verir
+        // Yani new Date(2023, 9, 0) = Eylül'ün son günü (Ekim'in 0. günü)
+        aValue = new Date(parseInt(year), month, 0); // Ayın son günü
       } else {
-        return aValue < bValue ? 1 : -1;
+        aValue = new Date(aDate);
+      }
+      
+      if (bDate.match(/^\d{4}-\d{2}$/)) {
+        // Sadece yıl-ay formatı (örn: "2023-09")
+        const [year, monthStr] = bDate.split('-');
+        const month = parseInt(monthStr); // "09" -> 9 (1-indexed, Eylül = 9. ay)
+        // JavaScript'te month 0-indexed (0=Ocak, 11=Aralık)
+        // "2023-09" için month=9, JavaScript'te bu Ekim (month 9 = 10. ay)
+        // new Date(year, month, 0) bir önceki ayın son gününü verir
+        // Yani new Date(2023, 9, 0) = Eylül'ün son günü (Ekim'in 0. günü)
+        bValue = new Date(parseInt(year), month, 0); // Ayın son günü
+      } else {
+        bValue = new Date(bDate);
+      }
+
+      // Geçersiz tarihleri kontrol et
+      const aIsValid = !isNaN(aValue.getTime());
+      const bIsValid = !isNaN(bValue.getTime());
+
+      if (!aIsValid && !bIsValid) return 0;
+      if (!aIsValid) return 1; // a geçersiz, en sona
+      if (!bIsValid) return -1; // b geçersiz, en sona
+
+      // Geçerli tarihleri karşılaştır
+      if (sortOrder === 'asc') {
+        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+      } else {
+        return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
       }
     });
 
@@ -53,15 +96,29 @@ export default function EventsPage() {
     });
   };
 
+  // YouTube linkini tespit et
+  const isYouTubeLink = useCallback((link) => {
+    if (!link || link === '#') return false;
+    return link.includes('youtube.com') || link.includes('youtu.be') || link.includes('virginiawoolf.org.tr');
+  }, []);
+
+  // YouTube linkini tespit et (linkType kontrolü ile)
+  const getLinkType = useCallback((event) => {
+    if (event.linkType === 'youtube') return 'youtube';
+    if (isYouTubeLink(event.link)) return 'youtube';
+    return 'external';
+  }, [isYouTubeLink]);
+
   // Lightbox için veri hazırlama
   const lightboxImages = useMemo(() => {
     return filteredAndSortedEvents.map(event => ({
       image: event.image,
       title: event.title,
       source: `${event.date !== '' ? formatDate(event.date) : ''} • ${event.location !== '' ? event.location : ''}`,
-      link: event.link || '#'
+      link: event.link || '#',
+      linkType: getLinkType(event)
     }));
-  }, [filteredAndSortedEvents]);
+  }, [filteredAndSortedEvents, getLinkType]);
 
   // Lightbox kontrol fonksiyonları
   const openLightbox = (index) => {
@@ -182,30 +239,43 @@ export default function EventsPage() {
                    
 
                     {/* Bottom gradient overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-6">
                       <div className="text-white">
                         <div className="mb-2">
                           <div className="flex items-start justify-between mb-1">
-                            <h3 className="text-lg font-bold line-clamp-2 flex-1">
+                            <h3 className="text-lg font-bold line-clamp-2 flex-1 drop-shadow-lg [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
                               {event.title}
                             </h3>
                             {event.link && event.link !== '#' && (
                               <div className="ml-2 flex-shrink-0">
-                                <div 
-                                  className="link-badge bg-blue-500/80 hover:bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    window.open(event.link, '_blank', 'noopener,noreferrer');
-                                  }}
-                                >
-                                  <ExternalLink className="h-3 w-3" />
-                                  Linke git
-                                </div>
+                                {getLinkType(event) === 'youtube' ? (
+                                  <div 
+                                    className="link-badge bg-red-600/80 hover:bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      window.open(event.link, '_blank', 'noopener,noreferrer');
+                                    }}
+                                  >
+                                    <Youtube className="h-3 w-3" />
+                                    YouTube&apos;da İzle
+                                  </div>
+                                ) : (
+                                  <div 
+                                    className="link-badge bg-blue-500/80 hover:bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      window.open(event.link, '_blank', 'noopener,noreferrer');
+                                    }}
+                                  >
+                                    <ExternalLink className="h-3 w-3" />
+                                    Linke git
+                                  </div>
+                                )}
                               </div>
                             )}
                           </div>
                           {event.excerpt && (
-                            <p className="text-sm text-white/80 line-clamp-2">
+                            <p className="text-sm text-white/90 line-clamp-2 drop-shadow-md [text-shadow:_1px_1px_3px_rgb(0_0_0_/_70%)]">
                               {event.excerpt}
                             </p>
                           )}

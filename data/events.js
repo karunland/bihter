@@ -205,4 +205,36 @@ export const events = [
         image: "/events/supheli.jpeg",
         link: "",
     }
+    ,
+    {
+        id: "23",
+        title: "Bilgi Üniversitesi: Edebiyat ve Görsel Sanatlarda Bizans'ın İzini Sürmek",
+        excerpt: "",
+        date: "2025-12-11",
+        time: "16:00",
+        location: "Santral İstanbul Kampüsü Et - 306",
+        image: "/events/BihterSabanogluKonusmasiAfis.jpg"
+    }
+    ,
+    {
+        id: "24",
+        title: "Quick Art Space: Kısmet Büfesinden Dolaşarak",
+        excerpt: "",
+        date: "2025-11-28",
+        time: "16:00",
+        location: "Santral İstanbul Kampüsü Et - 306",
+        image: "/events/kismetbufesindendolasarak.JPG"
+    }
+    ,
+    {
+        id: "25",
+        title: "Türkiye Virginia Woolf Topluluğu: Yazar ve Editör Söyleşisi",
+        excerpt: "",
+        date: "2025-10-23",
+        time: "",
+        location: "Quick Art Space",
+        image: "/events/virginia.jpg",
+        link: "https://www.youtube.com/watch?v=xkZ4od860FU",
+        linkType: "youtube",
+    }
 ]
