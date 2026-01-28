@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Lightbox from '@/app/components/Lightbox';
+import UnifiedMediaCard from '@/app/components/UnifiedMediaCard';
 import press from '@/data/press';
 
 export default function PressPage() {
@@ -42,14 +42,15 @@ export default function PressPage() {
     return (selectedPress.images || []).map((img) => ({
       image: img.src,
       title: selectedPress.title,
-      source: selectedPress.date || 'Basında',
+      date: selectedPress.date || null,
+      source: 'Basında',
       link: selectedPress.link || '#',
     }));
   }, [selectedPress]);
 
-  const openLightbox = (item) => {
+  const openLightbox = (item, imgIndex = 0) => {
     setSelectedPress(item);
-    setCurrentImageIndex(0);
+    setCurrentImageIndex(imgIndex);
     setLightboxOpen(true);
   };
 
@@ -109,41 +110,23 @@ export default function PressPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {filteredPress.map((item) => (
                 <div key={item.id} className="space-y-4">
-                  {/* Başlık */}
-                  <div className="text-center">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      {item.link && item.link !== '#' ? (
-                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-800 hover:underline inline-flex items-center gap-2">
-                          {item.title}
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      ) : (
-                        <span className="text-lg font-bold text-gray-900 mb-2">
-                          {item.title}
-                        </span>
-                      )}
-                    </h3>
-                    <p className="text-sm text-gray-600">{item.date || '—'}</p>
-                  </div>
-
                   {/* Görseller */}
                   <div className="grid grid-cols-1 gap-4">
                     {item.images && item.images.map((img, imgIndex) => (
-                      <article
+                      <div
                         key={`${item.id}-${img.subId}`}
-                        className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group"
-                        onClick={() => openLightbox(item)}
+                        onClick={() => openLightbox(item, imgIndex)}
                       >
-                        <div className="relative aspect-[3/4] overflow-hidden">
-                          <Image
-                            src={img.src}
-                            alt={`${item.title} - ${img.subId}`}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                          />
-                        </div>
-                      </article>
+                        <UnifiedMediaCard
+                          imageSrc={img.src}
+                          imageAlt={`${item.title} - ${img.subId}`}
+                          title={item.title}
+                          metaLines={[item.date || '—']}
+                          externalHref={item.link}
+                          externalLabel={item.link ? 'Linke git' : undefined}
+                          onOpen={() => openLightbox(item, imgIndex)}
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>

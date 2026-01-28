@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { Youtube, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoTo }) => {
@@ -36,6 +35,7 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
   if (!isOpen || !images[currentIndex]) return null;
 
   const currentImage = images[currentIndex];
+  const metaText = [currentImage.date, currentImage.source].filter(Boolean).join(' • ');
 
   return (
     <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm">
@@ -52,51 +52,49 @@ const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoT
 
       {/* Ana görsel container */}
       <div className="h-full w-full flex items-center justify-center p-4 relative z-10">
-        <div className="relative max-w-4xl max-h-full">
-          <div className="relative w-full h-[70vh]">
+        {/* In a flex container, give the media wrapper an explicit width so the `fill` image
+            always has a non-zero containing block. */}
+        <div className="relative w-[92vw] max-w-4xl max-h-full">
+          <div className="relative w-full h-[70vh] rounded-t-lg overflow-hidden bg-black">
             <Image
               src={currentImage.image}
-              alt={currentImage.title}
+              alt={currentImage.title || 'Görsel'}
               fill
-              className="object-contain rounded-lg shadow-2xl"
+              className="object-contain"
               sizes="90vw"
             />
           </div>
 
-          {/* İçerik bilgileri - Alt overlay */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
-            <div className="flex items-center justify-between mb-2">
-            </div>
-            <div className="flex items-center justify-between">
-              <p className="text-white/80 text-sm">
-                {currentImage.source}
-              </p>
+          {/* Bilgiler (resmin altında, alt alta) */}
+          {(currentImage.title || metaText || (currentImage.link && currentImage.link !== '#')) && (
+            <div className="rounded-b-lg bg-black/35 backdrop-blur-sm px-2 py-2 sm:px-4 sm:py-3 ring-1 ring-white/10">
+              {currentImage.title && (
+                <h2 className="text-white text-base sm:text-lg font-semibold leading-snug">
+                  {currentImage.title}
+                </h2>
+              )}
+              {metaText && (
+                <p className="mt-1 text-white/75 text-xs sm:text-sm">
+                  {metaText}
+                </p>
+              )}
               {currentImage.link && currentImage.link !== '#' && (
-                <a
-                  href={currentImage.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${
-                    currentImage.linkType === 'youtube'
-                      ? 'bg-red-600 hover:bg-red-700'
-                      : 'bg-blue-600 hover:bg-blue-700'
-                  } text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2`}
-                >
-                  {currentImage.linkType === 'youtube' ? (
-                    <>
-                      <Youtube className="w-4 h-4" />
-                      YouTube&apos;da İzle
-                    </>
-                  ) : (
-                    <>
-                      Linke git
-                      <ExternalLink className="w-4 h-4" />
-                    </>
-                  )}
-                </a>
+                <div className="mt-2">
+                  <a
+                    href={currentImage.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/20 hover:bg-white/15 transition-colors"
+                  >
+                    Linke git
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
               )}
             </div>
-          </div>
+          )}
         </div>
       </div>
 

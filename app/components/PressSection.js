@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
-import ImageCarouselCard from './ImageCarouselCard';
+import UnifiedMediaCard from './UnifiedMediaCard';
 import Lightbox from './Lightbox';
 import { press } from '@/data/press';
 
@@ -106,10 +106,13 @@ export default function PressSection() {
                   className="flex-shrink-0 w-64 md:w-72 lg:w-80"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <ImageCarouselCard 
-                    image={image.src}
-                    type={image.pressItemLink ? "Link" : "Görsel"}
-                    onClick={() => openLightbox(index)}
+                  <UnifiedMediaCard
+                    imageSrc={image.src}
+                    imageAlt={image.pressItemTitle}
+                    title={image.pressItemTitle}
+                    metaLines={[image.pressItemDate].filter(Boolean)}
+                    externalHref={image.pressItemLink}
+                    onOpen={() => openLightbox(index)}
                   />
                 </div>
               ))}
@@ -157,7 +160,8 @@ export default function PressSection() {
         images={pressImages.map(img => ({
           image: img.src,
           title: img.pressItemTitle,
-          source: img.pressItemDate || 'Basın',
+          date: img.pressItemDate || null,
+          source: 'Basında',
           link: img.pressItemLink
         }))}
         currentIndex={currentImageIndex}

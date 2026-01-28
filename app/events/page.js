@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink, Clock, Youtube } from 'lucide-react';
-import Image from 'next/image';
+import { ArrowLeft, SortAsc, SortDesc } from 'lucide-react';
 import { events } from '@/data/events';
 import Lightbox from '@/app/components/Lightbox';
+import UnifiedMediaCard from '@/app/components/UnifiedMediaCard';
 
 export default function EventsPage() {
   const [sortOrder, setSortOrder] = useState('desc');
@@ -217,92 +217,22 @@ export default function EventsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredAndSortedEvents.map((event, index) => (
-                <article
+                <UnifiedMediaCard
                   key={event.id}
-                  className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group"
-                  onClick={(e) => {
-                    // Eğer external link butonuna tıklanmadıysa lightbox aç
-                    if (!e.target.closest('.external-link-btn') && !e.target.closest('.link-badge')) {
-                      openLightbox(index);
-                    }
-                  }}
-                >
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    />
-
-                    {/* External link indicator */}
-                   
-
-                    {/* Bottom gradient overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-6">
-                      <div className="text-white">
-                        <div className="mb-2">
-                          <div className="flex items-start justify-between mb-1">
-                            <h3 className="text-lg font-bold line-clamp-2 flex-1 drop-shadow-lg [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
-                              {event.title}
-                            </h3>
-                            {event.link && event.link !== '#' && (
-                              <div className="ml-2 flex-shrink-0">
-                                {getLinkType(event) === 'youtube' ? (
-                                  <div 
-                                    className="link-badge bg-red-600/80 hover:bg-red-600 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      window.open(event.link, '_blank', 'noopener,noreferrer');
-                                    }}
-                                  >
-                                    <Youtube className="h-3 w-3" />
-                                    YouTube&apos;da İzle
-                                  </div>
-                                ) : (
-                                  <div 
-                                    className="link-badge bg-blue-500/80 hover:bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1 cursor-pointer transition-all duration-200 hover:scale-105 external-link-btn"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      window.open(event.link, '_blank', 'noopener,noreferrer');
-                                    }}
-                                  >
-                                    <ExternalLink className="h-3 w-3" />
-                                    Linke git
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                          {event.excerpt && (
-                            <p className="text-sm text-white/90 line-clamp-2 drop-shadow-md [text-shadow:_1px_1px_3px_rgb(0_0_0_/_70%)]">
-                              {event.excerpt}
-                            </p>
-                          )}
-                        </div>
-                        {event.time && event.time !== '' && (
-                          <div className="flex items-center text-sm text-white/90 mb-1">
-                            <Clock className="h-4 w-4 mr-2" />
-                            <span>{event.time}</span>
-                          </div>
-                        )}
-                        {event.date && event.date !== '' && (
-                          <div className="flex items-center text-sm text-white/90 mb-1">
-                            <Calendar className="h-4 w-4 mr-2" />
-                            <span>{event.date !== '' ? formatDate(event.date) : ''}</span>
-                          </div>
-                        )}
-                        {event.location && event.location !== '' && (
-                          <div className="flex items-center text-sm text-white/90">
-                            <MapPin className="h-4 w-4 mr-2" />
-                            <span className="line-clamp-1">{event.location !== '' ? event.location : ''}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                  imageSrc={event.image}
+                  imageAlt={event.title}
+                  title={event.title}
+                  description={event.excerpt}
+                  metaLines={[
+                    event.time || null,
+                    event.date ? formatDate(event.date) : null,
+                    event.location || null,
+                  ]}
+                  externalHref={event.link && event.link !== '#' ? event.link : null}
+                  externalLabel={event.link && event.link !== '#' ? (getLinkType(event) === 'youtube' ? "YouTube'da İzle" : 'Linke git') : undefined}
+                  externalVariant={getLinkType(event) === 'youtube' ? 'youtube' : 'default'}
+                  onOpen={() => openLightbox(index)}
+                />
               ))}
             </div>
           )}

@@ -3,35 +3,58 @@
 import React from 'react';
 import Image from 'next/image';
 
-const ImageCarouselCard = ({ image, onClick }) => {
+const ImageCarouselCard = ({ image, title, date, link, onClick }) => {
   return (
-    <button
+    <div
+      role="button"
+      tabIndex={0}
       onClick={onClick}
-      className="block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02] relative group cursor-pointer w-full"
+      onKeyDown={(e) => {
+        if (!onClick) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      className="block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02] relative group cursor-pointer w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
+      aria-label={title ? `${title} görselini aç` : 'Görseli aç'}
     >
       {/* Ana Görsel - Dikey Format */}
       <div className="relative h-[500px] w-full">
         <Image
           src={image}
-          alt="Gazete küpürü"
+          alt={title || 'Basın görseli'}
           fill
           className="object-cover object-top"
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
         />
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-        
-        {/* Hover efekti - Büyüteç ikonu */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
-          <div className="bg-white/70 backdrop-blur-sm rounded-full p-4">
-            <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-            </svg>
-          </div>
+
+        {/* Alt kısımda metin overlay */}
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
+          {date && (
+            <p className="text-xs text-white/80 mb-1 line-clamp-1">
+              {date}
+            </p>
+          )}
+          {title && (
+            <h3 className="text-sm font-semibold text-white line-clamp-2">
+              {title}
+            </h3>
+          )}
+          {link && link !== '#' && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="mt-2 inline-block text-[11px] text-white/90 underline underline-offset-2"
+            >
+              Habere git
+            </a>
+          )}
         </div>
       </div>
-    </button>
+    </div>
   );
 };
 
