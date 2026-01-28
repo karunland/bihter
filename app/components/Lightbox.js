@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { Youtube, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 const Lightbox = ({ isOpen, onClose, images, currentIndex, onNext, onPrev, onGoTo }) => {

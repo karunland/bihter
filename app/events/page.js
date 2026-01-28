@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import { ArrowLeft, Calendar, MapPin, SortAsc, SortDesc, ExternalLink, Clock, Youtube } from 'lucide-react';
+import Image from 'next/image';
 import { events } from '@/data/events';
 import Lightbox from '@/app/components/Lightbox';
 
