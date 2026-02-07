@@ -5,7 +5,8 @@ export default function HeroSection() {
   return (
     <section className="bg-white pt-16">
       <div className="w-full">
-        <div className="relative w-full h-[80vh] overflow-hidden">
+        {/* Full viewport height, excluding fixed navbar (~pt-16 = 4rem) */}
+        <div className="relative w-full h-[calc(100vh-4rem)] overflow-hidden">
           <video
             className="w-full h-full object-cover"
             autoPlay

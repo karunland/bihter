@@ -9,29 +9,12 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white">
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link
-              href="/"
-              className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-4 transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Ana Sayfa
-            </Link>
-            <h1 className="text-4xl font-playfair font-bold text-gray-900 mb-4">
-              Hakkında
-            </h1>
-          </div>
-        </div>
-      </section>
+    <div className="bg-white pt-32">
 
       {/* Biyografi ve Animasyon */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             {/* Portre */}
             <div className="relative w-3/4 h-auto">
               <Image
@@ -45,7 +28,7 @@ export default function AboutPage() {
             </div>
 
             {/* Biyografi */}
-            <div className="prose prose-lg text-gray-600 space-y-6">
+            <div className="prose prose-lg text-gray-600 space-y-6 lg:mt-8">
               <p>
                 1980 yılında İstanbul&apos;da doğan Bihter Sabanoğlu, Paris-İstanbul arasında 
                 yaşayan yazar ve AICA üyesi sanat eleştirmenidir. Notre Dame de Sion 

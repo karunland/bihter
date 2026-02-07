@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -20,6 +20,7 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -140,7 +141,7 @@ export default function Navbar() {
         <div className="flex flex-col w-full h-full bg-white">
           {/* Header with close button */}
           <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-white">
-            <div className="text-3xl font-playfair font-bold text-gray-900">
+            <div className="text-3xl font-playfair font-bold text-gray-900 cursor-pointer" onClick={() => router.push('/')}>
               Bihter Sabanoğlu
             </div>
             <button
@@ -153,7 +154,7 @@ export default function Navbar() {
           </div>
           
           {/* Navigation items */}
-          <div className="flex-1 px-4 py-8 space-y-2 bg-white flex flex-col justify-center">
+          <div className="flex-1 px-4 py-8 space-y-2 bg-white flex flex-col">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (

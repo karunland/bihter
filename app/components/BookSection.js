@@ -3,7 +3,7 @@ import { ExternalLink, Download, Instagram } from 'lucide-react';
 
 export default function BookSection() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white pt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-3xl shadow-xl border border-emerald-200 overflow-hidden">

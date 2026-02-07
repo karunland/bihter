@@ -138,3 +138,7 @@ code {
 .scrollbar-hide::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+.pt-32 {
+  padding-top: 10rem;
+}
