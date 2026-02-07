@@ -15,7 +15,7 @@ export default function HeroSection() {
             playsInline
             preload="auto"
           >
-            <source src="/heroAnimation.webm" type="video/webm" />
+            <source src="/heroAnimation.mp4" type="video/mp4" />
             <Image
               src="/bihtersabanoglu.webp"
               alt="Bihter Sabanoğlu"
