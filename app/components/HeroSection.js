@@ -15,6 +15,9 @@ export default function HeroSection() {
             playsInline
             preload="auto"
           >
+            {/* Mobile: prefer WebM */}
+            <source src="/heroAnimation.webm" type="video/webm" media="(max-width: 767px)" />
+            {/* Default / desktop fallback */}
             <source src="/heroAnimation.mp4" type="video/mp4" />
             <Image
               src="/bihtersabanoglu.webp"
