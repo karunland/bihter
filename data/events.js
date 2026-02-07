@@ -223,7 +223,9 @@ export const events = [
         date: "2025-11-28",
         time: "16:00",
         location: "Santral İstanbul Kampüsü Et - 306",
-        image: "/events/kismetbufesindendolasarak.JPG"
+        image: "/events/kismetbufesindendolasarak.JPG",
+        link: "https://www.youtube.com/watch?v=xkZ4od860FU",
+        linkType: "youtube",
     }
     ,
     {
@@ -233,8 +235,6 @@ export const events = [
         date: "2025-10-23",
         time: "",
         location: "Quick Art Space",
-        image: "/events/virginia.jpg",
-        link: "https://www.youtube.com/watch?v=xkZ4od860FU",
-        linkType: "youtube",
+        image: "/events/virginia.jpg"
     }
 ]
