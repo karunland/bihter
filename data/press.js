@@ -38,7 +38,7 @@ export const press = [
     },
     {
         id: 5,
-        title: "Ist Dergi",
+        title: "İst Dergi",
         subtitle: "2 sayfa",
         date: "Mart 2022",
         link: null,
