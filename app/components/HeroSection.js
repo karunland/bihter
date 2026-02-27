@@ -1,74 +1,47 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="bg-white pt-16">
-      <div className="w-full">
-        {/* Full viewport height, excluding fixed navbar (~pt-16 = 4rem) */}
-        <div className="relative w-full h-[calc(100vh-4rem)] overflow-hidden">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            {/* Mobile: prefer WebM */}
-            <source src="/heroAnimation.webm" type="video/webm" media="(max-width: 767px)" />
-            {/* Default / desktop fallback */}
-            <source src="/heroAnimation.mp4" type="video/mp4" />
-            <Image
-              src="/bihtersabanoglu.webp"
-              alt="Bihter Sabanoğlu"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </video>
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+      >
+        {/* Mobile: prefer WebM */}
+        <source src="/heroAnimation.webm" type="video/webm" media="(max-width: 767px)" />
+        {/* Default / desktop fallback */}
+        <source src="/heroAnimation.mp4" type="video/mp4" />
+        <Image
+          src="/bihtersabanoglu.webp"
+          alt="Bihter Sabanoğlu"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+      </video>
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-          
-          {/* Navigation Links */}
-          <div className="hidden absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-8 drop-shadow-lg">
-                Bihter Sabanoğlu
-              </h1>
-              <p className="text-xl md:text-2xl mb-12 drop-shadow-lg">
-                Yazar ve Sanat Eleştirmeni
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link 
-                  href="/articles" 
-                  className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-opacity-30 transition-all duration-300 border border-white border-opacity-30"
-                >
-                  Yazılar
-                </Link>
-                <Link 
-                  href="/podcasts" 
-                  className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-opacity-30 transition-all duration-300 border border-white border-opacity-30"
-                >
-                  Podcastler
-                </Link>
-                <Link 
-                  href="/events" 
-                  className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-opacity-30 transition-all duration-300 border border-white border-opacity-30"
-                >
-                  Etkinlikler
-                </Link>
-                <Link 
-                  href="/fiction" 
-                  className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-opacity-30 transition-all duration-300 border border-white border-opacity-30"
-                >
-                  Kurgu
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Gradient overlay: üstte navbar okunurluğu + altta metin okunurluğu */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-black/80 pointer-events-none" />
+
+      {/* İsim ve unvan - sol alt köşe */}
+      <div className="absolute bottom-0 left-0 right-0 px-8 pb-16 lg:px-20 lg:pb-24">
+        <p className="text-white/55 text-[0.62rem] tracking-[0.55em] uppercase font-sans mb-5 font-light">
+          Yazarlık &amp; Sanat &amp; Tarih
+        </p>
+        <h1 className="font-playfair text-6xl md:text-7xl lg:text-[5.5rem] text-white font-bold leading-[0.92] tracking-tight">
+          Bihter<br />Sabanoğlu
+        </h1>
+      </div>
+
+      {/* Aşağı kaydır göstergesi */}
+      <div className="absolute bottom-10 right-8 lg:right-16 flex flex-col items-center gap-1 animate-bounce">
+        <ChevronDown className="w-5 h-5 text-white/35" />
       </div>
     </section>
   );

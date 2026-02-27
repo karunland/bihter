@@ -18,28 +18,35 @@ const navigation = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
   const router = useRouter();
 
+  const isHome = pathname === '/';
+  const isTransparent = isHome && !isScrolled;
+
+  // Sayfa ilk yüklendiğinde scroll pozisyonunu ayarla
+  useEffect(() => {
+    setIsScrolled(window.scrollY > 50);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Navbar'ı gizle/göster
+      setIsScrolled(currentScrollY > 50);
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Aşağı scroll - navbar'ı gizle
         setIsVisible(false);
       } else if (currentScrollY < lastScrollY) {
-        // Yukarı scroll - navbar'ı göster
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -72,42 +79,61 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <nav className={`bg-white border-b border-gray-100 fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
+    } ${
+      isTransparent
+        ? 'bg-transparent'
+        : 'bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-3xl font-playfair font-bold text-gray-900 hover:text-gray-700 transition-colors drop-shadow-sm">
+            <Link
+              href="/"
+              className={`text-2xl font-playfair font-bold transition-all duration-500 ${
+                isTransparent
+                  ? 'text-white drop-shadow-md'
+                  : 'text-gray-900 hover:text-gray-700'
+              }`}
+            >
               Bihter Sabanoğlu
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-1">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 group ${
-                      isActive 
-                        ? 'text-gray-900' 
-                        : 'text-gray-600 hover:text-gray-900'
+                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 group ${
+                      isTransparent
+                        ? isActive
+                          ? 'text-white'
+                          : 'text-white/75 hover:text-white'
+                        : isActive
+                        ? 'text-gray-900'
+                        : 'text-gray-500 hover:text-gray-900'
                     }`}
                   >
                     {item.name}
                     {/* Aktif durum için alt çizgi */}
-                    {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900"></div>
-                    )}
-                    {/* Hover durumunda alt çizgi (aktif değilse) */}
-                    {!isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center"></div>
-                    )}
+                    <div
+                      className={`absolute bottom-0 left-3 right-3 h-px transition-all duration-300 ${
+                        isActive
+                          ? isTransparent
+                            ? 'bg-white scale-x-100'
+                            : 'bg-gray-900 scale-x-100'
+                          : isTransparent
+                          ? 'bg-white/50 scale-x-0 group-hover:scale-x-100'
+                          : 'bg-gray-300 scale-x-0 group-hover:scale-x-100'
+                      } transform origin-center`}
+                    />
                   </Link>
                 );
               })}
@@ -118,7 +144,11 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               type="button"
-              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+              className={`focus:outline-none transition-colors duration-500 p-1 ${
+                isTransparent
+                  ? 'text-white/90 hover:text-white'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Ana menüyü aç</span>
@@ -134,27 +164,30 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <div className={`md:hidden fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[9999] bg-white transition-all duration-300 ease-in-out overflow-hidden touch-none ${
-        mobileMenuOpen 
-          ? 'opacity-100 visible translate-x-0' 
+        mobileMenuOpen
+          ? 'opacity-100 visible translate-x-0'
           : 'opacity-0 invisible translate-x-full'
       }`}>
         <div className="flex flex-col w-full h-full bg-white">
           {/* Header with close button */}
-          <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-white">
-            <div className="text-3xl font-playfair font-bold text-gray-900 cursor-pointer" onClick={() => router.push('/')}>
+          <div className="flex justify-between items-center p-4 border-b border-gray-100 bg-white">
+            <div
+              className="text-2xl font-playfair font-bold text-gray-900 cursor-pointer"
+              onClick={() => router.push('/')}
+            >
               Bihter Sabanoğlu
             </div>
             <button
               type="button"
-              className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+              className="text-gray-500 hover:text-gray-900 focus:outline-none p-1"
               onClick={() => setMobileMenuOpen(false)}
             >
               <X className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          
+
           {/* Navigation items */}
-          <div className="flex-1 px-4 py-8 space-y-2 bg-white flex flex-col">
+          <div className="flex-1 px-4 py-8 space-y-1 bg-white flex flex-col">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -162,9 +195,9 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className={`block px-4 py-4 text-xl font-medium transition-all duration-200 rounded-lg ${
-                    isActive 
-                      ? 'text-gray-900 bg-gray-100 border-l-4 border-gray-900' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 border-l-4 border-transparent hover:border-gray-300'
+                    isActive
+                      ? 'text-gray-900 bg-gray-50 border-l-2 border-gray-900'
+                      : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50 border-l-2 border-transparent hover:border-gray-200'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -177,4 +210,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-} 
+}

@@ -45,11 +45,16 @@ export default function GallerySection() {
 
   return (
     <>
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 border-b-2 border-gray-200 pb-3 mb-8">
-            🖼️ Galeri
-          </h2>
+          <div className="mb-10">
+            <p className="text-[0.6rem] tracking-[0.5em] text-stone-400 uppercase font-sans mb-3">
+              Görseller
+            </p>
+            <h2 className="font-playfair text-4xl font-bold text-gray-900">
+              Galeri
+            </h2>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {kurguImages.map((item, index) => (
