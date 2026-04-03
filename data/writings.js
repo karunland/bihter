@@ -227,7 +227,14 @@ export const writings = [
         title: "Landscaping The Whisper of Things ",
         date: "2025-11-10",
         externalUrl: "https://e-issues.globalartdaily.com/Landscaping-The-Whisper-of-Things-at-SANATORIUM",
+    }
+    ,
+    {
+        id: 36,
+        title: "ALTIN POST’UN ÖLÜMÜ, MADDENİN DOĞUMU ",
+        date: "2026-03-23",
+        externalUrl: "/sanatdunyamiz.pdf",
+        
     },
-    
 
 ]
