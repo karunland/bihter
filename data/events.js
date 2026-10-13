@@ -230,5 +230,27 @@ export const events = [
         time: "16:00",
         location: "Santral İstanbul Kampüsü",
         image: "/events/BihterSabanogluKonusmasiAfis.jpg",
+    },
+    {
+        id: "26",
+        title: "Thinking and Translating Byzantine Gender",
+        excerpt: "",
+        date: "2026-03-27",
+        time: "",
+        location: "Çevrimiçi",
+        image: "/events/ThinkingandTranslatingByzantineGender.jpg",
+        link: "https://www.youtube.com/watch?v=Y28Qy2WxiJ4",
+        linkType: "youtube",
+    },
+    {
+        id: "27",
+        title: "İstanbul Kahvehaneleri'nin Sosyal Tarihi",
+        excerpt: "",
+        date: "2026-06-15",
+        time: "",
+        location: "Çevrimiçi",
+        image: "/events/IstanbulKahvehanelerininSosyalTarihi.jpg",
+        link: "https://www.youtube.com/watch?v=aESZjrDPh5M",
+        linkType: "youtube",
     }
 ]
