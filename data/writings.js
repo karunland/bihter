@@ -231,10 +231,16 @@ export const writings = [
     ,
     {
         id: 36,
-        title: "ALTIN POST’UN ÖLÜMÜ, MADDENİN DOĞUMU ",
-        date: "2026-03-23",
-        externalUrl: "/sanatdunyamiz.pdf",
-        
+        title: "Altın Post'un Ölümü, Maddenin Doğumu",
+        date: "2026-03-01",
+        externalUrl: "/SANATDUNYAMIZ-208-2.pdf",
+        pdfLink: "/SANATDUNYAMIZ-208-2.pdf",
+    },
+    {
+        id: 37,
+        title: "Dört Nehirli Görünmez Şehir",
+        date: "2026-08-20",
+        externalUrl: "https://www.unlimitedrag.com/post/dort-nehirli-gorunmez-sehir",
     },
 
 ]
